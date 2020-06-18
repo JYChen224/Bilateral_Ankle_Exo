@@ -1,0 +1,40 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   3 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "last_footstate"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6071:121-135"\
+    }\
+    ChartData {\
+      Name         "loss_reg"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6071:148-156"\
+    }\
+    ChartData {\
+      Name         "loss_mem"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6071:169-177"\
+      Dimensions   [1,10]\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

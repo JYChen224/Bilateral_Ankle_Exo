@@ -1,0 +1,56 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   5 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "last_footstate"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6337:189-203"\
+    }\
+    ChartData {\
+      Name         "last_footstate_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6337:189-203"\
+    }\
+    ChartData {\
+      Name         "torque_error_memory"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6337:216-235"\
+      Dimensions   [1,1000]\
+    }\
+    ChartData {\
+      Name         "lrn_cmd_memory"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6337:248-262"\
+      Dimensions   [1,1000]\
+    }\
+    ChartData {\
+      Name         "last_torque_parm"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:6337:275-291"\
+      Dimensions   [1,2]\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

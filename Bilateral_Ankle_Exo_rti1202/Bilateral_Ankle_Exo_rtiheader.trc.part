@@ -1,0 +1,35 @@
+--
+--  Used options:
+--    TRCGenerateVirtualBlocks      = 0
+--    TRCGenerateLabels             = 0
+--    TRCGenerateStates             = 0
+--    TRCGenerateDerivatives        = 0
+--    TRCGenerateParamValues        = 0
+--    TRCGenerateApplicationKeyword = 0
+--    TRCOnlyGlobals                = 0
+--    TRCIsOmitVdOn                 = 0
+--
+--  Trace file format: 3
+
+-- ******** Keywords **********************************************************
+-- _application "Bilateral_Ankle_Exo.map"
+
+_genname     "RTI"
+_genversion  "7.9"
+_gendate     "06/15/2020 21:42:02"
+_description ""
+_author      "RTI1202 7.9 (02-Nov-2017)"
+_model       "Bilateral_Ankle_Exo"
+
+-- Default data type formats
+_floating_point_type(64,IEEE)
+_integer_type(32)
+
+-- Data Capture block: Bilateral_Ankle_Exo/Data Capture1
+sampling_period[0]
+{
+  value:       0.002
+  alias:       "500Hz"
+}
+
+
