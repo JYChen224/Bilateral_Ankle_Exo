@@ -5,7 +5,7 @@
    Task Configuration file for model : Bilateral_Ankle_Exo
 
    RTI1202 7.9 (02-Nov-2017)/2.17
-   15-Jun-2020 21:41:52
+   18-Jun-2020 11:37:24
 
    MATLAB 9.3.0.713579 (R2017b)
 

@@ -3,9 +3,9 @@
  *
  * Code generation for model "Bilateral_Ankle_Exo".
  *
- * Model version              : 1.1393
+ * Model version              : 1.1398
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Mon Jun 15 21:41:53 2020
+ * C source code generated on : Thu Jun 18 11:37:25 2020
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -323,10 +323,12 @@ typedef struct {
   real_T torque_delta_des_r;           /* '<S1>/Torque Track R' */
   real_T torque_trace_r[1500];         /* '<S1>/Torque Track R' */
   real_T torque_delta_trace_r[1500];   /* '<S1>/Torque Track R' */
+  real_T torque_error_r[2];            /* '<S1>/Torque Track R' */
   real_T torque_des_l;                 /* '<S1>/Torque Track L' */
   real_T torque_delta_des_l;           /* '<S1>/Torque Track L' */
   real_T torque_trace_l[1500];         /* '<S1>/Torque Track L' */
   real_T torque_delta_trace_l[1500];   /* '<S1>/Torque Track L' */
+  real_T torque_error_l[2];            /* '<S1>/Torque Track L' */
   real_T lrn_cmd_r;                    /* '<S1>/LRN_R' */
   real_T lrn_mem_r[750];               /* '<S1>/LRN_R' */
   real_T lrn_cmd_l;                    /* '<S1>/LRN_L' */

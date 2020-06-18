@@ -3,7 +3,7 @@
 --  Trace file: Bilateral_Ankle_Exo.trc
 --
 --  RTI1202 7.9 (02-Nov-2017)
---  Mon Jun 15 21:41:53 2020
+--  Thu Jun 18 11:37:25 2020
 --
 --  Copyright 2020, dSPACE GmbH. All rights reserved.
 --
@@ -26,7 +26,7 @@
 
 _genname     "RTI"
 _genversion  "7.9"
-_gendate     "06/15/2020 21:42:02"
+_gendate     "06/18/2020 11:37:34"
 _description ""
 _author      "RTI1202 7.9 (02-Nov-2017)"
 _model       "Bilateral_Ankle_Exo"
@@ -744,7 +744,7 @@ group "Model Root"
   
 		group "Controller_L" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7660]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7664]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "motor_vel_cmd_l"
@@ -777,7 +777,7 @@ group "Model Root"
   
 		group "Controller_R" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7659]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7663]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "motor_vel_cmd_r"
@@ -810,13 +810,13 @@ group "Model Root"
   
 		group "LRN_L" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[6908]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6912]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "lrn_cmd_l"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[6909]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6913]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_750_Col*
 			 alias:   "lrn_mem_l"
@@ -865,13 +865,13 @@ group "Model Root"
   
 		group "LRN_R" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[6157]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6161]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "lrn_cmd_r"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[6158]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6162]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_750_Col*
 			 alias:   "lrn_mem_r"
@@ -920,28 +920,34 @@ group "Model Root"
   
 		group "Torque Track L" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[3155]
+			p_0_Bilateral_Ankle_Exo_real_T_0[3157]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "torque_des_l"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[3156]
+			p_0_Bilateral_Ankle_Exo_real_T_0[3158]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "torque_delta_des_l"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[3157]
+			p_0_Bilateral_Ankle_Exo_real_T_0[3159]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_2_750_Col*
 			 alias:   "torque_trace_l"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[4657]
+			p_0_Bilateral_Ankle_Exo_real_T_0[4659]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_2_750_Col*
 			 alias:   "torque_delta_trace_l"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Bilateral_Ankle_Exo_real_T_0[6159]
+			{
+			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
+			 alias:   "torque_error_l"
 			 flags:   OUTPUT|READONLY
 			}
 
@@ -977,6 +983,12 @@ group "Model Root"
 			 alias:   "torque_delta_trace_r"
 			 flags:   OUTPUT|READONLY
 			}
+			p_0_Bilateral_Ankle_Exo_real_T_0[3155]
+			{
+			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
+			 alias:   "torque_error_r"
+			 flags:   OUTPUT|READONLY
+			}
 
 
 
@@ -995,13 +1007,13 @@ group "Model Root"
   
 	group "Parameter Module" -- subsystem-group
 
-		p_0_Bilateral_Ankle_Exo_real_T_0[7691]
+		p_0_Bilateral_Ankle_Exo_real_T_0[7695]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 		 alias:   "control_parm"
 		 flags:   OUTPUT|READONLY
 		}
-		p_0_Bilateral_Ankle_Exo_real_T_0[7687]
+		p_0_Bilateral_Ankle_Exo_real_T_0[7691]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 		 alias:   "torque_parm"
@@ -1013,7 +1025,7 @@ group "Model Root"
   
 		group "Control Parameter" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7691]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7695]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 			 alias:   "Control_Parameter"
@@ -1130,7 +1142,7 @@ group "Model Root"
   
 			group "Mux1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7691]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7695]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 				 alias:   "x"
@@ -1148,7 +1160,7 @@ group "Model Root"
   
 		group "Torque Parameter" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7687]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7691]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 			 alias:   "Torque_Parameter"
@@ -1220,7 +1232,7 @@ group "Model Root"
   
 			group "Mux1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7687]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7691]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 				 alias:   "x"
@@ -1271,7 +1283,7 @@ group "Model Root"
 		 alias:   "footswich_r"
 		 flags:   OUTPUT|READONLY
 		}
-		p_0_Bilateral_Ankle_Exo_real_T_0[7679]
+		p_0_Bilateral_Ankle_Exo_real_T_0[7683]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 		 alias:   "EMG"
@@ -1557,7 +1569,7 @@ group "Model Root"
   
 			group "Calibration_L" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7686]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7690]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
@@ -1580,7 +1592,7 @@ group "Model Root"
   
 			group "Calibration_R" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7685]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7689]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
@@ -1636,7 +1648,7 @@ group "Model Root"
   
 		group "EMG module" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7679]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7683]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 			 alias:   "EMG"
@@ -1888,7 +1900,7 @@ group "Model Root"
   
 			group "Preprocessing" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7678]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7682]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
@@ -1996,7 +2008,7 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7678]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7682]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
@@ -2026,7 +2038,7 @@ group "Model Root"
   
 			group "Preprocessing1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7677]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7681]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
@@ -2134,7 +2146,7 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7677]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7681]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
@@ -2164,7 +2176,7 @@ group "Model Root"
   
 			group "Preprocessing2" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7676]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7680]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
@@ -2272,7 +2284,7 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7676]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7680]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
@@ -2302,7 +2314,7 @@ group "Model Root"
   
 			group "Preprocessing3" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7675]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7679]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
@@ -2410,7 +2422,7 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7675]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7679]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
@@ -2551,7 +2563,7 @@ group "Model Root"
   
 			group "Preprocessing9" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7674]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7678]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
@@ -2659,7 +2671,7 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7674]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7678]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
@@ -2689,7 +2701,7 @@ group "Model Root"
   
 			group "Mux1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7679]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7683]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 				 alias:   "x"
@@ -3916,7 +3928,7 @@ group "Model Root"
   
 			group "Calibration_L" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7673]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7677]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
@@ -3939,7 +3951,7 @@ group "Model Root"
   
 			group "Calibration_R" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7672]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7676]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
@@ -4701,7 +4713,7 @@ group "Model Root"
   
 			group "Calibration_L" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7671]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7675]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "torque"
@@ -4736,7 +4748,7 @@ group "Model Root"
   
 			group "Calibration_R" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7670]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7674]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "torque"
@@ -4771,7 +4783,7 @@ group "Model Root"
   
 			group "MATLAB Function" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7669]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7673]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "torque_dot"
@@ -4849,25 +4861,25 @@ group "Model Root"
   
 		group "State Machine" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7665]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7669]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "mode_l"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[7666]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7670]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "state_l"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[7667]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7671]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_time_l"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[7668]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7672]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_timer_l"
@@ -4952,25 +4964,25 @@ group "Model Root"
   
 		group "State Machine" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7661]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7665]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "mode_r"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[7662]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7666]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "state_r"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[7663]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7667]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_time_r"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Bilateral_Ankle_Exo_real_T_0[7664]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7668]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_timer_r"

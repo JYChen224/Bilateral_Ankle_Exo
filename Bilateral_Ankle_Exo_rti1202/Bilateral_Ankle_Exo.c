@@ -3,9 +3,9 @@
  *
  * Code generation for model "Bilateral_Ankle_Exo".
  *
- * Model version              : 1.1393
+ * Model version              : 1.1398
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Mon Jun 15 21:41:53 2020
+ * C source code generated on : Thu Jun 18 11:37:25 2020
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1424,6 +1424,7 @@ void Bilateral_Ankle_E_ControlModule(void)
 
   /* '<S15>:1:90' */
   /* '<S15>:1:91' */
+  /* '<S15>:1:92' */
   Bilateral_Ankle_Exo_B.torque_des_l = mode;
   Bilateral_Ankle_Exo_B.torque_delta_des_l = stride_index;
   for (g = 0; g < 750; g++) {
@@ -1439,6 +1440,9 @@ void Bilateral_Ankle_E_ControlModule(void)
     Bilateral_Ankle_Exo_B.torque_delta_trace_l[1 + (g << 1)] =
       Bilateral_Ankle_Exo_DW.TorqueMem_L[(g << 2) + 3];
   }
+
+  Bilateral_Ankle_Exo_B.torque_error_l[0] = mode - Bilateral_Ankle_Exo_B.RT8[0];
+  Bilateral_Ankle_Exo_B.torque_error_l[1] = mode - Bilateral_Ankle_Exo_B.RT8[1];
 
   /* End of MATLAB Function: '<S1>/Torque Track L' */
 
@@ -2136,6 +2140,7 @@ void Bilateral_Ankle_E_ControlModule(void)
 
   /* '<S16>:1:90' */
   /* '<S16>:1:91' */
+  /* '<S16>:1:93' */
   Bilateral_Ankle_Exo_B.torque_des_r = mode;
   Bilateral_Ankle_Exo_B.torque_delta_des_r = stride_index;
   for (g = 0; g < 750; g++) {
@@ -2151,6 +2156,9 @@ void Bilateral_Ankle_E_ControlModule(void)
     Bilateral_Ankle_Exo_B.torque_delta_trace_r[1 + (g << 1)] =
       Bilateral_Ankle_Exo_DW.TorqueMem_R[(g << 2) + 3];
   }
+
+  Bilateral_Ankle_Exo_B.torque_error_r[0] = mode - Bilateral_Ankle_Exo_B.RT4[0];
+  Bilateral_Ankle_Exo_B.torque_error_r[1] = mode - Bilateral_Ankle_Exo_B.RT4[1];
 
   /* End of MATLAB Function: '<S1>/Torque Track R' */
 

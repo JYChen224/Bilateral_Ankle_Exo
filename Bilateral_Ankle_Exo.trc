@@ -3,7 +3,7 @@
 --  Trace file: Bilateral_Ankle_Exo.trc
 --
 --  RTI1202 7.9 (02-Nov-2017)
---  Mon Jun 15 21:41:53 2020
+--  Thu Jun 18 11:37:25 2020
 --
 --  Copyright 2020, dSPACE GmbH. All rights reserved.
 --
@@ -26,7 +26,7 @@
 
 _genname     "RTI"
 _genversion  "7.9"
-_gendate     "06/15/2020 21:42:02"
+_gendate     "06/18/2020 11:37:34"
 _description ""
 _author      "RTI1202 7.9 (02-Nov-2017)"
 _model       "Bilateral_Ankle_Exo"
@@ -88,7 +88,7 @@ finalTime
  desc:  "Simulation stop time. When reached, simState switches to STOP."
  flags:  READONLY
  unit:  "s"
- addr:    0x480ab9ec
+ addr:    0x480aba2c
 }
 
 currentTime
@@ -98,7 +98,7 @@ currentTime
  desc:  "Current simulation time. Increments with execution of Timer Task 1."
  flags: READONLY
  unit:  "s"
- addr:    0x480ab9e8
+ addr:    0x480aba28
 }
 
 modelStepSize
@@ -108,7 +108,7 @@ modelStepSize
  desc:  "Fixed step size of the model, sample time of Timer Task 1."
  flags: READONLY
  unit:  "s"
- addr:    0x480ab9f0
+ addr:    0x480aba30
 }
 
 simState
@@ -117,7 +117,7 @@ simState
  alias: "simState"
  desc:  "Simulation state: STOP=0 RUN=2"
  unit:  "-"
- addr:    0x48060de0
+ addr:    0x48060e00
 }
 
 p_msg_last_error_no
@@ -127,7 +127,7 @@ p_msg_last_error_no
  desc:  "Error number of last error message (zero if no error)."
  unit:  "-"
  flags: READONLY
- addr:    0x4804dccc
+ addr:    0x4804dcec
 }
 
 p_dsts_sum_of_reset_time
@@ -137,7 +137,7 @@ p_dsts_sum_of_reset_time
  desc:  "Internal variable for summing up reset time."
  unit:  "s"
  flags: READONLY|HIDDEN
- addr:    0x4804dcc8
+ addr:    0x4804dce8
 }
 
 
@@ -156,63 +156,63 @@ group "Task Info"
    type:  flt(64,IEEE)*
    alias: "sampleTime"
    flags: READONLY
- addr:    0x480abaa0
+ addr:    0x480abae0
 }
   pRti_TIMERA_TTime
   {
    type:  flt(64,IEEE)*
    alias: "turnaroundTime"
    flags: READONLY
- addr:    0x480abaa4
+ addr:    0x480abae4
 }
   pRti_TIMERA_TState
   {
    type:  int(32)*
    alias: "state"
    flags: READONLY
- addr:    0x480abaa8
+ addr:    0x480abae8
 }
   pRti_TIMERA_OType
   {
    type:  int(32)*
    alias: "overrunCheckType"
    flags: READONLY
- addr:    0x480abaac
+ addr:    0x480abaec
 }
   pRti_TIMERA_OMax
   {
    type:  int(32)*
    alias: "overrunQueueMax"
    flags: READONLY
- addr:    0x480abab0
+ addr:    0x480abaf0
 }
   pRti_TIMERA_ORpt
   {
    type:  int(32)*
    alias: "overrunQueueCount"
    flags: READONLY
- addr:    0x480abab4
+ addr:    0x480abaf4
 }
   pRti_TIMERA_OCnt
   {
    type:  int(32)*
    alias: "overrunCount"
    flags: READONLY
- addr:    0x480abab8
+ addr:    0x480abaf8
 }
   pRti_TIMERA_TCnt
   {
    type:  flt(64,IEEE)*
    alias: "taskCallCount"
    flags: READONLY
- addr:    0x480ababc
+ addr:    0x480abafc
 }
   pRti_TIMERA_Prio
   {
    type:  int(32)*
    alias: "priority"
    flags: READONLY
- addr:    0x480abac0
+ addr:    0x480abb00
 }
   endgroup
 
@@ -226,63 +226,63 @@ group "Task Info"
    type:  flt(64,IEEE)*
    alias: "sampleTime"
    flags: READONLY
- addr:    0x480abac8
+ addr:    0x480abb08
 }
   pRti_TIMERB_TTime
   {
    type:  flt(64,IEEE)*
    alias: "turnaroundTime"
    flags: READONLY
- addr:    0x480abacc
+ addr:    0x480abb0c
 }
   pRti_TIMERB_TState
   {
    type:  int(32)*
    alias: "state"
    flags: READONLY
- addr:    0x480abad0
+ addr:    0x480abb10
 }
   pRti_TIMERB_OType
   {
    type:  int(32)*
    alias: "overrunCheckType"
    flags: READONLY
- addr:    0x480abad4
+ addr:    0x480abb14
 }
   pRti_TIMERB_OMax
   {
    type:  int(32)*
    alias: "overrunQueueMax"
    flags: READONLY
- addr:    0x480abad8
+ addr:    0x480abb18
 }
   pRti_TIMERB_ORpt
   {
    type:  int(32)*
    alias: "overrunQueueCount"
    flags: READONLY
- addr:    0x480abadc
+ addr:    0x480abb1c
 }
   pRti_TIMERB_OCnt
   {
    type:  int(32)*
    alias: "overrunCount"
    flags: READONLY
- addr:    0x480abae0
+ addr:    0x480abb20
 }
   pRti_TIMERB_TCnt
   {
    type:  flt(64,IEEE)*
    alias: "taskCallCount"
    flags: READONLY
- addr:    0x480abae4
+ addr:    0x480abb24
 }
   pRti_TIMERB_Prio
   {
    type:  int(32)*
    alias: "priority"
    flags: READONLY
- addr:    0x480abae8
+ addr:    0x480abb28
 }
   endgroup
 
@@ -303,7 +303,7 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_4_1100_Col*
 		 alias:   "InitialValue"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -320,7 +320,7 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_10*
 		 alias:   "InitialValue"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -337,7 +337,7 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_10*
 		 alias:   "InitialValue"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -353,7 +353,7 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_4_1100_Col*
 		 alias:   "InitialValue"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -368,14 +368,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[28]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -390,14 +390,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[65]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -412,14 +412,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[36]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -434,14 +434,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[41]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -456,14 +456,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[18]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -478,14 +478,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[21]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -500,14 +500,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[27]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -522,14 +522,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[42]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -544,14 +544,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[56]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -566,14 +566,14 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_1_Bilateral_Ankle_Exo_real_T_4[59]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -595,7 +595,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -616,14 +616,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[2]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -638,14 +638,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[1]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -666,7 +666,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "vel"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab954
+ addr:    0x480ab994
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[7]
@@ -674,28 +674,28 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "MAX_TORQUE"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[3]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "MAX_MOTOR_ANGLE"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[9]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "MIN_MOTOR_ANGLE"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[5]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "MAX_SPEED"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -719,14 +719,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[4]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -741,14 +741,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[3]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -769,7 +769,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "vel"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab950
+ addr:    0x480ab990
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[8]
@@ -777,28 +777,28 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "MAX_TORQUE"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[4]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "MAX_MOTOR_ANGLE"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[10]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "MIN_MOTOR_ANGLE"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[6]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "MAX_SPEED"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -811,12 +811,12 @@ group "Model Root"
   
 		group "Controller_L" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7660]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7664]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "motor_vel_cmd_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			p_1_Bilateral_Ankle_Exo_int8_T_2[0]
@@ -824,21 +824,21 @@ group "Model Root"
 			 type:    int(8)*
 			 alias:   "MODE_L"
 			 flags:   PARAM
- addr:    0x480ab988
+ addr:    0x480ab9c8
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[0]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "FOLLOW_SLACK_ANGLE_L"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[11]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "SWING_MAX_ANGLE_L"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -848,12 +848,12 @@ group "Model Root"
   
 		group "Controller_R" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7659]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7663]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "motor_vel_cmd_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			p_1_Bilateral_Ankle_Exo_int8_T_2[1]
@@ -861,21 +861,21 @@ group "Model Root"
 			 type:    int(8)*
 			 alias:   "MODE_R"
 			 flags:   PARAM
- addr:    0x480ab988
+ addr:    0x480ab9c8
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[1]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "FOLLOW_SLACK_ANGLE_R"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[12]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "SWING_MAX_ANGLE_R"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -885,19 +885,19 @@ group "Model Root"
   
 		group "LRN_L" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[6908]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6912]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "lrn_cmd_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[6909]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6913]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_750_Col*
 			 alias:   "lrn_mem_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[6]
@@ -907,7 +907,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[8]
 			{
@@ -916,28 +916,28 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[25]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "error_filter_k_l"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 			p_1_Bilateral_Ankle_Exo_int32_T_1[0]
 			{
 			 type:    int(32)*
 			 alias:   "time_delay_l"
 			 flags:   PARAM
- addr:    0x480ab984
+ addr:    0x480ab9c4
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[35]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "lrn_shrink_l"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -947,19 +947,19 @@ group "Model Root"
   
 		group "LRN_R" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[6157]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6161]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "lrn_cmd_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[6158]
+			p_0_Bilateral_Ankle_Exo_real_T_0[6162]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_750_Col*
 			 alias:   "lrn_mem_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[7]
@@ -969,7 +969,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[9]
 			{
@@ -978,28 +978,28 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[26]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "error_filter_k_r"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 			p_1_Bilateral_Ankle_Exo_int32_T_1[1]
 			{
 			 type:    int(32)*
 			 alias:   "time_delay_r"
 			 flags:   PARAM
- addr:    0x480ab984
+ addr:    0x480ab9c4
 }
 			p_1_Bilateral_Ankle_Exo_real_T_0[36]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "lrn_shrink_r"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -1009,33 +1009,40 @@ group "Model Root"
   
 		group "Torque Track L" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[3155]
+			p_0_Bilateral_Ankle_Exo_real_T_0[3157]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "torque_des_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[3156]
+			p_0_Bilateral_Ankle_Exo_real_T_0[3158]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "torque_delta_des_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[3157]
+			p_0_Bilateral_Ankle_Exo_real_T_0[3159]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_2_750_Col*
 			 alias:   "torque_trace_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[4657]
+			p_0_Bilateral_Ankle_Exo_real_T_0[4659]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_2_750_Col*
 			 alias:   "torque_delta_trace_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
+}
+			p_0_Bilateral_Ankle_Exo_real_T_0[6159]
+			{
+			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
+			 alias:   "torque_error_l"
+			 flags:   OUTPUT|READONLY
+ addr:    0x480ab988
 }
 
 
@@ -1051,28 +1058,35 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "torque_des_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 			p_0_Bilateral_Ankle_Exo_real_T_0[154]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "torque_delta_des_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 			p_0_Bilateral_Ankle_Exo_real_T_0[155]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_2_750_Col*
 			 alias:   "torque_trace_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 			p_0_Bilateral_Ankle_Exo_real_T_0[1655]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_2_750_Col*
 			 alias:   "torque_delta_trace_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
+}
+			p_0_Bilateral_Ankle_Exo_real_T_0[3155]
+			{
+			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
+			 alias:   "torque_error_r"
+			 flags:   OUTPUT|READONLY
+ addr:    0x480ab988
 }
 
 
@@ -1092,19 +1106,19 @@ group "Model Root"
   
 	group "Parameter Module" -- subsystem-group
 
-		p_0_Bilateral_Ankle_Exo_real_T_0[7691]
+		p_0_Bilateral_Ankle_Exo_real_T_0[7695]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 		 alias:   "control_parm"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-		p_0_Bilateral_Ankle_Exo_real_T_0[7687]
+		p_0_Bilateral_Ankle_Exo_real_T_0[7691]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 		 alias:   "torque_parm"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -1112,12 +1126,12 @@ group "Model Root"
   
 		group "Control Parameter" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7691]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7695]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 			 alias:   "Control_Parameter"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -1131,7 +1145,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1147,7 +1161,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1163,7 +1177,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1179,7 +1193,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1195,7 +1209,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1211,7 +1225,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1227,7 +1241,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1237,12 +1251,12 @@ group "Model Root"
   
 			group "Mux1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7691]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7695]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -1256,12 +1270,12 @@ group "Model Root"
   
 		group "Torque Parameter" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7687]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7691]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 			 alias:   "Torque_Parameter"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -1275,7 +1289,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1291,7 +1305,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1307,7 +1321,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1323,7 +1337,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1333,12 +1347,12 @@ group "Model Root"
   
 			group "Mux1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7687]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7691]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -1366,77 +1380,77 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "torque_r"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab960
+ addr:    0x480ab9a0
 }
 		p_0_Bilateral_Ankle_Exo_real_T_13[0]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "ankle_r"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab97c
+ addr:    0x480ab9bc
 }
 		p_0_Bilateral_Ankle_Exo_real_T_8[0]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 		 alias:   "motor_r"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab968
+ addr:    0x480ab9a8
 }
 		p_0_Bilateral_Ankle_Exo_real_T_10[0]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "footswich_r"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab970
+ addr:    0x480ab9b0
 }
-		p_0_Bilateral_Ankle_Exo_real_T_0[7679]
+		p_0_Bilateral_Ankle_Exo_real_T_0[7683]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 		 alias:   "EMG"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_0_Bilateral_Ankle_Exo_real_T_0[128]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Meta"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_0_Bilateral_Ankle_Exo_real_T_0[129]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "IMU"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 		p_0_Bilateral_Ankle_Exo_real_T_11[0]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "footswich_l"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab974
+ addr:    0x480ab9b4
 }
 		p_0_Bilateral_Ankle_Exo_real_T_7[0]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "torque_l"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab964
+ addr:    0x480ab9a4
 }
 		p_0_Bilateral_Ankle_Exo_real_T_12[0]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 		 alias:   "ankle_l"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab978
+ addr:    0x480ab9b8
 }
 		p_0_Bilateral_Ankle_Exo_real_T_9[0]
 		{
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 		 alias:   "motor_l"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab96c
+ addr:    0x480ab9ac
 }
 
 
@@ -1449,14 +1463,14 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 			p_1_Bilateral_Ankle_Exo_real_T_4[150]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1471,14 +1485,14 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 			p_1_Bilateral_Ankle_Exo_real_T_4[151]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1493,14 +1507,14 @@ group "Model Root"
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 			 alias:   "Ankle_R"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab97c
+ addr:    0x480ab9bc
 }
 			p_0_Bilateral_Ankle_Exo_real_T_12[0]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 			 alias:   "Ankle_L"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab978
+ addr:    0x480ab9b8
 }
 
 
@@ -1516,7 +1530,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab994
+ addr:    0x480ab9d4
 }
 
 
@@ -1534,7 +1548,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab994
+ addr:    0x480ab9d4
 }
 
 
@@ -1549,14 +1563,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[19]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1571,14 +1585,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[20]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1593,14 +1607,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[57]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1615,14 +1629,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[58]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -1637,14 +1651,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Position"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_real_T_0[15]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Speed"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_boolean_T_1[0]
 				{
@@ -1654,7 +1668,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab94c
+ addr:    0x480ab98c
 }
 
 			endgroup -- subsystem-group "EMC_ENCODER_BL1"
@@ -1667,14 +1681,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Position"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_real_T_0[69]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Speed"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_boolean_T_1[3]
 				{
@@ -1684,7 +1698,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab94c
+ addr:    0x480ab98c
 }
 
 			endgroup -- subsystem-group "EMC_ENCODER_BL2"
@@ -1704,12 +1718,12 @@ group "Model Root"
   
 			group "Calibration_L" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7686]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7690]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_boolean_T_3[10]
@@ -1719,7 +1733,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -1729,12 +1743,12 @@ group "Model Root"
   
 			group "Calibration_R" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7685]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7689]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_boolean_T_3[11]
@@ -1744,7 +1758,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -1759,7 +1773,7 @@ group "Model Root"
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab97c
+ addr:    0x480ab9bc
 }
 
 
@@ -1775,7 +1789,7 @@ group "Model Root"
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab978
+ addr:    0x480ab9b8
 }
 
 
@@ -1789,12 +1803,12 @@ group "Model Root"
   
 		group "EMG module" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7679]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7683]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 			 alias:   "EMG"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			p_1_Bilateral_Ankle_Exo_real_T_0[2]
@@ -1802,7 +1816,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Kemg"
 			 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 			group "Gain" -- block-group
@@ -1814,7 +1828,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				trcref0_Kemg
 				{
@@ -1842,7 +1856,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				trcref0_Kemg
 				{
@@ -1870,7 +1884,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				trcref0_Kemg
 				{
@@ -1898,7 +1912,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				trcref0_Kemg
 				{
@@ -1926,7 +1940,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				trcref0_Kemg
 				{
@@ -1954,7 +1968,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				trcref0_Kemg
 				{
@@ -1982,7 +1996,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL1"
@@ -1995,7 +2009,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL2"
@@ -2008,7 +2022,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL3"
@@ -2021,7 +2035,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL4"
@@ -2034,7 +2048,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL5"
@@ -2047,7 +2061,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL6"
@@ -2055,12 +2069,12 @@ group "Model Root"
   
 			group "Preprocessing" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7678]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7682]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2073,7 +2087,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2088,42 +2102,42 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[102]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[105]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[106]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_2*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[108]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "D"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[109]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2138,35 +2152,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[66]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[69]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[70]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[71]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2176,12 +2190,12 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7678]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7682]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 					p_1_Bilateral_Ankle_Exo_real_T_0[41]
@@ -2189,14 +2203,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "r_SOL_MAX"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_0[42]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "r_SOL_MIN"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -2209,12 +2223,12 @@ group "Model Root"
   
 			group "Preprocessing1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7677]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7681]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2227,7 +2241,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2242,42 +2256,42 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[110]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[113]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[114]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_2*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[116]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "D"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[117]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2292,35 +2306,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[72]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[75]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[76]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[77]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2330,12 +2344,12 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7677]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7681]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 					p_1_Bilateral_Ankle_Exo_real_T_0[39]
@@ -2343,14 +2357,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "r_M_GAS_MAX"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_0[40]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "r_M_GAS_MIN"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -2363,12 +2377,12 @@ group "Model Root"
   
 			group "Preprocessing2" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7676]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7680]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2381,7 +2395,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2396,42 +2410,42 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[118]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[121]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[122]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_2*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[124]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "D"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[125]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2446,35 +2460,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[78]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[81]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[82]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[83]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2484,12 +2498,12 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7676]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7680]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 					p_1_Bilateral_Ankle_Exo_real_T_0[37]
@@ -2497,14 +2511,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "r_L_GAS_MAX"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_0[38]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "r_L_GAS_MIN"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -2517,12 +2531,12 @@ group "Model Root"
   
 			group "Preprocessing3" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7675]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7679]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2535,7 +2549,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2550,42 +2564,42 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[126]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[129]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[130]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_2*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[132]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "D"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[133]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2600,35 +2614,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[84]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[87]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[88]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[89]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2638,12 +2652,12 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7675]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7679]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 					p_1_Bilateral_Ankle_Exo_real_T_0[29]
@@ -2651,14 +2665,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "l_M_GAS_MAX"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_0[30]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "l_M_GAS_MIN"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -2676,7 +2690,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2689,7 +2703,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2704,42 +2718,42 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[134]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[137]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[138]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_2*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[140]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "D"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[141]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2754,35 +2768,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[96]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[99]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[100]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[101]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2795,12 +2809,12 @@ group "Model Root"
   
 			group "Preprocessing9" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7674]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7678]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "e(t)"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2813,7 +2827,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2828,42 +2842,42 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[142]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[145]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[146]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_2*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[148]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "D"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[149]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2878,35 +2892,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[90]
 					{
 					 type:    Bilateral_Ankle_Exo_ArrayDT0_3*
 					 alias:   "A"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[93]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "B"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[94]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "C"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[95]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -2916,12 +2930,12 @@ group "Model Root"
   
 				group "MVC" -- subsystem-group
 
-					p_0_Bilateral_Ankle_Exo_real_T_0[7674]
+					p_0_Bilateral_Ankle_Exo_real_T_0[7678]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 					p_1_Bilateral_Ankle_Exo_real_T_0[27]
@@ -2929,14 +2943,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "l_L_GAS_MAX"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_0[28]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "l_L_GAS_MIN"
 					 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 
@@ -2949,12 +2963,12 @@ group "Model Root"
   
 			group "Mux1" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7679]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7683]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_6_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -2973,14 +2987,14 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "FootSwitch_R"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab970
+ addr:    0x480ab9b0
 }
 			p_0_Bilateral_Ankle_Exo_real_T_11[0]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "FootSwitch_L"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab974
+ addr:    0x480ab9b4
 }
 
 
@@ -2996,7 +3010,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab994
+ addr:    0x480ab9d4
 }
 
 
@@ -3014,7 +3028,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab994
+ addr:    0x480ab9d4
 }
 
 
@@ -3031,7 +3045,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab94c
+ addr:    0x480ab98c
 }
 
 			endgroup -- subsystem-group "DIO_CLASS1_BIT_IN_BL1"
@@ -3046,7 +3060,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab94c
+ addr:    0x480ab98c
 }
 
 			endgroup -- subsystem-group "DIO_CLASS1_BIT_IN_BL2"
@@ -3071,7 +3085,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "state"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab974
+ addr:    0x480ab9b4
 }
 
 
@@ -3087,7 +3101,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "state"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab970
+ addr:    0x480ab9b0
 }
 
 
@@ -3106,21 +3120,21 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Accelx"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 			p_0_Bilateral_Ankle_Exo_real_T_0[138]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Accely"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 			p_0_Bilateral_Ankle_Exo_real_T_0[140]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Accelz"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3151,35 +3165,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[155]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Amplitude"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[156]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Bias"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[157]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Frequency"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[158]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Phase"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3194,21 +3208,21 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "RX signal"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[142]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "RX status"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[143]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "RX time"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				endgroup -- subsystem-group "CAN_TYPE1_RX_M1_C1"
@@ -3221,28 +3235,28 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "TX status"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[146]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "TX time"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[147]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "TX delta time"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[148]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "TX delay time"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				endgroup -- subsystem-group "CAN_TYPE1_TX_M1_C2"
@@ -3258,21 +3272,21 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Accel1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_real_T_0[138]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Accel2"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_real_T_0[140]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Accel3"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3285,35 +3299,35 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Accel_x"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[131]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Accel_y"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[132]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Accel_z"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[133]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "RX status"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_0_Bilateral_Ankle_Exo_real_T_0[134]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "RX time"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				endgroup -- subsystem-group "CAN_RX_Accel"
@@ -3326,7 +3340,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3339,7 +3353,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3354,14 +3368,14 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 						p_1_Bilateral_Ankle_Exo_real_T_4[152]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Gain"
 						 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3379,7 +3393,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3392,7 +3406,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3407,14 +3421,14 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 						p_1_Bilateral_Ankle_Exo_real_T_4[153]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Gain"
 						 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3432,7 +3446,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3445,7 +3459,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3460,14 +3474,14 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 						p_1_Bilateral_Ankle_Exo_real_T_4[154]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Gain"
 						 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3491,14 +3505,14 @@ group "Model Root"
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 			 alias:   "Motor_R"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab968
+ addr:    0x480ab9a8
 }
 			p_0_Bilateral_Ankle_Exo_real_T_9[0]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 			 alias:   "Motor_L"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab96c
+ addr:    0x480ab9ac
 }
 
 
@@ -3514,7 +3528,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab994
+ addr:    0x480ab9d4
 }
 
 
@@ -3532,7 +3546,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab994
+ addr:    0x480ab9d4
 }
 
 
@@ -3547,14 +3561,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[22]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3569,14 +3583,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[60]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3591,14 +3605,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[61]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3613,14 +3627,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[23]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3635,7 +3649,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "D"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[24]
@@ -3643,21 +3657,21 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Ts"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[16]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T1"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[20]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T2"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 				group "Gain" -- block-group
@@ -3669,7 +3683,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -3697,7 +3711,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -3726,7 +3740,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -3759,7 +3773,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -3787,7 +3801,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -3816,7 +3830,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3831,7 +3845,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3846,7 +3860,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -3861,14 +3875,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[63]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3883,14 +3897,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[62]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3905,14 +3919,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[64]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -3930,7 +3944,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "D"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[22]
@@ -3938,21 +3952,21 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Ts"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[14]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T1"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[18]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T2"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 				group "Gain" -- block-group
@@ -3964,7 +3978,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -3992,7 +4006,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4021,7 +4035,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4054,7 +4068,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -4082,7 +4096,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4111,7 +4125,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -4126,7 +4140,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -4141,7 +4155,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -4156,14 +4170,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[25]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4178,14 +4192,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[24]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4200,14 +4214,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[26]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4225,14 +4239,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Position"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_real_T_0[21]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Speed"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "EMC_ENCODER_BL2"
@@ -4245,14 +4259,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Position"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_0_Bilateral_Ankle_Exo_real_T_0[75]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Speed"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "EMC_ENCODER_BL3"
@@ -4272,12 +4286,12 @@ group "Model Root"
   
 			group "Calibration_L" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7673]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7677]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_boolean_T_3[12]
@@ -4287,7 +4301,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -4297,12 +4311,12 @@ group "Model Root"
   
 			group "Calibration_R" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7672]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7676]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "angle"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_boolean_T_3[13]
@@ -4312,7 +4326,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -4327,7 +4341,7 @@ group "Model Root"
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab96c
+ addr:    0x480ab9ac
 }
 
 
@@ -4343,7 +4357,7 @@ group "Model Root"
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_3_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab968
+ addr:    0x480ab9a8
 }
 
 
@@ -4362,14 +4376,14 @@ group "Model Root"
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 			 alias:   "Torque_R"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab960
+ addr:    0x480ab9a0
 }
 			p_0_Bilateral_Ankle_Exo_real_T_7[0]
 			{
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 			 alias:   "Torque_L"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab964
+ addr:    0x480ab9a4
 }
 
 
@@ -4382,14 +4396,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[5]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4404,14 +4418,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[43]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4426,28 +4440,28 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[44]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_4*
 				 alias:   "Numerator"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[48]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_4*
 				 alias:   "Denominator"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[52]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "InitialStates"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4462,28 +4476,28 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[6]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_4*
 				 alias:   "Numerator"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[10]
 				{
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_4*
 				 alias:   "Denominator"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_4[14]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "InitialStates"
 				 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4498,7 +4512,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "D"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[21]
@@ -4506,21 +4520,21 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Ts"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[13]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T1"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[17]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T2"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 				group "Gain" -- block-group
@@ -4532,7 +4546,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -4560,7 +4574,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4589,7 +4603,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4622,7 +4636,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -4650,7 +4664,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4679,7 +4693,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -4694,7 +4708,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -4709,7 +4723,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -4724,14 +4738,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[16]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4746,14 +4760,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[15]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4768,14 +4782,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[17]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -4793,7 +4807,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "D"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[23]
@@ -4801,21 +4815,21 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Ts"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[15]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T1"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[19]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "T2"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 
 				group "Gain" -- block-group
@@ -4827,7 +4841,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -4855,7 +4869,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4884,7 +4898,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4917,7 +4931,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_Ts
 					{
@@ -4945,7 +4959,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					trcref0_T1
 					{
@@ -4974,7 +4988,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -4989,7 +5003,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -5004,7 +5018,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -5019,14 +5033,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[54]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -5041,14 +5055,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[53]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -5063,14 +5077,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 					p_1_Bilateral_Ankle_Exo_real_T_4[55]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
- addr:    0x480ab990
+ addr:    0x480ab9d0
 }
 
 
@@ -5088,7 +5102,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL1"
@@ -5101,7 +5115,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "ADC"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			endgroup -- subsystem-group "ADC_CLASS1_BL6"
@@ -5115,12 +5129,12 @@ group "Model Root"
   
 			group "Calibration_L" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7671]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7675]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "torque"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[31]
@@ -5128,14 +5142,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "load_vol_gain"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[33]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "load_vol_offset"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_boolean_T_3[14]
 				{
@@ -5144,7 +5158,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -5154,12 +5168,12 @@ group "Model Root"
   
 			group "Calibration_R" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7670]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7674]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "torque"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 				p_1_Bilateral_Ankle_Exo_real_T_0[32]
@@ -5167,14 +5181,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "load_vol_gain"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_real_T_0[34]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "load_vol_offset"
 				 flags:   PARAM
- addr:    0x480ab980
+ addr:    0x480ab9c0
 }
 				p_1_Bilateral_Ankle_Exo_boolean_T_3[15]
 				{
@@ -5183,7 +5197,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -5193,12 +5207,12 @@ group "Model Root"
   
 			group "MATLAB Function" -- subsystem-group
 
-				p_0_Bilateral_Ankle_Exo_real_T_0[7669]
+				p_0_Bilateral_Ankle_Exo_real_T_0[7673]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "torque_dot"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 
@@ -5214,7 +5228,7 @@ group "Model Root"
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab964
+ addr:    0x480ab9a4
 }
 
 
@@ -5230,7 +5244,7 @@ group "Model Root"
 				 type:    Bilateral_Ankle_Exo_ArrayDT0_1_2_Col*
 				 alias:   "x"
 				 flags:   OUTPUT|READONLY
- addr:    0x480ab960
+ addr:    0x480ab9a0
 }
 
 
@@ -5252,7 +5266,7 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 		 alias:   "state_data_l"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab95c
+ addr:    0x480ab99c
 }
 
 
@@ -5265,7 +5279,7 @@ group "Model Root"
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 			 alias:   "x"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab95c
+ addr:    0x480ab99c
 }
 
 
@@ -5276,33 +5290,33 @@ group "Model Root"
   
 		group "State Machine" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7665]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7669]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "mode_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[7666]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7670]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "state_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[7667]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7671]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_time_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[7668]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7672]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_timer_l"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[16]
@@ -5312,7 +5326,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[18]
 			{
@@ -5321,7 +5335,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[4]
 			{
@@ -5330,7 +5344,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[2]
 			{
@@ -5339,7 +5353,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[0]
 			{
@@ -5348,7 +5362,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -5366,7 +5380,7 @@ group "Model Root"
 		 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 		 alias:   "state_data_r"
 		 flags:   OUTPUT|READONLY
- addr:    0x480ab958
+ addr:    0x480ab998
 }
 
 
@@ -5379,7 +5393,7 @@ group "Model Root"
 			 type:    Bilateral_Ankle_Exo_ArrayDT0_1_4_Col*
 			 alias:   "x"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab958
+ addr:    0x480ab998
 }
 
 
@@ -5390,33 +5404,33 @@ group "Model Root"
   
 		group "State Machine" -- subsystem-group
 
-			p_0_Bilateral_Ankle_Exo_real_T_0[7661]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7665]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "mode_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[7662]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7666]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "state_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[7663]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7667]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_time_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
-			p_0_Bilateral_Ankle_Exo_real_T_0[7664]
+			p_0_Bilateral_Ankle_Exo_real_T_0[7668]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "stride_timer_r"
 			 flags:   OUTPUT|READONLY
- addr:    0x480ab948
+ addr:    0x480ab988
 }
 
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[17]
@@ -5426,7 +5440,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[19]
 			{
@@ -5435,7 +5449,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[5]
 			{
@@ -5444,7 +5458,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[3]
 			{
@@ -5453,7 +5467,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 			p_1_Bilateral_Ankle_Exo_boolean_T_3[1]
 			{
@@ -5462,7 +5476,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x480ab98c
+ addr:    0x480ab9cc
 }
 
 
@@ -5533,7 +5547,7 @@ group "XIL API"
       desc:    "Index of active ErrorSet or 0 if no ErrorSet is active."
       flags:   OUTPUT|READONLY
       range:   < 0 ; 4294967295 >
- addr:    0x48060e00
+ addr:    0x48060e20
 }
 
     p_xilapi_eesport_erroractivated_uint32_T
@@ -5543,7 +5557,7 @@ group "XIL API"
       desc:    "0 - no error is activated on hardware, 1 - at least one error is activated on hardware."  
       flags:   OUTPUT|READONLY
       range:   < 0 ; 1 >
- addr:    0x48060dfc
+ addr:    0x48060e1c
 }
 
     p_xilapi_eesport_errorswitching_uint32_T
@@ -5553,7 +5567,7 @@ group "XIL API"
       desc:    "0 - no switching operation running on hardware, 1 -  switching operation running on hardware."
       flags:   OUTPUT|READONLY
       range:   < 0 ; 1 >
- addr:    0x48060df8
+ addr:    0x48060e18
 }
 
     xilapi_eesport_flags_uint32_T
@@ -5562,7 +5576,7 @@ group "XIL API"
       alias:   "Flags"
       flags:   OUTPUT|READONLY
       range:   < 0 ; 4294967295 >
- addr:    0x480abcc8
+ addr:    0x480abd08
 }
 
     xilapi_eesport_trigger_uint32_T
@@ -5571,7 +5585,7 @@ group "XIL API"
       alias:   "Trigger"
       flags:   OUTPUT|READONLY
       range:   < 0 ; 4294967295 >
- addr:    0x480abcc4
+ addr:    0x480abd04
 }
 
     endgroup -- "EESPort"
