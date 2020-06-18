@@ -3,9 +3,9 @@
  *
  * Code generation for model "Bilateral_Ankle_Exo".
  *
- * Model version              : 1.1398
+ * Model version              : 1.1618
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Thu Jun 18 11:37:25 2020
+ * C source code generated on : Thu Jun 18 18:06:16 2020
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

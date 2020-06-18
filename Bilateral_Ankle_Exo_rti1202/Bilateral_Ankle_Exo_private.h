@@ -3,9 +3,9 @@
  *
  * Code generation for model "Bilateral_Ankle_Exo".
  *
- * Model version              : 1.1398
+ * Model version              : 1.1618
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Thu Jun 18 11:37:25 2020
+ * C source code generated on : Thu Jun 18 18:06:16 2020
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -100,16 +100,36 @@ extern DioCl1DigOutSDrvObject *pRTIDioC1DigOut_Port_3_Ch_13;
 extern DioCl1DigOutSDrvObject *pRTIDioC1DigOut_Port_1_Ch_1;
 extern DioCl1DigOutSDrvObject *pRTIDioC1DigOut_Port_1_Ch_3;
 extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_1;
+extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_10;
+extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_11;
+extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_12;
 extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_2;
 extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_3;
 extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_4;
 extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_9;
-extern AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_10;
 extern real_T rt_roundd_snf(real_T u);
 extern real_T rt_powd_snf(real_T u0, real_T u1);
 extern real_T rt_hypotd_snf(real_T u0, real_T u1);
 extern void Bilateral_Ankle_Exo_Mux(real_T rtu_x1, real_T rtu_x2,
   B_Mux_Bilateral_Ankle_Exo_T *localB);
+extern void Bilateral_Ankle_Exo_EMG3(real_T rtu_x, B_EMG3_Bilateral_Ankle_Exo_T *
+  localB);
+extern void Bilateral_Ankle_Exo_EMG4(real_T rtu_x, B_EMG4_Bilateral_Ankle_Exo_T *
+  localB);
+extern void Bilateral_Ankle_Exo_EMG_o1(real_T rtu_x,
+  B_EMG_o1_Bilateral_Ankle_Exo_T *localB);
+extern void Bilateral_Ankle_Exo_EMG_o2(real_T rtu_x,
+  B_EMG_o2_Bilateral_Ankle_Exo_T *localB);
+extern void Bilateral_Ankle_Exo_EMG_o5(real_T rtu_x,
+  B_EMG_o5_Bilateral_Ankle_Exo_T *localB);
+extern void Bilateral_Ankle_Exo_EMG_o6(real_T rtu_x,
+  B_EMG_o6_Bilateral_Ankle_Exo_T *localB);
+extern void Bilateral_Ankle_Exo_EMG_o7(real_T rtu_x,
+  B_EMG_o7_Bilateral_Ankle_Exo_T *localB);
+extern void Bilateral_Ankle_Exo_EMG_o8(real_T rtu_x,
+  B_EMG_o8_Bilateral_Ankle_Exo_T *localB);
+extern void Bilateral_Ankle_Exo_MVC(real_T rtu_u, B_MVC_Bilateral_Ankle_Exo_T
+  *localB, real_T rtp_r_SOL_MAX, real_T rtp_r_SOL_MIN);
 extern void Bilateral_Ankle_E_Filter_L_Init(DW_Filter_L_Bilateral_Ankle_E_T
   *localDW);
 extern void Bilateral_Ankle_Exo_Filter_L(boolean_T rtu_signal,

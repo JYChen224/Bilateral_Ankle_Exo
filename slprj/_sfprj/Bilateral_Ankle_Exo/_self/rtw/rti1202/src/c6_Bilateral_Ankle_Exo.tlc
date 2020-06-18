@@ -7,11 +7,53 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   0 \
+    NumChartData   6 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
       IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "last_state"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:8217:138-148"\
+    }\
+    ChartData {\
+      Name         "Scan_state"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:8217:161-171"\
+    }\
+    ChartData {\
+      Name         "Scan_step"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:8217:184-193"\
+    }\
+    ChartData {\
+      Name         "Scan_dir"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:8217:206-214"\
+    }\
+    ChartData {\
+      Name         "step_count"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:8217:227-237"\
+    }\
+    ChartData {\
+      Name         "parm_delta"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Bilateral_Ankle_Exo:8217:250-260"\
     }\
   }
   %return ChartDataElements

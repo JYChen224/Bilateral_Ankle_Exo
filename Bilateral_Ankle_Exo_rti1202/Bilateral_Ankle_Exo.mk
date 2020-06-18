@@ -102,7 +102,7 @@ S_FUNCTIONS_LIB                =
 SOLVER                         = 
 NUMST                          = 3
 TID01EQ                        = 1
-NCSTATES                       = 24
+NCSTATES                       = 32
 EXT_MODE                       = 0
 MULTITASKING                   = 0
 # Support for parallel computing

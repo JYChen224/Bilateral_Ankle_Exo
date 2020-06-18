@@ -3,9 +3,9 @@
  *
  * Code generation for model "Bilateral_Ankle_Exo".
  *
- * Model version              : 1.1398
+ * Model version              : 1.1618
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Thu Jun 18 11:37:25 2020
+ * C source code generated on : Thu Jun 18 18:06:16 2020
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -81,7 +81,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   ODE1_IntgData *id = (ODE1_IntgData *)rtsiGetSolverData(si);
   real_T *f0 = id->f[0];
   int_T i;
-  int_T nXc = 24;
+  int_T nXc = 32;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
   rtsiSetdX(si, f0);
   Bilateral_Ankle_Exo_derivatives();
@@ -95,24 +95,145 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
 
 /*
  * Output and update for atomic system:
- *    '<S28>/Mux'
- *    '<S28>/Mux1'
- *    '<S33>/Mux_L'
- *    '<S33>/Mux_R'
+ *    '<S29>/Mux'
+ *    '<S29>/Mux1'
+ *    '<S34>/Mux_L'
+ *    '<S34>/Mux_R'
  */
 void Bilateral_Ankle_Exo_Mux(real_T rtu_x1, real_T rtu_x2,
   B_Mux_Bilateral_Ankle_Exo_T *localB)
 {
-  /* MATLAB Function 'Sensor Data/Ankle Encoder/Mux': '<S40>:1' */
-  /* '<S40>:1:3' */
+  /* MATLAB Function 'Sensor Data/Ankle Encoder/Mux': '<S41>:1' */
+  /* '<S41>:1:3' */
   localB->x[0] = rtu_x1;
   localB->x[1] = rtu_x2;
 }
 
 /*
+ * Output and update for atomic system:
+ *    '<S30>/EMG3'
+ *    '<S30>/EMG_p3'
+ */
+void Bilateral_Ankle_Exo_EMG3(real_T rtu_x, B_EMG3_Bilateral_Ankle_Exo_T *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG3': '<S51>:1' */
+  /* '<S51>:1:3' */
+  localB->EMG_L_O3 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S30>/EMG4'
+ *    '<S30>/EMG_p4'
+ */
+void Bilateral_Ankle_Exo_EMG4(real_T rtu_x, B_EMG4_Bilateral_Ankle_Exo_T *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG4': '<S52>:1' */
+  /* '<S52>:1:3' */
+  localB->EMG_L_O4 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S30>/EMG_o1'
+ *    '<S30>/EMG_p1'
+ */
+void Bilateral_Ankle_Exo_EMG_o1(real_T rtu_x, B_EMG_o1_Bilateral_Ankle_Exo_T
+  *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG_o1': '<S53>:1' */
+  /* '<S53>:1:3' */
+  localB->EMG_L_O1 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S30>/EMG_o2'
+ *    '<S30>/EMG_p2'
+ */
+void Bilateral_Ankle_Exo_EMG_o2(real_T rtu_x, B_EMG_o2_Bilateral_Ankle_Exo_T
+  *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG_o2': '<S54>:1' */
+  /* '<S54>:1:3' */
+  localB->EMG_L_O2 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S30>/EMG_o5'
+ *    '<S30>/EMG_p5'
+ */
+void Bilateral_Ankle_Exo_EMG_o5(real_T rtu_x, B_EMG_o5_Bilateral_Ankle_Exo_T
+  *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG_o5': '<S55>:1' */
+  /* '<S55>:1:3' */
+  localB->EMG_R_O1 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S30>/EMG_o6'
+ *    '<S30>/EMG_p6'
+ */
+void Bilateral_Ankle_Exo_EMG_o6(real_T rtu_x, B_EMG_o6_Bilateral_Ankle_Exo_T
+  *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG_o6': '<S56>:1' */
+  /* '<S56>:1:3' */
+  localB->EMG_R_O2 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S30>/EMG_o7'
+ *    '<S30>/EMG_p7'
+ */
+void Bilateral_Ankle_Exo_EMG_o7(real_T rtu_x, B_EMG_o7_Bilateral_Ankle_Exo_T
+  *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG_o7': '<S57>:1' */
+  /* '<S57>:1:3' */
+  localB->EMG_R_O3 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S30>/EMG_o8'
+ *    '<S30>/EMG_p8'
+ */
+void Bilateral_Ankle_Exo_EMG_o8(real_T rtu_x, B_EMG_o8_Bilateral_Ankle_Exo_T
+  *localB)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/EMG_o8': '<S58>:1' */
+  /* '<S58>:1:3' */
+  localB->EMG_R_O4 = rtu_x;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S68>/MVC'
+ *    '<S69>/MVC'
+ *    '<S70>/MVC'
+ *    '<S71>/MVC'
+ *    '<S72>/MVC'
+ *    '<S73>/MVC'
+ *    '<S74>/MVC'
+ *    '<S75>/MVC'
+ */
+void Bilateral_Ankle_Exo_MVC(real_T rtu_u, B_MVC_Bilateral_Ankle_Exo_T *localB,
+  real_T rtp_r_SOL_MAX, real_T rtp_r_SOL_MIN)
+{
+  /* MATLAB Function 'Sensor Data/EMG module/Preprocessing1/MVC': '<S76>:1' */
+  /* '<S76>:1:3' */
+  localB->y = (rtu_u - rtp_r_SOL_MIN) / (rtp_r_SOL_MAX - rtp_r_SOL_MIN);
+}
+
+/*
  * System initialize for atomic system:
- *    '<S30>/Filter_L'
- *    '<S30>/Filter_R'
+ *    '<S31>/Filter_L'
+ *    '<S31>/Filter_R'
  */
 void Bilateral_Ankle_E_Filter_L_Init(DW_Filter_L_Bilateral_Ankle_E_T *localDW)
 {
@@ -122,56 +243,56 @@ void Bilateral_Ankle_E_Filter_L_Init(DW_Filter_L_Bilateral_Ankle_E_T *localDW)
 
 /*
  * Output and update for atomic system:
- *    '<S30>/Filter_L'
- *    '<S30>/Filter_R'
+ *    '<S31>/Filter_L'
+ *    '<S31>/Filter_R'
  */
 void Bilateral_Ankle_Exo_Filter_L(boolean_T rtu_signal,
   B_Filter_L_Bilateral_Ankle_Ex_T *localB, DW_Filter_L_Bilateral_Ankle_E_T
   *localDW)
 {
-  /* MATLAB Function 'Sensor Data/FootSwitch module/Filter_L': '<S64>:1' */
-  /* '<S64>:1:6' */
+  /* MATLAB Function 'Sensor Data/FootSwitch module/Filter_L': '<S88>:1' */
+  /* '<S88>:1:6' */
   if (localDW->foot_state == 0.0) {
-    /* '<S64>:1:15' */
+    /* '<S88>:1:15' */
     if (rtu_signal) {
-      /* '<S64>:1:16' */
-      /* '<S64>:1:17' */
+      /* '<S88>:1:16' */
+      /* '<S88>:1:17' */
       localDW->foot_state = 1.0;
     } else {
-      /* '<S64>:1:19' */
+      /* '<S88>:1:19' */
       localDW->foot_state = 0.0;
     }
   } else if (rtu_signal) {
-    /* '<S64>:1:22' */
-    /* '<S64>:1:23' */
+    /* '<S88>:1:22' */
+    /* '<S88>:1:23' */
     localDW->foot_state = 1.0;
   } else {
-    /* '<S64>:1:25' */
+    /* '<S88>:1:25' */
     localDW->filter_time += 0.0002;
     if (localDW->filter_time > 0.1) {
-      /* '<S64>:1:26' */
-      /* '<S64>:1:27' */
+      /* '<S88>:1:26' */
+      /* '<S88>:1:27' */
       localDW->filter_time = 0.0;
 
-      /* '<S64>:1:28' */
+      /* '<S88>:1:28' */
       localDW->foot_state = 0.0;
     }
   }
 
-  /* '<S64>:1:33' */
+  /* '<S88>:1:33' */
   localB->state = localDW->foot_state;
 }
 
 /*
  * Output and update for atomic system:
- *    '<S32>/Mux1'
- *    '<S32>/Mux3'
+ *    '<S33>/Mux1'
+ *    '<S33>/Mux3'
  */
 void Bilateral_Ankle_Exo_Mux1(real_T rtu_x1, real_T rtu_x2, real_T rtu_x3,
   B_Mux1_Bilateral_Ankle_Exo_T *localB)
 {
-  /* MATLAB Function 'Sensor Data/Motor Encoder/Mux1': '<S84>:1' */
-  /* '<S84>:1:3' */
+  /* MATLAB Function 'Sensor Data/Motor Encoder/Mux1': '<S108>:1' */
+  /* '<S108>:1:3' */
   localB->x[0] = rtu_x1;
   localB->x[1] = rtu_x2;
   localB->x[2] = rtu_x3;
@@ -179,14 +300,14 @@ void Bilateral_Ankle_Exo_Mux1(real_T rtu_x1, real_T rtu_x2, real_T rtu_x3,
 
 /*
  * Output and update for atomic system:
- *    '<S6>/Mux1'
  *    '<S7>/Mux1'
+ *    '<S8>/Mux1'
  */
 void Bilateral_Ankle_Exo_Mux1_p(real_T rtu_x1, real_T rtu_x2, real_T rtu_x3,
   real_T rtu_x4, B_Mux1_Bilateral_Ankle_Exo_c_T *localB)
 {
-  /* MATLAB Function 'State_Module_l/Mux1': '<S96>:1' */
-  /* '<S96>:1:3' */
+  /* MATLAB Function 'State_Module_l/Mux1': '<S120>:1' */
+  /* '<S120>:1:3' */
   localB->x[0] = rtu_x1;
   localB->x[1] = rtu_x2;
   localB->x[2] = rtu_x3;
@@ -195,39 +316,39 @@ void Bilateral_Ankle_Exo_Mux1_p(real_T rtu_x1, real_T rtu_x2, real_T rtu_x3,
 
 /*
  * Output and update for atomic system:
- *    '<S13>/MATLAB Function'
  *    '<S14>/MATLAB Function'
+ *    '<S15>/MATLAB Function'
  */
 void Bilateral_Ankle__MATLABFunction(const real_T rtu_torque[2], const real_T
   rtu_motor[3], real_T rtu_motor_vel_cmd, B_MATLABFunction_Bilateral_An_T
   *localB, real_T rtp_MAX_MOTOR_ANGLE, real_T rtp_MAX_SPEED, real_T
   rtp_MAX_TORQUE, real_T rtp_MIN_MOTOR_ANGLE)
 {
-  /* MATLAB Function 'Control Module/Motor_L/MATLAB Function': '<S18>:1' */
-  /* '<S18>:1:3' */
-  /* '<S18>:1:4' */
+  /* MATLAB Function 'Control Module/Motor_L/MATLAB Function': '<S19>:1' */
+  /* '<S19>:1:3' */
+  /* '<S19>:1:4' */
   if (rtu_torque[0] > rtp_MAX_TORQUE) {
-    /* '<S18>:1:6' */
-    /* '<S18>:1:7' */
+    /* '<S19>:1:6' */
+    /* '<S19>:1:7' */
     localB->vel = 0.0;
   } else if (rtu_motor[0] > rtp_MAX_MOTOR_ANGLE) {
-    /* '<S18>:1:8' */
-    /* '<S18>:1:9' */
+    /* '<S19>:1:8' */
+    /* '<S19>:1:9' */
     localB->vel = 0.0;
   } else if (rtu_motor[0] < rtp_MIN_MOTOR_ANGLE) {
-    /* '<S18>:1:10' */
-    /* '<S18>:1:11' */
+    /* '<S19>:1:10' */
+    /* '<S19>:1:11' */
     localB->vel = 0.0;
   } else if (rtu_motor_vel_cmd > rtp_MAX_SPEED) {
-    /* '<S18>:1:12' */
-    /* '<S18>:1:13' */
+    /* '<S19>:1:12' */
+    /* '<S19>:1:13' */
     localB->vel = rtp_MAX_SPEED;
   } else if (rtu_motor_vel_cmd < -rtp_MAX_SPEED) {
-    /* '<S18>:1:14' */
-    /* '<S18>:1:15' */
+    /* '<S19>:1:14' */
+    /* '<S19>:1:15' */
     localB->vel = -rtp_MAX_SPEED;
   } else {
-    /* '<S18>:1:17' */
+    /* '<S19>:1:17' */
     localB->vel = rtu_motor_vel_cmd;
   }
 }
@@ -296,7 +417,7 @@ real_T rt_powd_snf(real_T u0, real_T u1)
   return y;
 }
 
-/* Function for MATLAB Function: '<S1>/Torque Track L' */
+/* Function for MATLAB Function: '<S2>/Torque Track L' */
 static void Bilateral_Ankle_Exo_mldivide(const real_T A[16], real_T B[4])
 {
   real_T b_A[16];
@@ -440,7 +561,7 @@ static void Bilateral_Ankle_Exo_mldivide(const real_T A[16], real_T B[4])
   }
 }
 
-/* Function for MATLAB Function: '<S1>/Torque Track L' */
+/* Function for MATLAB Function: '<S2>/Torque Track L' */
 static void Bilateral_Ankle_Exo_power(const real_T a_data[], const int32_T
   a_size[2], real_T y_data[], int32_T y_size[2])
 {
@@ -466,7 +587,7 @@ static void Bilateral_Ankle_Exo_power(const real_T a_data[], const int32_T
   }
 }
 
-/* Function for MATLAB Function: '<S1>/Torque Track L' */
+/* Function for MATLAB Function: '<S2>/Torque Track L' */
 static void Bilateral_Ankle_Exo_power_e(const real_T a_data[], const int32_T
   a_size[2], real_T y_data[], int32_T y_size[2])
 {
@@ -492,7 +613,7 @@ static void Bilateral_Ankle_Exo_power_e(const real_T a_data[], const int32_T
   }
 }
 
-/* Function for MATLAB Function: '<S1>/Torque Track R' */
+/* Function for MATLAB Function: '<S2>/Torque Track R' */
 static void Bilateral_Ankle_Exo_mldivide_l(const real_T A[16], real_T B[4])
 {
   real_T b_A[16];
@@ -636,7 +757,7 @@ static void Bilateral_Ankle_Exo_mldivide_l(const real_T A[16], real_T B[4])
   }
 }
 
-/* Function for MATLAB Function: '<S1>/Torque Track R' */
+/* Function for MATLAB Function: '<S2>/Torque Track R' */
 static void Bilateral_Ankle_Exo_power_j(const real_T a_data[], const int32_T
   a_size[2], real_T y_data[], int32_T y_size[2])
 {
@@ -662,7 +783,7 @@ static void Bilateral_Ankle_Exo_power_j(const real_T a_data[], const int32_T
   }
 }
 
-/* Function for MATLAB Function: '<S1>/Torque Track R' */
+/* Function for MATLAB Function: '<S2>/Torque Track R' */
 static void Bilateral_Ankle_Exo_power_ju(const real_T a_data[], const int32_T
   a_size[2], real_T y_data[], int32_T y_size[2])
 {
@@ -691,35 +812,35 @@ static void Bilateral_Ankle_Exo_power_ju(const real_T a_data[], const int32_T
 /* System initialize for function-call system: '<Root>/Control Module' */
 void Bilateral_An_ControlModule_Init(void)
 {
-  /* SystemInitialize for MATLAB Function: '<S1>/LRN_L' */
+  /* SystemInitialize for MATLAB Function: '<S2>/LRN_L' */
   Bilateral_Ankle_Exo_DW.last_footstate_not_empty_o = false;
   Bilateral_Ankle_Exo_DW.last_footstate_g = 0.0;
 
-  /* SystemInitialize for MATLAB Function: '<S1>/Torque Track L' */
+  /* SystemInitialize for MATLAB Function: '<S2>/Torque Track L' */
   Bilateral_Ankle_Exo_DW.last_footstate_h = 0.0;
 
-  /* SystemInitialize for MATLAB Function: '<S1>/Controller_L' */
+  /* SystemInitialize for MATLAB Function: '<S2>/Controller_L' */
   Bilateral_Ankle_Exo_DW.calib_state_p = 0.0;
   Bilateral_Ankle_Exo_DW.smooth_filter_b = 0.0;
 
-  /* SystemInitialize for MATLAB Function: '<S1>/Torque Track R' */
+  /* SystemInitialize for MATLAB Function: '<S2>/Torque Track R' */
   Bilateral_Ankle_Exo_DW.last_footstate = 0.0;
 
-  /* SystemInitialize for MATLAB Function: '<S1>/LRN_R' */
+  /* SystemInitialize for MATLAB Function: '<S2>/LRN_R' */
   Bilateral_Ankle_Exo_DW.last_footstate_not_empty = false;
   Bilateral_Ankle_Exo_DW.last_footstate_a = 0.0;
 
-  /* SystemInitialize for MATLAB Function: '<S1>/LRN_L' */
+  /* SystemInitialize for MATLAB Function: '<S2>/LRN_L' */
   memset(&Bilateral_Ankle_Exo_DW.torque_error_memory_h[0], 0, 1000U * sizeof
          (real_T));
   memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[0], 0, 1000U * sizeof(real_T));
 
-  /* SystemInitialize for MATLAB Function: '<S1>/LRN_R' */
+  /* SystemInitialize for MATLAB Function: '<S2>/LRN_R' */
   memset(&Bilateral_Ankle_Exo_DW.torque_error_memory[0], 0, 1000U * sizeof
          (real_T));
   memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory[0], 0, 1000U * sizeof(real_T));
 
-  /* SystemInitialize for MATLAB Function: '<S1>/Controller_R' */
+  /* SystemInitialize for MATLAB Function: '<S2>/Controller_R' */
   Bilateral_Ankle_Exo_DW.calib_state = 0.0;
   Bilateral_Ankle_Exo_DW.smooth_filter = 0.0;
 }
@@ -727,35 +848,35 @@ void Bilateral_An_ControlModule_Init(void)
 /* System reset for function-call system: '<Root>/Control Module' */
 void Bilateral_A_ControlModule_Reset(void)
 {
-  /* SystemReset for MATLAB Function: '<S1>/LRN_L' */
+  /* SystemReset for MATLAB Function: '<S2>/LRN_L' */
   Bilateral_Ankle_Exo_DW.last_footstate_not_empty_o = false;
   Bilateral_Ankle_Exo_DW.last_footstate_g = 0.0;
 
-  /* SystemReset for MATLAB Function: '<S1>/Torque Track L' */
+  /* SystemReset for MATLAB Function: '<S2>/Torque Track L' */
   Bilateral_Ankle_Exo_DW.last_footstate_h = 0.0;
 
-  /* SystemReset for MATLAB Function: '<S1>/Controller_L' */
+  /* SystemReset for MATLAB Function: '<S2>/Controller_L' */
   Bilateral_Ankle_Exo_DW.calib_state_p = 0.0;
   Bilateral_Ankle_Exo_DW.smooth_filter_b = 0.0;
 
-  /* SystemReset for MATLAB Function: '<S1>/Torque Track R' */
+  /* SystemReset for MATLAB Function: '<S2>/Torque Track R' */
   Bilateral_Ankle_Exo_DW.last_footstate = 0.0;
 
-  /* SystemReset for MATLAB Function: '<S1>/LRN_R' */
+  /* SystemReset for MATLAB Function: '<S2>/LRN_R' */
   Bilateral_Ankle_Exo_DW.last_footstate_not_empty = false;
   Bilateral_Ankle_Exo_DW.last_footstate_a = 0.0;
 
-  /* SystemReset for MATLAB Function: '<S1>/LRN_L' */
+  /* SystemReset for MATLAB Function: '<S2>/LRN_L' */
   memset(&Bilateral_Ankle_Exo_DW.torque_error_memory_h[0], 0, 1000U * sizeof
          (real_T));
   memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[0], 0, 1000U * sizeof(real_T));
 
-  /* SystemReset for MATLAB Function: '<S1>/LRN_R' */
+  /* SystemReset for MATLAB Function: '<S2>/LRN_R' */
   memset(&Bilateral_Ankle_Exo_DW.torque_error_memory[0], 0, 1000U * sizeof
          (real_T));
   memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory[0], 0, 1000U * sizeof(real_T));
 
-  /* SystemReset for MATLAB Function: '<S1>/Controller_R' */
+  /* SystemReset for MATLAB Function: '<S2>/Controller_R' */
   Bilateral_Ankle_Exo_DW.calib_state = 0.0;
   Bilateral_Ankle_Exo_DW.smooth_filter = 0.0;
 }
@@ -767,16 +888,20 @@ void Bilateral_Ankle_E_ControlModule(void)
   real_T mode;
   real_T footstate;
   real_T peak_torque;
+  real_T transit_torque;
+  real_T maintain_torque;
   real_T torque_measure;
   real_T troque_delta;
   real_T index_peak;
   real_T index_rise;
   real_T index_fall;
   real_T parm1[4];
-  real_T c;
-  int32_T e;
-  int32_T g;
-  int32_T i;
+  real_T index_transit;
+  real_T parm3[4];
+  real_T yc;
+  int32_T bd;
+  int32_T dd;
+  int32_T fd;
   int32_T b_n;
   int32_T br;
   int32_T ar;
@@ -795,1382 +920,27 @@ void Bilateral_Ankle_E_ControlModule(void)
   int32_T tmp_size_7[2];
   int32_T tmp_size_8[2];
   int32_T tmp_size_9[2];
+  int32_T tmp_size_a[2];
+  int32_T tmp_size_b[2];
+  int32_T tmp_size_c[2];
+  int32_T tmp_size_d[2];
+  int32_T tmp_size_e[2];
+  int32_T tmp_size_f[2];
+  int32_T tmp_size_g[2];
+  int32_T tmp_size_h[2];
   int32_T tmp_size_idx_1;
   int16_T tmp_0;
   int32_T q1;
 
-  /* MATLAB Function: '<S1>/LRN_L' */
-  /* MATLAB Function 'Control Module/LRN_L': '<S11>:1' */
+  /* MATLAB Function: '<S2>/LRN_L' */
+  /* MATLAB Function 'Control Module/LRN_L': '<S12>:1' */
   if (!Bilateral_Ankle_Exo_DW.last_footstate_not_empty_o) {
-    /* '<S11>:1:10' */
+    /* '<S12>:1:10' */
     Bilateral_Ankle_Exo_DW.last_footstate_not_empty_o = true;
 
-    /* '<S11>:1:14' */
+    /* '<S12>:1:14' */
     Bilateral_Ankle_Exo_DW.last_torque_parm_m[0] = Bilateral_Ankle_Exo_B.RT3[0];
     Bilateral_Ankle_Exo_DW.last_torque_parm_m[1] = Bilateral_Ankle_Exo_B.RT3[2];
-  }
-
-  /* '<S11>:1:18' */
-  /* '<S11>:1:22' */
-  /* '<S11>:1:25' */
-  /* '<S11>:1:26' */
-  /* '<S11>:1:28' */
-  /* '<S11>:1:30' */
-  /* '<S11>:1:32' */
-  stride_index = Bilateral_Ankle_Exo_B.RT7[3] * 500.0 + 1.0;
-  if (stride_index > 750.0) {
-    /* '<S11>:1:33' */
-    /* '<S11>:1:34' */
-    stride_index = 750.0;
-  }
-
-  if ((Bilateral_Ankle_Exo_DW.last_footstate_g == 0.0) &&
-      (Bilateral_Ankle_Exo_B.RT7[1] == 1.0) && (Bilateral_Ankle_Exo_B.RT7[0] ==
-       2.0) && Bilateral_Ankle_Exo_P.LRN_L_BT_LRN_ON_L) {
-    /* '<S11>:1:37' */
-    /* '<S11>:1:38' */
-    /* '<S11>:1:39' */
-    mode = 1.0 - Bilateral_Ankle_Exo_P.LRN_L_error_filter_k_l;
-
-    /* '<S11>:1:40' */
-    footstate = Bilateral_Ankle_Exo_B.RT2[2];
-    for (g = 0; g < 750; g++) {
-      peak_torque = (Bilateral_Ankle_Exo_DW.TorqueMem_L[g << 2] -
-                     Bilateral_Ankle_Exo_DW.TorqueMem_L[(g << 2) + 1]) *
-        Bilateral_Ankle_Exo_P.LRN_L_error_filter_k_l + mode *
-        Bilateral_Ankle_Exo_DW.torque_error_memory_h[g];
-      Bilateral_Ankle_Exo_DW.torque_error_memory_h[g] = peak_torque;
-      Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[g] =
-        Bilateral_Ankle_Exo_P.LRN_L_lrn_shrink_l *
-        Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[g] + footstate *
-        Bilateral_Ankle_Exo_DW.torque_error_memory_h[g];
-    }
-  }
-
-  if (Bilateral_Ankle_Exo_P.LRN_L_BT_LRN_CLEAR_L ||
-      (Bilateral_Ankle_Exo_DW.last_torque_parm_m[0] !=
-       Bilateral_Ankle_Exo_B.RT3[0]) ||
-      (Bilateral_Ankle_Exo_DW.last_torque_parm_m[1] !=
-       Bilateral_Ankle_Exo_B.RT3[2])) {
-    /* '<S11>:1:43' */
-    /* '<S11>:1:44' */
-    /* '<S11>:1:45' */
-    memset(&Bilateral_Ankle_Exo_DW.torque_error_memory_h[0], 0, 1000U * sizeof
-           (real_T));
-    memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[0], 0, 1000U * sizeof(real_T));
-  }
-
-  if (Bilateral_Ankle_Exo_B.RT7[0] == 2.0) {
-    /* '<S11>:1:48' */
-    q1 = Bilateral_Ankle_Exo_P.LRN_L_time_delay_l;
-    if (q1 < -2147482897) {
-      q1 = MAX_int32_T;
-    } else {
-      q1 = 750 - q1;
-    }
-
-    if (stride_index >= q1) {
-      /* '<S11>:1:49' */
-      /* '<S11>:1:50' */
-      Bilateral_Ankle_Exo_B.lrn_cmd_l = 0.0;
-    } else {
-      /* '<S11>:1:52' */
-      mode = rt_roundd_snf(stride_index + (real_T)
-                           Bilateral_Ankle_Exo_P.LRN_L_time_delay_l);
-      if (mode < 2.147483648E+9) {
-        if (mode >= -2.147483648E+9) {
-          g = (int32_T)mode;
-        } else {
-          g = MIN_int32_T;
-        }
-      } else {
-        g = MAX_int32_T;
-      }
-
-      Bilateral_Ankle_Exo_B.lrn_cmd_l =
-        Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[g - 1];
-    }
-  } else {
-    /* '<S11>:1:55' */
-    Bilateral_Ankle_Exo_B.lrn_cmd_l = 0.0;
-  }
-
-  /* '<S11>:1:58' */
-  Bilateral_Ankle_Exo_DW.last_footstate_g = Bilateral_Ankle_Exo_B.RT7[1];
-
-  /* '<S11>:1:59' */
-  Bilateral_Ankle_Exo_DW.last_torque_parm_m[0] = Bilateral_Ankle_Exo_B.RT3[0];
-  Bilateral_Ankle_Exo_DW.last_torque_parm_m[1] = Bilateral_Ankle_Exo_B.RT3[2];
-
-  /* '<S11>:1:60' */
-  memcpy(&Bilateral_Ankle_Exo_B.lrn_mem_l[0],
-         &Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[0], 750U * sizeof(real_T));
-
-  /* End of MATLAB Function: '<S1>/LRN_L' */
-
-  /* MATLAB Function: '<S1>/Torque Track L' incorporates:
-   *  Constant: '<S1>/torque_offset'
-   */
-  /* MATLAB Function 'Control Module/Torque Track L': '<S15>:1' */
-  /* '<S15>:1:43' */
-  /* '<S15>:1:19' */
-  mode = Bilateral_Ankle_Exo_B.RT7[0];
-
-  /* '<S15>:1:20' */
-  footstate = Bilateral_Ankle_Exo_B.RT7[1];
-
-  /* '<S15>:1:21' */
-  /* '<S15>:1:22' */
-  /* '<S15>:1:24' */
-  peak_torque = Bilateral_Ankle_Exo_B.RT3[0];
-
-  /* '<S15>:1:25' */
-  /* '<S15>:1:26' */
-  /* '<S15>:1:27' */
-  /* '<S15>:1:29' */
-  torque_measure = Bilateral_Ankle_Exo_B.RT8[0];
-
-  /* '<S15>:1:30' */
-  troque_delta = Bilateral_Ankle_Exo_B.RT8[1];
-
-  /* '<S15>:1:31' */
-  stride_index = Bilateral_Ankle_Exo_B.RT7[3] * 500.0 + 1.0;
-  if (stride_index > 750.0) {
-    /* '<S15>:1:32' */
-    /* '<S15>:1:33' */
-    stride_index = 750.0;
-  }
-
-  if ((Bilateral_Ankle_Exo_DW.last_footstate_h == 0.0) &&
-      (Bilateral_Ankle_Exo_B.RT7[1] == 1.0) && ((Bilateral_Ankle_Exo_B.RT7[0] ==
-        2.0) || (Bilateral_Ankle_Exo_B.RT7[0] == 1.0))) {
-    /* '<S15>:1:37' */
-    /* '<S15>:1:39' */
-    /* '<S15>:1:41' */
-    memset(&Bilateral_Ankle_Exo_B.torque_track[0], 0, 750U * sizeof(real_T));
-    memset(&Bilateral_Ankle_Exo_B.torque_delta_track[0], 0, 750U * sizeof(real_T));
-
-    /* '<S15>:1:42' */
-    /* '<S15>:1:43' */
-    /* '<S15>:1:44' */
-    index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
-                       Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
-
-    /* '<S15>:1:45' */
-    index_rise = index_peak - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
-      Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
-
-    /* '<S15>:1:46' */
-    index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
-                       Bilateral_Ankle_Exo_B.RT7[2] * 500.0) + index_peak;
-    if (1.0 > index_rise - 1.0) {
-      q1 = 0;
-    } else {
-      q1 = (int32_T)(index_rise - 1.0);
-    }
-
-    /* '<S15>:1:49' */
-    for (g = 0; g < q1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = (real_T)(int16_T)(1 + (int16_T)g) /
-        index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
-    }
-
-    if (0 <= q1 - 1) {
-      memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
-             &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
-    }
-
-    /* '<S15>:1:53' */
-    /* '<S15>:1:57' */
-    /* '<S15>:1:58' */
-    parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
-    parm1[1] = Bilateral_Ankle_Exo_B.RT3[0];
-    parm1[2] = 0.0;
-    parm1[3] = 0.0;
-    tmp[0] = 1.0;
-    tmp[4] = index_rise;
-    tmp[8] = index_rise * index_rise;
-    tmp[12] = rt_powd_snf(index_rise, 3.0);
-    tmp[1] = 1.0;
-    tmp[5] = index_peak;
-    tmp[9] = index_peak * index_peak;
-    tmp[13] = rt_powd_snf(index_peak, 3.0);
-    tmp[2] = 0.0;
-    tmp[6] = 1.0;
-    tmp[10] = 2.0 * index_rise;
-    tmp[14] = index_rise * index_rise * 3.0;
-    tmp[3] = 0.0;
-    tmp[7] = 1.0;
-    tmp[11] = 2.0 * index_peak;
-    tmp[15] = index_peak * index_peak * 3.0;
-    Bilateral_Ankle_Exo_mldivide(tmp, parm1);
-    c = index_peak - index_rise;
-    if (1.0 > c) {
-      b_n = 0;
-    } else {
-      b_n = (int32_T)c;
-    }
-
-    if (index_rise > index_peak - 1.0) {
-      br = 1;
-      e = 0;
-      ar = 0;
-      g = 0;
-      ia = 0;
-      i = 0;
-      q1 = 0;
-    } else {
-      br = (int32_T)index_rise;
-      e = (int32_T)(index_peak - 1.0);
-      ar = (int32_T)index_rise - 1;
-      g = (int32_T)(index_peak - 1.0);
-      ia = (int32_T)index_rise - 1;
-      i = (int32_T)(index_peak - 1.0);
-      q1 = (int32_T)index_rise - 1;
-    }
-
-    tmp_size_idx_1 = g - ar;
-    loop_ub = g - ar;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ar + g) + 1);
-    }
-
-    tmp_size_7[0] = 1;
-    tmp_size_7[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_7,
-      Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_8);
-    tmp_size_idx_1 = i - ia;
-    loop_ub = i - ia;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ia + g) + 1);
-    }
-
-    tmp_size_9[0] = 1;
-    tmp_size_9[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_9,
-      Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_7);
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[g << 2] = 1.0;
-    }
-
-    loop_ub = e - br;
-    for (g = 0; g <= loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[1 + (g << 2)] = (int16_T)((int16_T)((br + g)
-        - 1) + 1);
-    }
-
-    loop_ub = tmp_size_8[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_8[0] * g];
-    }
-
-    loop_ub = tmp_size_7[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_7[0] * g];
-    }
-
-    br = b_n;
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.result_data[g << 2] =
-        Bilateral_Ankle_Exo_B.tmp_data[g << 2];
-      Bilateral_Ankle_Exo_B.result_data[1 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 1];
-      Bilateral_Ankle_Exo_B.result_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 2];
-      Bilateral_Ankle_Exo_B.result_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 3];
-    }
-
-    tmp_0 = (int16_T)br;
-    tmp_size_idx_1 = tmp_0;
-    b_n = br - 1;
-    if (0 <= tmp_size_idx_1 - 1) {
-      memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
-             (real_T));
-    }
-
-    if (br != 0) {
-      for (br = 1; br - 1 <= b_n; br++) {
-        for (e = br; e <= br; e++) {
-          Bilateral_Ankle_Exo_B.tmp_data_cx[e - 1] = 0.0;
-        }
-      }
-
-      br = 0;
-      for (e = 0; e <= b_n; e++) {
-        ar = -1;
-        for (g = br; g + 1 <= br + 4; g++) {
-          if (Bilateral_Ankle_Exo_B.result_data[g] != 0.0) {
-            ia = ar;
-            for (i = e; i + 1 <= e + 1; i++) {
-              ia++;
-              Bilateral_Ankle_Exo_B.tmp_data_cx[i] +=
-                Bilateral_Ankle_Exo_B.result_data[g] * parm1[ia];
-            }
-          }
-
-          ar++;
-        }
-
-        br += 4;
-      }
-    }
-
-    /* '<S15>:1:59' */
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.torque_track[q1 + g] =
-        Bilateral_Ankle_Exo_B.tmp_data_cx[g];
-    }
-
-    c = index_peak - index_rise;
-    if (1.0 > c) {
-      b_n = 0;
-    } else {
-      b_n = (int32_T)c;
-    }
-
-    if (index_rise > index_peak - 1.0) {
-      br = 1;
-      e = 0;
-      ar = 0;
-      g = 0;
-      q1 = 0;
-    } else {
-      br = (int32_T)index_rise;
-      e = (int32_T)(index_peak - 1.0);
-      ar = (int32_T)index_rise - 1;
-      g = (int32_T)(index_peak - 1.0);
-      q1 = (int32_T)index_rise - 1;
-    }
-
-    tmp_size_idx_1 = g - ar;
-    loop_ub = g - ar;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ar + g) + 1);
-    }
-
-    tmp_size_6[0] = 1;
-    tmp_size_6[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_6,
-      Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_7);
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_m[3 * g] = 1.0;
-    }
-
-    loop_ub = e - br;
-    for (g = 0; g <= loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * g] = (real_T)(int16_T)((int16_T)
-        ((br + g) - 1) + 1) * 2.0;
-    }
-
-    loop_ub = tmp_size_7[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_7[0] * g] * 3.0;
-    }
-
-    br = b_n;
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.b_result_data[3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_m[3 * g];
-      Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_m[3 * g + 1];
-      Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_m[3 * g + 2];
-    }
-
-    tmp_0 = (int16_T)br;
-    tmp_size_idx_1 = tmp_0;
-    b_n = br - 1;
-    if (0 <= tmp_size_idx_1 - 1) {
-      memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
-             (real_T));
-    }
-
-    if (br != 0) {
-      for (br = 1; br - 1 <= b_n; br++) {
-        for (e = br; e <= br; e++) {
-          Bilateral_Ankle_Exo_B.tmp_data_cx[e - 1] = 0.0;
-        }
-      }
-
-      br = 0;
-      for (e = 0; e <= b_n; e++) {
-        ar = -1;
-        for (g = br; g + 1 <= br + 3; g++) {
-          if (Bilateral_Ankle_Exo_B.b_result_data[g] != 0.0) {
-            ia = ar;
-            for (i = e; i + 1 <= e + 1; i++) {
-              ia++;
-              Bilateral_Ankle_Exo_B.tmp_data_cx[i] += parm1[1 + ia] *
-                Bilateral_Ankle_Exo_B.b_result_data[g];
-            }
-          }
-
-          ar++;
-        }
-
-        br += 3;
-      }
-    }
-
-    /* '<S15>:1:60' */
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.torque_delta_track[q1 + g] =
-        Bilateral_Ankle_Exo_B.tmp_data_cx[g] * 500.0;
-    }
-
-    /* '<S15>:1:63' */
-    /* '<S15>:1:67' */
-    /* '<S15>:1:68' */
-    parm1[0] = peak_torque;
-    parm1[1] = 0.0;
-    parm1[2] = 0.0;
-    parm1[3] = 0.0;
-    tmp[0] = 1.0;
-    tmp[4] = index_peak;
-    tmp[8] = index_peak * index_peak;
-    tmp[12] = rt_powd_snf(index_peak, 3.0);
-    tmp[1] = 1.0;
-    tmp[5] = index_fall;
-    tmp[9] = index_fall * index_fall;
-    tmp[13] = rt_powd_snf(index_fall, 3.0);
-    tmp[2] = 0.0;
-    tmp[6] = 1.0;
-    tmp[10] = 2.0 * index_peak;
-    tmp[14] = index_peak * index_peak * 3.0;
-    tmp[3] = 0.0;
-    tmp[7] = 1.0;
-    tmp[11] = 2.0 * index_fall;
-    tmp[15] = index_fall * index_fall * 3.0;
-    Bilateral_Ankle_Exo_mldivide(tmp, parm1);
-    peak_torque = (index_fall + 1.0) - index_peak;
-    if (1.0 > peak_torque) {
-      b_n = 0;
-    } else {
-      b_n = (int32_T)peak_torque;
-    }
-
-    if (index_peak > index_fall) {
-      br = 1;
-      e = 0;
-      ar = 0;
-      g = 0;
-      ia = 0;
-      i = 0;
-      q1 = 0;
-    } else {
-      br = (int32_T)index_peak;
-      e = (int32_T)index_fall;
-      ar = (int32_T)index_peak - 1;
-      g = (int32_T)index_fall;
-      ia = (int32_T)index_peak - 1;
-      i = (int32_T)index_fall;
-      q1 = (int32_T)index_peak - 1;
-    }
-
-    tmp_size_idx_1 = g - ar;
-    loop_ub = g - ar;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ar + g) + 1);
-    }
-
-    tmp_size_4[0] = 1;
-    tmp_size_4[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_4,
-      Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_7);
-    tmp_size_idx_1 = i - ia;
-    loop_ub = i - ia;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ia + g) + 1);
-    }
-
-    tmp_size_5[0] = 1;
-    tmp_size_5[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_5,
-      Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_8);
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[g << 2] = 1.0;
-    }
-
-    loop_ub = e - br;
-    for (g = 0; g <= loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[1 + (g << 2)] = (int16_T)((int16_T)((br + g)
-        - 1) + 1);
-    }
-
-    loop_ub = tmp_size_7[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_7[0] * g];
-    }
-
-    loop_ub = tmp_size_8[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_8[0] * g];
-    }
-
-    br = b_n;
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.result_data[g << 2] =
-        Bilateral_Ankle_Exo_B.tmp_data[g << 2];
-      Bilateral_Ankle_Exo_B.result_data[1 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 1];
-      Bilateral_Ankle_Exo_B.result_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 2];
-      Bilateral_Ankle_Exo_B.result_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 3];
-    }
-
-    tmp_0 = (int16_T)br;
-    tmp_size_idx_1 = tmp_0;
-    b_n = br - 1;
-    if (0 <= tmp_size_idx_1 - 1) {
-      memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
-             (real_T));
-    }
-
-    if (br != 0) {
-      for (br = 1; br - 1 <= b_n; br++) {
-        for (e = br; e <= br; e++) {
-          Bilateral_Ankle_Exo_B.tmp_data_cx[e - 1] = 0.0;
-        }
-      }
-
-      br = 0;
-      for (e = 0; e <= b_n; e++) {
-        ar = -1;
-        for (g = br; g + 1 <= br + 4; g++) {
-          if (Bilateral_Ankle_Exo_B.result_data[g] != 0.0) {
-            ia = ar;
-            for (i = e; i + 1 <= e + 1; i++) {
-              ia++;
-              Bilateral_Ankle_Exo_B.tmp_data_cx[i] +=
-                Bilateral_Ankle_Exo_B.result_data[g] * parm1[ia];
-            }
-          }
-
-          ar++;
-        }
-
-        br += 4;
-      }
-    }
-
-    /* '<S15>:1:69' */
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.torque_track[q1 + g] =
-        Bilateral_Ankle_Exo_B.tmp_data_cx[g];
-    }
-
-    /* '<S15>:1:72' */
-    /* '<S15>:1:74' */
-    for (g = 0; g < 750; g++) {
-      Bilateral_Ankle_Exo_DW.TorqueMem_L[g << 2] =
-        Bilateral_Ankle_Exo_B.torque_track[g];
-      Bilateral_Ankle_Exo_DW.TorqueMem_L[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.torque_delta_track[g];
-    }
-  }
-
-  /* '<S15>:1:78' */
-  Bilateral_Ankle_Exo_DW.last_footstate_h = footstate;
-
-  /* '<S15>:1:79' */
-  Bilateral_Ankle_Exo_DW.TorqueMem_L[1 + (((int32_T)stride_index - 1) << 2)] =
-    torque_measure;
-
-  /* '<S15>:1:80' */
-  Bilateral_Ankle_Exo_DW.TorqueMem_L[3 + (((int32_T)stride_index - 1) << 2)] =
-    troque_delta;
-  if (mode == 2.0) {
-    /* '<S15>:1:82' */
-    /* '<S15>:1:83' */
-    mode = Bilateral_Ankle_Exo_DW.TorqueMem_L[((int32_T)stride_index - 1) << 2];
-
-    /* '<S15>:1:84' */
-    stride_index = Bilateral_Ankle_Exo_DW.TorqueMem_L[(((int32_T)stride_index -
-      1) << 2) + 2];
-  } else {
-    /* '<S15>:1:86' */
-    mode = 0.0;
-
-    /* '<S15>:1:87' */
-    stride_index = 0.0;
-  }
-
-  /* '<S15>:1:90' */
-  /* '<S15>:1:91' */
-  /* '<S15>:1:92' */
-  Bilateral_Ankle_Exo_B.torque_des_l = mode;
-  Bilateral_Ankle_Exo_B.torque_delta_des_l = stride_index;
-  for (g = 0; g < 750; g++) {
-    Bilateral_Ankle_Exo_B.torque_trace_l[g << 1] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_L[g << 2];
-    Bilateral_Ankle_Exo_B.torque_trace_l[1 + (g << 1)] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_L[(g << 2) + 1];
-  }
-
-  for (g = 0; g < 750; g++) {
-    Bilateral_Ankle_Exo_B.torque_delta_trace_l[g << 1] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_L[(g << 2) + 2];
-    Bilateral_Ankle_Exo_B.torque_delta_trace_l[1 + (g << 1)] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_L[(g << 2) + 3];
-  }
-
-  Bilateral_Ankle_Exo_B.torque_error_l[0] = mode - Bilateral_Ankle_Exo_B.RT8[0];
-  Bilateral_Ankle_Exo_B.torque_error_l[1] = mode - Bilateral_Ankle_Exo_B.RT8[1];
-
-  /* End of MATLAB Function: '<S1>/Torque Track L' */
-
-  /* MATLAB Function: '<S1>/Controller_L' */
-  /* MATLAB Function 'Control Module/Controller_L': '<S9>:1' */
-  /* '<S9>:1:25' */
-  /* '<S9>:1:26' */
-  /* '<S9>:1:28' */
-  /* '<S9>:1:29' */
-  /* '<S9>:1:30' */
-  /* '<S9>:1:31' */
-  /* '<S9>:1:34' */
-  /* '<S9>:1:35' */
-  /* '<S9>:1:39' */
-  /* '<S9>:1:40' */
-  /* '<S9>:1:41' */
-  /* '<S9>:1:44' */
-  /* '<S9>:1:45' */
-  /* '<S9>:1:49' */
-  /* '<S9>:1:50' */
-  /* '<S9>:1:51' */
-  /* '<S9>:1:52' */
-  /* '<S9>:1:53' */
-  switch ((int32_T)Bilateral_Ankle_Exo_B.RT7[0]) {
-   case 1:
-    /* '<S9>:1:58' */
-    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
-
-    /* '<S9>:1:59' */
-    Bilateral_Ankle_Exo_DW.calib_state_p = 0.0;
-    break;
-
-   case 3:
-    /* '<S9>:1:62' */
-    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = -150.0;
-    break;
-
-   case 4:
-    if ((Bilateral_Ankle_Exo_DW.calib_state_p == 0.0) &&
-        (Bilateral_Ankle_Exo_B.RT8[0] < 5.0)) {
-      /* '<S9>:1:65' */
-      /* '<S9>:1:66' */
-      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 150.0;
-    } else if ((Bilateral_Ankle_Exo_DW.calib_state_p == 0.0) &&
-               (Bilateral_Ankle_Exo_B.RT8[0] > 5.0)) {
-      /* '<S9>:1:67' */
-      /* '<S9>:1:68' */
-      Bilateral_Ankle_Exo_DW.calib_state_p = 1.0;
-
-      /* '<S9>:1:69' */
-      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
-
-      /* '<S9>:1:70' */
-      /* '<S9>:1:71' */
-      Bilateral_Ankle_Exo_DW.ParmReg_L[1] = (Bilateral_Ankle_Exo_DW.ParmReg_L[1]
-        + Bilateral_Ankle_Exo_B.RT10[0]) - 20.0;
-    } else {
-      /* '<S9>:1:73' */
-      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
-    }
-    break;
-
-   case 2:
-    /* '<S9>:1:77' */
-    switch (Bilateral_Ankle_Exo_P.Controller_L_MODE_L) {
-     case 1:
-      /* '<S9>:1:80' */
-      /* '<S9>:1:81' */
-      /* '<S9>:1:82' */
-      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = (((Bilateral_Ankle_Exo_B.RT9[0] -
-        Bilateral_Ankle_Exo_P.Controller_L_FOLLOW_SLACK_ANGLE) -
-        Bilateral_Ankle_Exo_B.RT10[0] * 0.37037037037037035) *
-        Bilateral_Ankle_Exo_B.RT2[3] + Bilateral_Ankle_Exo_B.RT9[1] *
-        0.37037037037037035 * Bilateral_Ankle_Exo_B.RT2[4]) * 5.0 / 0.05;
-      break;
-
-     case 2:
-      if (Bilateral_Ankle_Exo_B.RT7[1] == 1.0) {
-        /* '<S9>:1:85' */
-        /* '<S9>:1:86' */
-        /* '<S9>:1:87' */
-        /* '<S9>:1:88' */
-        /* '<S9>:1:90' */
-        /* '<S9>:1:91' */
-        if (Bilateral_Ankle_Exo_B.torque_des_l < 0.001) {
-          /* '<S9>:1:94' */
-          /* '<S9>:1:95' */
-          Bilateral_Ankle_Exo_DW.smooth_filter_b += 0.05;
-          if (Bilateral_Ankle_Exo_DW.smooth_filter_b > 1.0) {
-            /* '<S9>:1:96' */
-            /* '<S9>:1:97' */
-            Bilateral_Ankle_Exo_DW.smooth_filter_b = 1.0;
-          }
-        } else {
-          /* '<S9>:1:100' */
-          Bilateral_Ankle_Exo_DW.smooth_filter_b = 0.0;
-        }
-
-        /* '<S9>:1:103' */
-        Bilateral_Ankle_Exo_B.motor_vel_cmd_l =
-          (((((Bilateral_Ankle_Exo_B.torque_des_l - Bilateral_Ankle_Exo_B.RT8[0])
-              * Bilateral_Ankle_Exo_B.RT2[0] +
-              (Bilateral_Ankle_Exo_B.torque_delta_des_l -
-               Bilateral_Ankle_Exo_B.RT8[1]) * Bilateral_Ankle_Exo_B.RT2[1]) +
-             Bilateral_Ankle_Exo_B.lrn_cmd_l) + Bilateral_Ankle_Exo_B.RT2[5] *
-            Bilateral_Ankle_Exo_B.torque_delta_des_l) * (1.0 -
-            Bilateral_Ankle_Exo_DW.smooth_filter_b) +
-           (((Bilateral_Ankle_Exo_B.RT9[0] -
-              Bilateral_Ankle_Exo_P.Controller_L_FOLLOW_SLACK_ANGLE) -
-             Bilateral_Ankle_Exo_B.RT10[0] * 0.37037037037037035) *
-            Bilateral_Ankle_Exo_B.RT2[3] + Bilateral_Ankle_Exo_B.RT9[1] *
-            0.37037037037037035 * Bilateral_Ankle_Exo_B.RT2[4]) *
-           Bilateral_Ankle_Exo_DW.smooth_filter_b) * 5.0 / 0.05;
-      } else {
-        /* '<S9>:1:107' */
-        Bilateral_Ankle_Exo_DW.smooth_filter_b = 0.0;
-
-        /* '<S9>:1:108' */
-        /* '<S9>:1:109' */
-        /* '<S9>:1:110' */
-        Bilateral_Ankle_Exo_B.motor_vel_cmd_l = (((Bilateral_Ankle_Exo_B.RT9[0]
-          - Bilateral_Ankle_Exo_P.Controller_L_FOLLOW_SLACK_ANGLE) -
-          Bilateral_Ankle_Exo_B.RT10[0] * 0.37037037037037035) *
-          Bilateral_Ankle_Exo_B.RT2[3] + Bilateral_Ankle_Exo_B.RT9[1] *
-          0.37037037037037035 * Bilateral_Ankle_Exo_B.RT2[4]) * 5.0 / 0.05;
-      }
-      break;
-
-     default:
-      /* '<S9>:1:113' */
-      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
-      break;
-    }
-    break;
-
-   case 0:
-    /* '<S9>:1:117' */
-    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
-    break;
-
-   default:
-    /* '<S9>:1:120' */
-    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
-    break;
-  }
-
-  /* End of MATLAB Function: '<S1>/Controller_L' */
-
-  /* MATLAB Function: '<S13>/MATLAB Function' */
-  Bilateral_Ankle__MATLABFunction(Bilateral_Ankle_Exo_B.RT8,
-    Bilateral_Ankle_Exo_B.RT10, Bilateral_Ankle_Exo_B.motor_vel_cmd_l,
-    &Bilateral_Ankle_Exo_B.sf_MATLABFunction_h,
-    Bilateral_Ankle_Exo_P.MATLABFunction_MAX_MOTOR_ANGLE,
-    Bilateral_Ankle_Exo_P.MATLABFunction_MAX_SPEED,
-    Bilateral_Ankle_Exo_P.MATLABFunction_MAX_TORQUE,
-    Bilateral_Ankle_Exo_P.MATLABFunction_MIN_MOTOR_ANGLE);
-
-  /* Gain: '<S13>/Gain2' */
-  Bilateral_Ankle_Exo_B.Gain2_ch = Bilateral_Ankle_Exo_P.Gain2_Gain *
-    Bilateral_Ankle_Exo_B.sf_MATLABFunction_h.vel;
-
-  /* Gain: '<S13>/Gain1' */
-  Bilateral_Ankle_Exo_B.Gain1_la = Bilateral_Ankle_Exo_P.Gain1_Gain *
-    Bilateral_Ankle_Exo_B.Gain2_ch;
-
-  /* S-Function (rti_commonblock): '<S17>/S-Function1' */
-  /* This comment workarounds a code generation problem */
-
-  /* --- Bilateral_Ankle_Exo/Control Module/Motor_L/DAC_CLASS1_BL1 --- */
-  /* --- [RTI120X, DAC C1] - Channel: 16 --- */
-  {
-    /* define variables required for DAC realtime functions */
-    Float64 inportDacData= 0.0;
-    inportDacData = (real_T) Bilateral_Ankle_Exo_B.Gain1_la;
-
-    /* write value of CL1 DAC for output channel 16 */
-    DacCl1AnalogOut_setOutputValue(pRTIDacC1AnalogOut_Ch_16,
-      DAC_CLASS1_CHANNEL_16, inportDacData);
-    DacCl1AnalogOut_write(pRTIDacC1AnalogOut_Ch_16);
-  }
-
-  /* MATLAB Function: '<S1>/Torque Track R' incorporates:
-   *  Constant: '<S1>/torque_offset'
-   */
-  /* MATLAB Function 'Control Module/Torque Track R': '<S16>:1' */
-  /* '<S16>:1:43' */
-  /* '<S16>:1:19' */
-  mode = Bilateral_Ankle_Exo_B.RT1[0];
-
-  /* '<S16>:1:20' */
-  footstate = Bilateral_Ankle_Exo_B.RT1[1];
-
-  /* '<S16>:1:21' */
-  /* '<S16>:1:22' */
-  /* '<S16>:1:24' */
-  peak_torque = Bilateral_Ankle_Exo_B.RT3[0];
-
-  /* '<S16>:1:25' */
-  /* '<S16>:1:26' */
-  /* '<S16>:1:27' */
-  /* '<S16>:1:29' */
-  torque_measure = Bilateral_Ankle_Exo_B.RT4[0];
-
-  /* '<S16>:1:30' */
-  troque_delta = Bilateral_Ankle_Exo_B.RT4[1];
-
-  /* '<S16>:1:31' */
-  stride_index = Bilateral_Ankle_Exo_B.RT1[3] * 500.0 + 1.0;
-  if (stride_index > 750.0) {
-    /* '<S16>:1:32' */
-    /* '<S16>:1:33' */
-    stride_index = 750.0;
-  }
-
-  if ((Bilateral_Ankle_Exo_DW.last_footstate == 0.0) &&
-      (Bilateral_Ankle_Exo_B.RT1[1] == 1.0) && ((Bilateral_Ankle_Exo_B.RT1[0] ==
-        2.0) || (Bilateral_Ankle_Exo_B.RT1[0] == 1.0))) {
-    /* '<S16>:1:37' */
-    /* '<S16>:1:39' */
-    /* '<S16>:1:41' */
-    memset(&Bilateral_Ankle_Exo_B.torque_track[0], 0, 750U * sizeof(real_T));
-    memset(&Bilateral_Ankle_Exo_B.torque_delta_track[0], 0, 750U * sizeof(real_T));
-
-    /* '<S16>:1:42' */
-    /* '<S16>:1:43' */
-    /* '<S16>:1:44' */
-    index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
-                       Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
-
-    /* '<S16>:1:45' */
-    index_rise = index_peak - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
-      Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
-
-    /* '<S16>:1:46' */
-    index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
-                       Bilateral_Ankle_Exo_B.RT1[2] * 500.0) + index_peak;
-    if (1.0 > index_rise - 1.0) {
-      q1 = 0;
-    } else {
-      q1 = (int32_T)(index_rise - 1.0);
-    }
-
-    /* '<S16>:1:49' */
-    for (g = 0; g < q1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = (real_T)(int16_T)(1 + (int16_T)g) /
-        index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
-    }
-
-    if (0 <= q1 - 1) {
-      memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
-             &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
-    }
-
-    /* '<S16>:1:53' */
-    /* '<S16>:1:57' */
-    /* '<S16>:1:58' */
-    parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
-    parm1[1] = Bilateral_Ankle_Exo_B.RT3[0];
-    parm1[2] = 0.0;
-    parm1[3] = 0.0;
-    tmp[0] = 1.0;
-    tmp[4] = index_rise;
-    tmp[8] = index_rise * index_rise;
-    tmp[12] = rt_powd_snf(index_rise, 3.0);
-    tmp[1] = 1.0;
-    tmp[5] = index_peak;
-    tmp[9] = index_peak * index_peak;
-    tmp[13] = rt_powd_snf(index_peak, 3.0);
-    tmp[2] = 0.0;
-    tmp[6] = 1.0;
-    tmp[10] = 2.0 * index_rise;
-    tmp[14] = index_rise * index_rise * 3.0;
-    tmp[3] = 0.0;
-    tmp[7] = 1.0;
-    tmp[11] = 2.0 * index_peak;
-    tmp[15] = index_peak * index_peak * 3.0;
-    Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
-    c = index_peak - index_rise;
-    if (1.0 > c) {
-      b_n = 0;
-    } else {
-      b_n = (int32_T)c;
-    }
-
-    if (index_rise > index_peak - 1.0) {
-      br = 1;
-      e = 0;
-      ar = 0;
-      g = 0;
-      ia = 0;
-      i = 0;
-      q1 = 0;
-    } else {
-      br = (int32_T)index_rise;
-      e = (int32_T)(index_peak - 1.0);
-      ar = (int32_T)index_rise - 1;
-      g = (int32_T)(index_peak - 1.0);
-      ia = (int32_T)index_rise - 1;
-      i = (int32_T)(index_peak - 1.0);
-      q1 = (int32_T)index_rise - 1;
-    }
-
-    tmp_size_idx_1 = g - ar;
-    loop_ub = g - ar;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ar + g) + 1);
-    }
-
-    tmp_size_2[0] = 1;
-    tmp_size_2[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_2,
-      Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_7);
-    tmp_size_idx_1 = i - ia;
-    loop_ub = i - ia;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ia + g) + 1);
-    }
-
-    tmp_size_3[0] = 1;
-    tmp_size_3[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_3,
-      Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_8);
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[g << 2] = 1.0;
-    }
-
-    loop_ub = e - br;
-    for (g = 0; g <= loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[1 + (g << 2)] = (int16_T)((int16_T)((br + g)
-        - 1) + 1);
-    }
-
-    loop_ub = tmp_size_7[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_7[0] * g];
-    }
-
-    loop_ub = tmp_size_8[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_8[0] * g];
-    }
-
-    br = b_n;
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.result_data[g << 2] =
-        Bilateral_Ankle_Exo_B.tmp_data[g << 2];
-      Bilateral_Ankle_Exo_B.result_data[1 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 1];
-      Bilateral_Ankle_Exo_B.result_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 2];
-      Bilateral_Ankle_Exo_B.result_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 3];
-    }
-
-    tmp_0 = (int16_T)br;
-    tmp_size_idx_1 = tmp_0;
-    b_n = br - 1;
-    if (0 <= tmp_size_idx_1 - 1) {
-      memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
-             (real_T));
-    }
-
-    if (br != 0) {
-      for (br = 1; br - 1 <= b_n; br++) {
-        for (e = br; e <= br; e++) {
-          Bilateral_Ankle_Exo_B.tmp_data_cx[e - 1] = 0.0;
-        }
-      }
-
-      br = 0;
-      for (e = 0; e <= b_n; e++) {
-        ar = -1;
-        for (g = br; g + 1 <= br + 4; g++) {
-          if (Bilateral_Ankle_Exo_B.result_data[g] != 0.0) {
-            ia = ar;
-            for (i = e; i + 1 <= e + 1; i++) {
-              ia++;
-              Bilateral_Ankle_Exo_B.tmp_data_cx[i] +=
-                Bilateral_Ankle_Exo_B.result_data[g] * parm1[ia];
-            }
-          }
-
-          ar++;
-        }
-
-        br += 4;
-      }
-    }
-
-    /* '<S16>:1:59' */
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.torque_track[q1 + g] =
-        Bilateral_Ankle_Exo_B.tmp_data_cx[g];
-    }
-
-    c = index_peak - index_rise;
-    if (1.0 > c) {
-      b_n = 0;
-    } else {
-      b_n = (int32_T)c;
-    }
-
-    if (index_rise > index_peak - 1.0) {
-      br = 1;
-      e = 0;
-      ar = 0;
-      g = 0;
-      q1 = 0;
-    } else {
-      br = (int32_T)index_rise;
-      e = (int32_T)(index_peak - 1.0);
-      ar = (int32_T)index_rise - 1;
-      g = (int32_T)(index_peak - 1.0);
-      q1 = (int32_T)index_rise - 1;
-    }
-
-    tmp_size_idx_1 = g - ar;
-    loop_ub = g - ar;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ar + g) + 1);
-    }
-
-    tmp_size_1[0] = 1;
-    tmp_size_1[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_1,
-      Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_7);
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_m[3 * g] = 1.0;
-    }
-
-    loop_ub = e - br;
-    for (g = 0; g <= loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * g] = (real_T)(int16_T)((int16_T)
-        ((br + g) - 1) + 1) * 2.0;
-    }
-
-    loop_ub = tmp_size_7[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_7[0] * g] * 3.0;
-    }
-
-    br = b_n;
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.b_result_data[3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_m[3 * g];
-      Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_m[3 * g + 1];
-      Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * g] =
-        Bilateral_Ankle_Exo_B.tmp_data_m[3 * g + 2];
-    }
-
-    tmp_0 = (int16_T)br;
-    tmp_size_idx_1 = tmp_0;
-    b_n = br - 1;
-    if (0 <= tmp_size_idx_1 - 1) {
-      memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
-             (real_T));
-    }
-
-    if (br != 0) {
-      for (br = 1; br - 1 <= b_n; br++) {
-        for (e = br; e <= br; e++) {
-          Bilateral_Ankle_Exo_B.tmp_data_cx[e - 1] = 0.0;
-        }
-      }
-
-      br = 0;
-      for (e = 0; e <= b_n; e++) {
-        ar = -1;
-        for (g = br; g + 1 <= br + 3; g++) {
-          if (Bilateral_Ankle_Exo_B.b_result_data[g] != 0.0) {
-            ia = ar;
-            for (i = e; i + 1 <= e + 1; i++) {
-              ia++;
-              Bilateral_Ankle_Exo_B.tmp_data_cx[i] += parm1[1 + ia] *
-                Bilateral_Ankle_Exo_B.b_result_data[g];
-            }
-          }
-
-          ar++;
-        }
-
-        br += 3;
-      }
-    }
-
-    /* '<S16>:1:60' */
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.torque_delta_track[q1 + g] =
-        Bilateral_Ankle_Exo_B.tmp_data_cx[g] * 500.0;
-    }
-
-    /* '<S16>:1:63' */
-    /* '<S16>:1:67' */
-    /* '<S16>:1:68' */
-    parm1[0] = peak_torque;
-    parm1[1] = 0.0;
-    parm1[2] = 0.0;
-    parm1[3] = 0.0;
-    tmp[0] = 1.0;
-    tmp[4] = index_peak;
-    tmp[8] = index_peak * index_peak;
-    tmp[12] = rt_powd_snf(index_peak, 3.0);
-    tmp[1] = 1.0;
-    tmp[5] = index_fall;
-    tmp[9] = index_fall * index_fall;
-    tmp[13] = rt_powd_snf(index_fall, 3.0);
-    tmp[2] = 0.0;
-    tmp[6] = 1.0;
-    tmp[10] = 2.0 * index_peak;
-    tmp[14] = index_peak * index_peak * 3.0;
-    tmp[3] = 0.0;
-    tmp[7] = 1.0;
-    tmp[11] = 2.0 * index_fall;
-    tmp[15] = index_fall * index_fall * 3.0;
-    Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
-    peak_torque = (index_fall + 1.0) - index_peak;
-    if (1.0 > peak_torque) {
-      b_n = 0;
-    } else {
-      b_n = (int32_T)peak_torque;
-    }
-
-    if (index_peak > index_fall) {
-      br = 1;
-      e = 0;
-      ar = 0;
-      g = 0;
-      ia = 0;
-      i = 0;
-      q1 = 0;
-    } else {
-      br = (int32_T)index_peak;
-      e = (int32_T)index_fall;
-      ar = (int32_T)index_peak - 1;
-      g = (int32_T)index_fall;
-      ia = (int32_T)index_peak - 1;
-      i = (int32_T)index_fall;
-      q1 = (int32_T)index_peak - 1;
-    }
-
-    tmp_size_idx_1 = g - ar;
-    loop_ub = g - ar;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ar + g) + 1);
-    }
-
-    tmp_size[0] = 1;
-    tmp_size[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size,
-      Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_7);
-    tmp_size_idx_1 = i - ia;
-    loop_ub = i - ia;
-    for (g = 0; g < loop_ub; g++) {
-      tmp_data[g] = (int16_T)((int16_T)(ia + g) + 1);
-    }
-
-    tmp_size_0[0] = 1;
-    tmp_size_0[1] = tmp_size_idx_1;
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data_cx[g] = tmp_data[g];
-    }
-
-    Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_0,
-      Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_8);
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[g << 2] = 1.0;
-    }
-
-    loop_ub = e - br;
-    for (g = 0; g <= loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[1 + (g << 2)] = (int16_T)((int16_T)((br + g)
-        - 1) + 1);
-    }
-
-    loop_ub = tmp_size_7[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_7[0] * g];
-    }
-
-    loop_ub = tmp_size_8[1];
-    for (g = 0; g < loop_ub; g++) {
-      Bilateral_Ankle_Exo_B.tmp_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_8[0] * g];
-    }
-
-    br = b_n;
-    for (g = 0; g < b_n; g++) {
-      Bilateral_Ankle_Exo_B.result_data[g << 2] =
-        Bilateral_Ankle_Exo_B.tmp_data[g << 2];
-      Bilateral_Ankle_Exo_B.result_data[1 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 1];
-      Bilateral_Ankle_Exo_B.result_data[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 2];
-      Bilateral_Ankle_Exo_B.result_data[3 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.tmp_data[(g << 2) + 3];
-    }
-
-    tmp_0 = (int16_T)br;
-    tmp_size_idx_1 = tmp_0;
-    b_n = br - 1;
-    if (0 <= tmp_size_idx_1 - 1) {
-      memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
-             (real_T));
-    }
-
-    if (br != 0) {
-      for (br = 1; br - 1 <= b_n; br++) {
-        for (e = br; e <= br; e++) {
-          Bilateral_Ankle_Exo_B.tmp_data_cx[e - 1] = 0.0;
-        }
-      }
-
-      br = 0;
-      for (e = 0; e <= b_n; e++) {
-        ar = -1;
-        for (g = br; g + 1 <= br + 4; g++) {
-          if (Bilateral_Ankle_Exo_B.result_data[g] != 0.0) {
-            ia = ar;
-            for (i = e; i + 1 <= e + 1; i++) {
-              ia++;
-              Bilateral_Ankle_Exo_B.tmp_data_cx[i] +=
-                Bilateral_Ankle_Exo_B.result_data[g] * parm1[ia];
-            }
-          }
-
-          ar++;
-        }
-
-        br += 4;
-      }
-    }
-
-    /* '<S16>:1:69' */
-    for (g = 0; g < tmp_size_idx_1; g++) {
-      Bilateral_Ankle_Exo_B.torque_track[q1 + g] =
-        Bilateral_Ankle_Exo_B.tmp_data_cx[g];
-    }
-
-    /* '<S16>:1:72' */
-    /* '<S16>:1:74' */
-    for (g = 0; g < 750; g++) {
-      Bilateral_Ankle_Exo_DW.TorqueMem_R[g << 2] =
-        Bilateral_Ankle_Exo_B.torque_track[g];
-      Bilateral_Ankle_Exo_DW.TorqueMem_R[2 + (g << 2)] =
-        Bilateral_Ankle_Exo_B.torque_delta_track[g];
-    }
-  }
-
-  /* '<S16>:1:78' */
-  Bilateral_Ankle_Exo_DW.last_footstate = footstate;
-
-  /* '<S16>:1:79' */
-  Bilateral_Ankle_Exo_DW.TorqueMem_R[1 + (((int32_T)stride_index - 1) << 2)] =
-    torque_measure;
-
-  /* '<S16>:1:80' */
-  Bilateral_Ankle_Exo_DW.TorqueMem_R[3 + (((int32_T)stride_index - 1) << 2)] =
-    troque_delta;
-  if (mode == 2.0) {
-    /* '<S16>:1:82' */
-    /* '<S16>:1:83' */
-    mode = Bilateral_Ankle_Exo_DW.TorqueMem_R[((int32_T)stride_index - 1) << 2];
-
-    /* '<S16>:1:84' */
-    stride_index = Bilateral_Ankle_Exo_DW.TorqueMem_R[(((int32_T)stride_index -
-      1) << 2) + 2];
-  } else {
-    /* '<S16>:1:86' */
-    mode = 0.0;
-
-    /* '<S16>:1:87' */
-    stride_index = 0.0;
-  }
-
-  /* '<S16>:1:90' */
-  /* '<S16>:1:91' */
-  /* '<S16>:1:93' */
-  Bilateral_Ankle_Exo_B.torque_des_r = mode;
-  Bilateral_Ankle_Exo_B.torque_delta_des_r = stride_index;
-  for (g = 0; g < 750; g++) {
-    Bilateral_Ankle_Exo_B.torque_trace_r[g << 1] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_R[g << 2];
-    Bilateral_Ankle_Exo_B.torque_trace_r[1 + (g << 1)] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_R[(g << 2) + 1];
-  }
-
-  for (g = 0; g < 750; g++) {
-    Bilateral_Ankle_Exo_B.torque_delta_trace_r[g << 1] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_R[(g << 2) + 2];
-    Bilateral_Ankle_Exo_B.torque_delta_trace_r[1 + (g << 1)] =
-      Bilateral_Ankle_Exo_DW.TorqueMem_R[(g << 2) + 3];
-  }
-
-  Bilateral_Ankle_Exo_B.torque_error_r[0] = mode - Bilateral_Ankle_Exo_B.RT4[0];
-  Bilateral_Ankle_Exo_B.torque_error_r[1] = mode - Bilateral_Ankle_Exo_B.RT4[1];
-
-  /* End of MATLAB Function: '<S1>/Torque Track R' */
-
-  /* MATLAB Function: '<S1>/LRN_R' */
-  /* MATLAB Function 'Control Module/LRN_R': '<S12>:1' */
-  if (!Bilateral_Ankle_Exo_DW.last_footstate_not_empty) {
-    /* '<S12>:1:10' */
-    Bilateral_Ankle_Exo_DW.last_footstate_not_empty = true;
-
-    /* '<S12>:1:14' */
-    Bilateral_Ankle_Exo_DW.last_torque_parm[0] = Bilateral_Ankle_Exo_B.RT3[0];
-    Bilateral_Ankle_Exo_DW.last_torque_parm[1] = Bilateral_Ankle_Exo_B.RT3[2];
   }
 
   /* '<S12>:1:18' */
@@ -2180,51 +950,52 @@ void Bilateral_Ankle_E_ControlModule(void)
   /* '<S12>:1:28' */
   /* '<S12>:1:30' */
   /* '<S12>:1:32' */
-  stride_index = Bilateral_Ankle_Exo_B.RT1[3] * 500.0 + 1.0;
+  stride_index = Bilateral_Ankle_Exo_B.RT7[3] * 500.0 + 1.0;
   if (stride_index > 750.0) {
     /* '<S12>:1:33' */
     /* '<S12>:1:34' */
     stride_index = 750.0;
   }
 
-  if ((Bilateral_Ankle_Exo_DW.last_footstate_a == 0.0) &&
-      (Bilateral_Ankle_Exo_B.RT1[1] == 1.0) && (Bilateral_Ankle_Exo_B.RT1[0] ==
-       2.0) && Bilateral_Ankle_Exo_P.LRN_R_BT_LRN_ON_R) {
+  if ((Bilateral_Ankle_Exo_DW.last_footstate_g == 0.0) &&
+      (Bilateral_Ankle_Exo_B.RT7[1] == 1.0) && (Bilateral_Ankle_Exo_B.RT7[0] ==
+       2.0) && Bilateral_Ankle_Exo_P.LRN_L_BT_LRN_ON_L) {
     /* '<S12>:1:37' */
     /* '<S12>:1:38' */
     /* '<S12>:1:39' */
-    mode = 1.0 - Bilateral_Ankle_Exo_P.LRN_R_error_filter_k_r;
+    mode = 1.0 - Bilateral_Ankle_Exo_P.LRN_L_error_filter_k_l;
 
     /* '<S12>:1:40' */
     footstate = Bilateral_Ankle_Exo_B.RT2[2];
-    for (g = 0; g < 750; g++) {
-      peak_torque = (Bilateral_Ankle_Exo_DW.TorqueMem_R[g << 2] -
-                     Bilateral_Ankle_Exo_DW.TorqueMem_R[(g << 2) + 1]) *
-        Bilateral_Ankle_Exo_P.LRN_R_error_filter_k_r + mode *
-        Bilateral_Ankle_Exo_DW.torque_error_memory[g];
-      Bilateral_Ankle_Exo_DW.torque_error_memory[g] = peak_torque;
-      Bilateral_Ankle_Exo_DW.lrn_cmd_memory[g] =
-        Bilateral_Ankle_Exo_P.LRN_R_lrn_shrink_r *
-        Bilateral_Ankle_Exo_DW.lrn_cmd_memory[g] + footstate *
-        Bilateral_Ankle_Exo_DW.torque_error_memory[g];
+    for (dd = 0; dd < 750; dd++) {
+      peak_torque = (Bilateral_Ankle_Exo_DW.TorqueMem_L[dd << 2] -
+                     Bilateral_Ankle_Exo_DW.TorqueMem_L[(dd << 2) + 1]) *
+        Bilateral_Ankle_Exo_P.LRN_L_error_filter_k_l + mode *
+        Bilateral_Ankle_Exo_DW.torque_error_memory_h[dd];
+      Bilateral_Ankle_Exo_DW.torque_error_memory_h[dd] = peak_torque;
+      Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[dd] =
+        Bilateral_Ankle_Exo_P.LRN_L_lrn_shrink_l *
+        Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[dd] + footstate *
+        Bilateral_Ankle_Exo_DW.torque_error_memory_h[dd];
     }
   }
 
-  if (Bilateral_Ankle_Exo_P.LRN_R_BT_LRN_CLEAR_R ||
-      (Bilateral_Ankle_Exo_DW.last_torque_parm[0] != Bilateral_Ankle_Exo_B.RT3[0])
-      || (Bilateral_Ankle_Exo_DW.last_torque_parm[1] !=
-          Bilateral_Ankle_Exo_B.RT3[2])) {
+  if (Bilateral_Ankle_Exo_P.LRN_L_BT_LRN_CLEAR_L ||
+      (Bilateral_Ankle_Exo_DW.last_torque_parm_m[0] !=
+       Bilateral_Ankle_Exo_B.RT3[0]) ||
+      (Bilateral_Ankle_Exo_DW.last_torque_parm_m[1] !=
+       Bilateral_Ankle_Exo_B.RT3[2])) {
     /* '<S12>:1:43' */
     /* '<S12>:1:44' */
     /* '<S12>:1:45' */
-    memset(&Bilateral_Ankle_Exo_DW.torque_error_memory[0], 0, 1000U * sizeof
+    memset(&Bilateral_Ankle_Exo_DW.torque_error_memory_h[0], 0, 1000U * sizeof
            (real_T));
-    memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory[0], 0, 1000U * sizeof(real_T));
+    memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[0], 0, 1000U * sizeof(real_T));
   }
 
-  if (Bilateral_Ankle_Exo_B.RT1[0] == 2.0) {
+  if (Bilateral_Ankle_Exo_B.RT7[0] == 2.0) {
     /* '<S12>:1:48' */
-    q1 = Bilateral_Ankle_Exo_P.LRN_R_time_delay_r;
+    q1 = Bilateral_Ankle_Exo_P.LRN_L_time_delay_l;
     if (q1 < -2147482897) {
       q1 = MAX_int32_T;
     } else {
@@ -2234,44 +1005,2334 @@ void Bilateral_Ankle_E_ControlModule(void)
     if (stride_index >= q1) {
       /* '<S12>:1:49' */
       /* '<S12>:1:50' */
-      Bilateral_Ankle_Exo_B.lrn_cmd_r = 0.0;
+      Bilateral_Ankle_Exo_B.lrn_cmd_l = 0.0;
     } else {
       /* '<S12>:1:52' */
       mode = rt_roundd_snf(stride_index + (real_T)
-                           Bilateral_Ankle_Exo_P.LRN_R_time_delay_r);
+                           Bilateral_Ankle_Exo_P.LRN_L_time_delay_l);
       if (mode < 2.147483648E+9) {
         if (mode >= -2.147483648E+9) {
-          g = (int32_T)mode;
+          dd = (int32_T)mode;
         } else {
-          g = MIN_int32_T;
+          dd = MIN_int32_T;
         }
       } else {
-        g = MAX_int32_T;
+        dd = MAX_int32_T;
       }
 
-      Bilateral_Ankle_Exo_B.lrn_cmd_r = Bilateral_Ankle_Exo_DW.lrn_cmd_memory[g
-        - 1];
+      Bilateral_Ankle_Exo_B.lrn_cmd_l =
+        Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[dd - 1];
     }
   } else {
     /* '<S12>:1:55' */
-    Bilateral_Ankle_Exo_B.lrn_cmd_r = 0.0;
+    Bilateral_Ankle_Exo_B.lrn_cmd_l = 0.0;
   }
 
   /* '<S12>:1:58' */
-  Bilateral_Ankle_Exo_DW.last_footstate_a = Bilateral_Ankle_Exo_B.RT1[1];
+  Bilateral_Ankle_Exo_DW.last_footstate_g = Bilateral_Ankle_Exo_B.RT7[1];
 
   /* '<S12>:1:59' */
-  Bilateral_Ankle_Exo_DW.last_torque_parm[0] = Bilateral_Ankle_Exo_B.RT3[0];
-  Bilateral_Ankle_Exo_DW.last_torque_parm[1] = Bilateral_Ankle_Exo_B.RT3[2];
+  Bilateral_Ankle_Exo_DW.last_torque_parm_m[0] = Bilateral_Ankle_Exo_B.RT3[0];
+  Bilateral_Ankle_Exo_DW.last_torque_parm_m[1] = Bilateral_Ankle_Exo_B.RT3[2];
 
   /* '<S12>:1:60' */
-  memcpy(&Bilateral_Ankle_Exo_B.lrn_mem_r[0],
-         &Bilateral_Ankle_Exo_DW.lrn_cmd_memory[0], 750U * sizeof(real_T));
+  memcpy(&Bilateral_Ankle_Exo_B.lrn_mem_l[0],
+         &Bilateral_Ankle_Exo_DW.lrn_cmd_memory_n[0], 750U * sizeof(real_T));
 
-  /* End of MATLAB Function: '<S1>/LRN_R' */
+  /* End of MATLAB Function: '<S2>/LRN_L' */
 
-  /* MATLAB Function: '<S1>/Controller_R' */
-  /* MATLAB Function 'Control Module/Controller_R': '<S10>:1' */
+  /* MATLAB Function: '<S2>/Torque Track L' incorporates:
+   *  Constant: '<S2>/torque_offset'
+   */
+  /* MATLAB Function 'Control Module/Torque Track L': '<S16>:1' */
+  /* '<S16>:1:52' */
+  /* '<S16>:1:12' */
+  mode = Bilateral_Ankle_Exo_B.RT7[0];
+
+  /* '<S16>:1:13' */
+  footstate = Bilateral_Ankle_Exo_B.RT7[1];
+
+  /* '<S16>:1:14' */
+  /* '<S16>:1:15' */
+  /* '<S16>:1:17' */
+  peak_torque = Bilateral_Ankle_Exo_B.RT3[0];
+
+  /* '<S16>:1:18' */
+  /* '<S16>:1:19' */
+  /* '<S16>:1:20' */
+  /* '<S16>:1:21' */
+  /* '<S16>:1:22' */
+  /* '<S16>:1:23' */
+  transit_torque = Bilateral_Ankle_Exo_B.RT3[6];
+
+  /* '<S16>:1:24' */
+  maintain_torque = Bilateral_Ankle_Exo_B.RT3[7];
+
+  /* '<S16>:1:25' */
+  /* '<S16>:1:39' */
+  torque_measure = Bilateral_Ankle_Exo_B.RT8[0];
+
+  /* '<S16>:1:40' */
+  troque_delta = Bilateral_Ankle_Exo_B.RT8[1];
+
+  /* '<S16>:1:41' */
+  stride_index = Bilateral_Ankle_Exo_B.RT7[3] * 500.0 + 1.0;
+  if (stride_index > 750.0) {
+    /* '<S16>:1:42' */
+    /* '<S16>:1:43' */
+    stride_index = 750.0;
+  }
+
+  if ((Bilateral_Ankle_Exo_DW.last_footstate_h == 0.0) &&
+      (Bilateral_Ankle_Exo_B.RT7[1] == 1.0) && ((Bilateral_Ankle_Exo_B.RT7[0] ==
+        2.0) || (Bilateral_Ankle_Exo_B.RT7[0] == 1.0))) {
+    /* '<S16>:1:47' */
+    /* '<S16>:1:49' */
+    /* '<S16>:1:50' */
+    memset(&Bilateral_Ankle_Exo_B.torque_track[0], 0, 750U * sizeof(real_T));
+    memset(&Bilateral_Ankle_Exo_B.torque_delta_track[0], 0, 750U * sizeof(real_T));
+
+    /* '<S16>:1:51' */
+    /* '<S16>:1:52' */
+    if (Bilateral_Ankle_Exo_B.RT3[8] == 1.0) {
+      /* '<S16>:1:54' */
+      /* '<S16>:1:56' */
+      index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+      /* '<S16>:1:57' */
+      index_rise = index_peak - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
+        Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+      /* '<S16>:1:58' */
+      index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT7[2] * 500.0) + index_peak;
+      if (1.0 > index_rise - 1.0) {
+        q1 = 0;
+      } else {
+        q1 = (int32_T)(index_rise - 1.0);
+      }
+
+      /* '<S16>:1:61' */
+      for (dd = 0; dd < q1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = (real_T)(int16_T)(1 + (int16_T)
+          dd) / index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
+      }
+
+      if (0 <= q1 - 1) {
+        memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
+               &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
+      }
+
+      /* '<S16>:1:65' */
+      /* '<S16>:1:69' */
+      /* '<S16>:1:70' */
+      parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
+      parm1[1] = Bilateral_Ankle_Exo_B.RT3[0];
+      parm1[2] = 0.0;
+      parm1[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_rise;
+      tmp[8] = index_rise * index_rise;
+      tmp[12] = rt_powd_snf(index_rise, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_peak;
+      tmp[9] = index_peak * index_peak;
+      tmp[13] = rt_powd_snf(index_peak, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_rise;
+      tmp[14] = index_rise * index_rise * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_peak;
+      tmp[15] = index_peak * index_peak * 3.0;
+      Bilateral_Ankle_Exo_mldivide(tmp, parm1);
+      index_transit = index_peak - index_rise;
+      if (1.0 > index_transit) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_transit;
+      }
+
+      if (index_rise > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        ia = (int32_T)index_rise - 1;
+        fd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_f[0] = 1;
+      tmp_size_f[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_f,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_g);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_h[0] = 1;
+      tmp_size_h[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_h,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_g[0] * dd];
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_f[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S16>:1:71' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      index_transit = index_peak - index_rise;
+      if (1.0 > index_transit) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_transit;
+      }
+
+      if (index_rise > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_e[0] = 1;
+      tmp_size_e[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_e,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S16>:1:72' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+
+      /* '<S16>:1:75' */
+      /* '<S16>:1:79' */
+      /* '<S16>:1:80' */
+      parm1[0] = peak_torque;
+      parm1[1] = 0.0;
+      parm1[2] = 0.0;
+      parm1[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_peak;
+      tmp[8] = index_peak * index_peak;
+      tmp[12] = rt_powd_snf(index_peak, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_fall;
+      tmp[9] = index_fall * index_fall;
+      tmp[13] = rt_powd_snf(index_fall, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_peak;
+      tmp[14] = index_peak * index_peak * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_fall;
+      tmp[15] = index_fall * index_fall * 3.0;
+      Bilateral_Ankle_Exo_mldivide(tmp, parm1);
+      peak_torque = (index_fall + 1.0) - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)index_fall;
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)index_fall;
+        ia = (int32_T)index_peak - 1;
+        fd = (int32_T)index_fall;
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_c[0] = 1;
+      tmp_size_c[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_c,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_d[0] = 1;
+      tmp_size_d[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_d,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S16>:1:81' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      peak_torque = index_fall - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)(index_fall - 1.0);
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)(index_fall - 1.0);
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_b[0] = 1;
+      tmp_size_b[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_b,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S16>:1:82' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+    } else if (Bilateral_Ankle_Exo_B.RT3[8] == 2.0) {
+      /* '<S16>:1:84' */
+      /* '<S16>:1:86' */
+      index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+      /* '<S16>:1:87' */
+      index_transit = floor(Bilateral_Ankle_Exo_B.RT3[4] / 100.0 *
+                            Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+      /* '<S16>:1:88' */
+      index_rise = index_transit - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
+        Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+      /* '<S16>:1:89' */
+      index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT7[2] * 500.0) + index_peak;
+      if (1.0 > index_rise - 1.0) {
+        q1 = 0;
+      } else {
+        q1 = (int32_T)(index_rise - 1.0);
+      }
+
+      /* '<S16>:1:92' */
+      for (dd = 0; dd < q1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = (real_T)(int16_T)(1 + (int16_T)
+          dd) / index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
+      }
+
+      if (0 <= q1 - 1) {
+        memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
+               &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
+      }
+
+      /* '<S16>:1:95' */
+      /* '<S16>:1:99' */
+      /* '<S16>:1:100' */
+      parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
+      parm1[1] = Bilateral_Ankle_Exo_B.RT3[6];
+      parm1[2] = 0.0;
+      parm1[3] = Bilateral_Ankle_Exo_B.RT3[0] / (index_peak - index_rise);
+      tmp[0] = 1.0;
+      tmp[4] = index_rise;
+      tmp[8] = index_rise * index_rise;
+      tmp[12] = rt_powd_snf(index_rise, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_transit;
+      tmp[9] = index_transit * index_transit;
+      tmp[13] = rt_powd_snf(index_transit, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_rise;
+      tmp[14] = index_rise * index_rise * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_transit;
+      tmp[15] = index_transit * index_transit * 3.0;
+      Bilateral_Ankle_Exo_mldivide(tmp, parm1);
+      maintain_torque = index_transit - index_rise;
+      if (1.0 > maintain_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)maintain_torque;
+      }
+
+      if (index_rise > index_transit - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_transit - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_transit - 1.0);
+        ia = (int32_T)index_rise - 1;
+        fd = (int32_T)(index_transit - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_f[0] = 1;
+      tmp_size_f[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_f,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_g);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_h[0] = 1;
+      tmp_size_h[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_h,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_g[0] * dd];
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_f[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S16>:1:101' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      maintain_torque = index_transit - index_rise;
+      if (1.0 > maintain_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)maintain_torque;
+      }
+
+      if (index_rise > index_transit - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_transit - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_transit - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_e[0] = 1;
+      tmp_size_e[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_e,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S16>:1:102' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+
+      /* '<S16>:1:105' */
+      /* '<S16>:1:109' */
+      /* '<S16>:1:110' */
+      parm1[0] = transit_torque;
+      parm1[1] = peak_torque;
+      parm1[2] = peak_torque / (index_peak - index_rise);
+      parm1[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_transit;
+      tmp[8] = index_transit * index_transit;
+      tmp[12] = rt_powd_snf(index_transit, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_peak;
+      tmp[9] = index_peak * index_peak;
+      tmp[13] = rt_powd_snf(index_peak, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_transit;
+      tmp[14] = index_transit * index_transit * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_peak;
+      tmp[15] = index_peak * index_peak * 3.0;
+      Bilateral_Ankle_Exo_mldivide(tmp, parm1);
+      index_rise = index_peak - index_transit;
+      if (1.0 > index_rise) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_rise;
+      }
+
+      if (index_transit > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_transit;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_transit - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        ia = (int32_T)index_transit - 1;
+        fd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_transit - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_c[0] = 1;
+      tmp_size_c[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_c,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_d[0] = 1;
+      tmp_size_d[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_d,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S16>:1:111' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      index_rise = index_peak - index_transit;
+      if (1.0 > index_rise) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_rise;
+      }
+
+      if (index_transit > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_transit;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_transit - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_transit - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_b[0] = 1;
+      tmp_size_b[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_b,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S16>:1:112' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+
+      /* '<S16>:1:115' */
+      /* '<S16>:1:119' */
+      /* '<S16>:1:120' */
+      parm3[0] = peak_torque;
+      parm3[1] = 0.0;
+      parm3[2] = 0.0;
+      parm3[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_peak;
+      tmp[8] = index_peak * index_peak;
+      tmp[12] = rt_powd_snf(index_peak, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_fall;
+      tmp[9] = index_fall * index_fall;
+      tmp[13] = rt_powd_snf(index_fall, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_peak;
+      tmp[14] = index_peak * index_peak * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_fall;
+      tmp[15] = index_fall * index_fall * 3.0;
+      Bilateral_Ankle_Exo_mldivide(tmp, parm3);
+      peak_torque = (index_fall + 1.0) - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)index_fall;
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)index_fall;
+        ia = (int32_T)index_peak - 1;
+        fd = (int32_T)index_fall;
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_9[0] = 1;
+      tmp_size_9[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_9,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_a[0] = 1;
+      tmp_size_a[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_a,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm3[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S16>:1:121' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      peak_torque = index_fall - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)(index_fall - 1.0);
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)(index_fall - 1.0);
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_8[0] = 1;
+      tmp_size_8[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_8,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S16>:1:122' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+    } else {
+      if (Bilateral_Ankle_Exo_B.RT3[8] == 3.0) {
+        /* '<S16>:1:124' */
+        /* '<S16>:1:126' */
+        index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
+                           Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+        /* '<S16>:1:127' */
+        index_transit = floor(Bilateral_Ankle_Exo_B.RT3[4] / 100.0 *
+                              Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+        /* '<S16>:1:128' */
+        transit_torque = floor(Bilateral_Ankle_Exo_B.RT3[5] / 100.0 *
+          Bilateral_Ankle_Exo_B.RT7[2] * 500.0) + index_transit;
+
+        /* '<S16>:1:129' */
+        index_rise = index_transit - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
+          Bilateral_Ankle_Exo_B.RT7[2] * 500.0);
+
+        /* '<S16>:1:130' */
+        index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
+                           Bilateral_Ankle_Exo_B.RT7[2] * 500.0) + index_peak;
+        if (1.0 > index_rise - 1.0) {
+          q1 = 0;
+        } else {
+          q1 = (int32_T)(index_rise - 1.0);
+        }
+
+        /* '<S16>:1:133' */
+        for (dd = 0; dd < q1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = (real_T)(int16_T)(1 + (int16_T)
+            dd) / index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
+        }
+
+        if (0 <= q1 - 1) {
+          memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
+                 &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
+        }
+
+        /* '<S16>:1:136' */
+        /* '<S16>:1:140' */
+        /* '<S16>:1:141' */
+        parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
+        parm1[1] = Bilateral_Ankle_Exo_B.RT3[7];
+        parm1[2] = 0.0;
+        parm1[3] = 0.0;
+        tmp[0] = 1.0;
+        tmp[4] = index_rise;
+        tmp[8] = index_rise * index_rise;
+        tmp[12] = rt_powd_snf(index_rise, 3.0);
+        tmp[1] = 1.0;
+        tmp[5] = index_transit;
+        tmp[9] = index_transit * index_transit;
+        tmp[13] = rt_powd_snf(index_transit, 3.0);
+        tmp[2] = 0.0;
+        tmp[6] = 1.0;
+        tmp[10] = 2.0 * index_rise;
+        tmp[14] = index_rise * index_rise * 3.0;
+        tmp[3] = 0.0;
+        tmp[7] = 1.0;
+        tmp[11] = 2.0 * index_transit;
+        tmp[15] = index_transit * index_transit * 3.0;
+        Bilateral_Ankle_Exo_mldivide(tmp, parm1);
+        yc = index_transit - index_rise;
+        if (1.0 > yc) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)yc;
+        }
+
+        if (index_rise > index_transit - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          ia = 0;
+          fd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_rise;
+          bd = (int32_T)(index_transit - 1.0);
+          ar = (int32_T)index_rise - 1;
+          dd = (int32_T)(index_transit - 1.0);
+          ia = (int32_T)index_rise - 1;
+          fd = (int32_T)(index_transit - 1.0);
+          q1 = (int32_T)index_rise - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_f[0] = 1;
+        tmp_size_f[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_f,
+          Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_g);
+        tmp_size_idx_1 = fd - ia;
+        loop_ub = fd - ia;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+        }
+
+        tmp_size_h[0] = 1;
+        tmp_size_h[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_h, Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_f);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)
+            ((br + dd) - 1) + 1);
+        }
+
+        loop_ub = tmp_size_g[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_g[0] * dd];
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_f[0] * dd];
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+            Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+          Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+          Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+          Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 4; dd++) {
+              if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                    Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 4;
+          }
+        }
+
+        /* '<S16>:1:142' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        yc = index_transit - index_rise;
+        if (1.0 > yc) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)yc;
+        }
+
+        if (index_rise > index_transit - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_rise;
+          bd = (int32_T)(index_transit - 1.0);
+          ar = (int32_T)index_rise - 1;
+          dd = (int32_T)(index_transit - 1.0);
+          q1 = (int32_T)index_rise - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_e[0] = 1;
+        tmp_size_e[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_e,
+          Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+            ((int16_T)((br + dd) - 1) + 1) * 2.0;
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+          Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+          Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 3; dd++) {
+              if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                    Bilateral_Ankle_Exo_B.b_result_data[dd];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 3;
+          }
+        }
+
+        /* '<S16>:1:143' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+        }
+
+        index_rise = transit_torque - index_transit;
+        if (1.0 > index_rise) {
+          q1 = 0;
+        } else {
+          q1 = (int32_T)index_rise;
+        }
+
+        if (index_transit > transit_torque - 1.0) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit - 1;
+        }
+
+        /* '<S16>:1:146' */
+        for (dd = 0; dd < q1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = maintain_torque;
+        }
+
+        for (dd = 0; dd < q1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[b_n + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        index_rise = transit_torque - index_transit;
+        if (1.0 > index_rise) {
+          q1 = 0;
+        } else {
+          q1 = (int32_T)index_rise;
+        }
+
+        if (index_transit > transit_torque - 1.0) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit - 1;
+        }
+
+        /* '<S16>:1:147' */
+        if (0 <= q1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.torque_delta_track[b_n], 0, ((q1 + b_n)
+                  - b_n) * sizeof(real_T));
+        }
+
+        /* '<S16>:1:150' */
+        /* '<S16>:1:154' */
+        /* '<S16>:1:155' */
+        parm1[0] = maintain_torque;
+        parm1[1] = peak_torque;
+        parm1[2] = 0.0;
+        parm1[3] = 0.0;
+        tmp[0] = 1.0;
+        tmp[4] = transit_torque;
+        tmp[8] = transit_torque * transit_torque;
+        tmp[12] = rt_powd_snf(transit_torque, 3.0);
+        tmp[1] = 1.0;
+        tmp[5] = index_peak;
+        tmp[9] = index_peak * index_peak;
+        tmp[13] = rt_powd_snf(index_peak, 3.0);
+        tmp[2] = 0.0;
+        tmp[6] = 1.0;
+        tmp[10] = 2.0 * transit_torque;
+        tmp[14] = transit_torque * transit_torque * 3.0;
+        tmp[3] = 0.0;
+        tmp[7] = 1.0;
+        tmp[11] = 2.0 * index_peak;
+        tmp[15] = index_peak * index_peak * 3.0;
+        Bilateral_Ankle_Exo_mldivide(tmp, parm1);
+        index_transit = index_peak - transit_torque;
+        if (1.0 > index_transit) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit;
+        }
+
+        if (transit_torque > index_peak - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          ia = 0;
+          fd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)transit_torque;
+          bd = (int32_T)(index_peak - 1.0);
+          ar = (int32_T)transit_torque - 1;
+          dd = (int32_T)(index_peak - 1.0);
+          ia = (int32_T)transit_torque - 1;
+          fd = (int32_T)(index_peak - 1.0);
+          q1 = (int32_T)transit_torque - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_c[0] = 1;
+        tmp_size_c[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_c,
+          Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        tmp_size_idx_1 = fd - ia;
+        loop_ub = fd - ia;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+        }
+
+        tmp_size_d[0] = 1;
+        tmp_size_d[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_d, Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)
+            ((br + dd) - 1) + 1);
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+        }
+
+        loop_ub = tmp_size_g[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+            Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+          Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+          Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+          Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 4; dd++) {
+              if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                    Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 4;
+          }
+        }
+
+        /* '<S16>:1:156' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        index_transit = index_peak - transit_torque;
+        if (1.0 > index_transit) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit;
+        }
+
+        if (transit_torque > index_peak - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)transit_torque;
+          bd = (int32_T)(index_peak - 1.0);
+          ar = (int32_T)transit_torque - 1;
+          dd = (int32_T)(index_peak - 1.0);
+          q1 = (int32_T)transit_torque - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_b[0] = 1;
+        tmp_size_b[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_b,
+          Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+            ((int16_T)((br + dd) - 1) + 1) * 2.0;
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+          Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+          Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 3; dd++) {
+              if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                    Bilateral_Ankle_Exo_B.b_result_data[dd];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 3;
+          }
+        }
+
+        /* '<S16>:1:157' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+        }
+
+        /* '<S16>:1:160' */
+        /* '<S16>:1:164' */
+        /* '<S16>:1:165' */
+        parm3[0] = peak_torque;
+        parm3[1] = 0.0;
+        parm3[2] = 0.0;
+        parm3[3] = 0.0;
+        tmp[0] = 1.0;
+        tmp[4] = index_peak;
+        tmp[8] = index_peak * index_peak;
+        tmp[12] = rt_powd_snf(index_peak, 3.0);
+        tmp[1] = 1.0;
+        tmp[5] = index_fall;
+        tmp[9] = index_fall * index_fall;
+        tmp[13] = rt_powd_snf(index_fall, 3.0);
+        tmp[2] = 0.0;
+        tmp[6] = 1.0;
+        tmp[10] = 2.0 * index_peak;
+        tmp[14] = index_peak * index_peak * 3.0;
+        tmp[3] = 0.0;
+        tmp[7] = 1.0;
+        tmp[11] = 2.0 * index_fall;
+        tmp[15] = index_fall * index_fall * 3.0;
+        Bilateral_Ankle_Exo_mldivide(tmp, parm3);
+        peak_torque = (index_fall + 1.0) - index_peak;
+        if (1.0 > peak_torque) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)peak_torque;
+        }
+
+        if (index_peak > index_fall) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          ia = 0;
+          fd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_peak;
+          bd = (int32_T)index_fall;
+          ar = (int32_T)index_peak - 1;
+          dd = (int32_T)index_fall;
+          ia = (int32_T)index_peak - 1;
+          fd = (int32_T)index_fall;
+          q1 = (int32_T)index_peak - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_9[0] = 1;
+        tmp_size_9[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_9,
+          Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        tmp_size_idx_1 = fd - ia;
+        loop_ub = fd - ia;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+        }
+
+        tmp_size_a[0] = 1;
+        tmp_size_a[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_e(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_a, Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)
+            ((br + dd) - 1) + 1);
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+        }
+
+        loop_ub = tmp_size_g[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+            Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+          Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+          Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+          Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 4; dd++) {
+              if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                    Bilateral_Ankle_Exo_B.result_data[dd] * parm3[ia];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 4;
+          }
+        }
+
+        /* '<S16>:1:166' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        peak_torque = index_fall - index_peak;
+        if (1.0 > peak_torque) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)peak_torque;
+        }
+
+        if (index_peak > index_fall - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_peak;
+          bd = (int32_T)(index_fall - 1.0);
+          ar = (int32_T)index_peak - 1;
+          dd = (int32_T)(index_fall - 1.0);
+          q1 = (int32_T)index_peak - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_8[0] = 1;
+        tmp_size_8[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_8,
+          Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+            ((int16_T)((br + dd) - 1) + 1) * 2.0;
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+          Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+          Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 3; dd++) {
+              if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                    Bilateral_Ankle_Exo_B.b_result_data[dd];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 3;
+          }
+        }
+
+        /* '<S16>:1:167' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+        }
+      }
+    }
+
+    /* '<S16>:1:174' */
+    /* '<S16>:1:176' */
+    for (dd = 0; dd < 750; dd++) {
+      Bilateral_Ankle_Exo_DW.TorqueMem_L[dd << 2] =
+        Bilateral_Ankle_Exo_B.torque_track[dd];
+      Bilateral_Ankle_Exo_DW.TorqueMem_L[2 + (dd << 2)] =
+        Bilateral_Ankle_Exo_B.torque_delta_track[dd];
+    }
+  }
+
+  /* '<S16>:1:180' */
+  Bilateral_Ankle_Exo_DW.last_footstate_h = footstate;
+
+  /* '<S16>:1:181' */
+  Bilateral_Ankle_Exo_DW.TorqueMem_L[1 + (((int32_T)stride_index - 1) << 2)] =
+    torque_measure;
+
+  /* '<S16>:1:182' */
+  Bilateral_Ankle_Exo_DW.TorqueMem_L[3 + (((int32_T)stride_index - 1) << 2)] =
+    troque_delta;
+  if (mode == 2.0) {
+    /* '<S16>:1:184' */
+    /* '<S16>:1:185' */
+    mode = Bilateral_Ankle_Exo_DW.TorqueMem_L[((int32_T)stride_index - 1) << 2];
+
+    /* '<S16>:1:186' */
+    stride_index = Bilateral_Ankle_Exo_DW.TorqueMem_L[(((int32_T)stride_index -
+      1) << 2) + 2];
+  } else {
+    /* '<S16>:1:188' */
+    mode = 0.0;
+
+    /* '<S16>:1:189' */
+    stride_index = 0.0;
+  }
+
+  /* '<S16>:1:192' */
+  /* '<S16>:1:193' */
+  /* '<S16>:1:194' */
+  Bilateral_Ankle_Exo_B.torque_des_l = mode;
+  Bilateral_Ankle_Exo_B.torque_delta_des_l = stride_index;
+  for (dd = 0; dd < 750; dd++) {
+    Bilateral_Ankle_Exo_B.torque_trace_l[dd << 1] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_L[dd << 2];
+    Bilateral_Ankle_Exo_B.torque_trace_l[1 + (dd << 1)] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_L[(dd << 2) + 1];
+  }
+
+  for (dd = 0; dd < 750; dd++) {
+    Bilateral_Ankle_Exo_B.torque_delta_trace_l[dd << 1] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_L[(dd << 2) + 2];
+    Bilateral_Ankle_Exo_B.torque_delta_trace_l[1 + (dd << 1)] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_L[(dd << 2) + 3];
+  }
+
+  Bilateral_Ankle_Exo_B.torque_error_l[0] = mode - Bilateral_Ankle_Exo_B.RT8[0];
+  Bilateral_Ankle_Exo_B.torque_error_l[1] = mode - Bilateral_Ankle_Exo_B.RT8[1];
+
+  /* End of MATLAB Function: '<S2>/Torque Track L' */
+
+  /* MATLAB Function: '<S2>/Controller_L' */
+  /* MATLAB Function 'Control Module/Controller_L': '<S10>:1' */
   /* '<S10>:1:25' */
   /* '<S10>:1:26' */
   /* '<S10>:1:28' */
@@ -2290,52 +3351,2628 @@ void Bilateral_Ankle_E_ControlModule(void)
   /* '<S10>:1:51' */
   /* '<S10>:1:52' */
   /* '<S10>:1:53' */
-  switch ((int32_T)Bilateral_Ankle_Exo_B.RT1[0]) {
+  switch ((int32_T)Bilateral_Ankle_Exo_B.RT7[0]) {
    case 1:
     /* '<S10>:1:58' */
-    Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 0.0;
+    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
 
     /* '<S10>:1:59' */
-    Bilateral_Ankle_Exo_DW.calib_state = 0.0;
+    Bilateral_Ankle_Exo_DW.calib_state_p = 0.0;
     break;
 
    case 3:
     /* '<S10>:1:62' */
+    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = -150.0;
+    break;
+
+   case 4:
+    if ((Bilateral_Ankle_Exo_DW.calib_state_p == 0.0) &&
+        (Bilateral_Ankle_Exo_B.RT8[0] < 5.0)) {
+      /* '<S10>:1:65' */
+      /* '<S10>:1:66' */
+      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 150.0;
+    } else if ((Bilateral_Ankle_Exo_DW.calib_state_p == 0.0) &&
+               (Bilateral_Ankle_Exo_B.RT8[0] > 5.0)) {
+      /* '<S10>:1:67' */
+      /* '<S10>:1:68' */
+      Bilateral_Ankle_Exo_DW.calib_state_p = 1.0;
+
+      /* '<S10>:1:69' */
+      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
+
+      /* '<S10>:1:70' */
+      /* '<S10>:1:71' */
+      Bilateral_Ankle_Exo_DW.ParmReg_L[1] = (Bilateral_Ankle_Exo_DW.ParmReg_L[1]
+        + Bilateral_Ankle_Exo_B.RT10[0]) - 20.0;
+    } else {
+      /* '<S10>:1:73' */
+      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
+    }
+    break;
+
+   case 2:
+    /* '<S10>:1:77' */
+    switch (Bilateral_Ankle_Exo_P.Controller_L_MODE_L) {
+     case 1:
+      /* '<S10>:1:80' */
+      /* '<S10>:1:81' */
+      /* '<S10>:1:82' */
+      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = (((Bilateral_Ankle_Exo_B.RT9[0] -
+        Bilateral_Ankle_Exo_P.Controller_L_FOLLOW_SLACK_ANGLE) -
+        Bilateral_Ankle_Exo_B.RT10[0] * 0.37037037037037035) *
+        Bilateral_Ankle_Exo_B.RT2[3] + Bilateral_Ankle_Exo_B.RT9[1] *
+        0.37037037037037035 * Bilateral_Ankle_Exo_B.RT2[4]) * 5.0 / 0.05;
+      break;
+
+     case 2:
+      if (Bilateral_Ankle_Exo_B.RT7[1] == 1.0) {
+        /* '<S10>:1:85' */
+        /* '<S10>:1:86' */
+        /* '<S10>:1:87' */
+        /* '<S10>:1:88' */
+        /* '<S10>:1:90' */
+        /* '<S10>:1:91' */
+        if (Bilateral_Ankle_Exo_B.torque_des_l < 0.001) {
+          /* '<S10>:1:94' */
+          /* '<S10>:1:95' */
+          Bilateral_Ankle_Exo_DW.smooth_filter_b += 0.05;
+          if (Bilateral_Ankle_Exo_DW.smooth_filter_b > 1.0) {
+            /* '<S10>:1:96' */
+            /* '<S10>:1:97' */
+            Bilateral_Ankle_Exo_DW.smooth_filter_b = 1.0;
+          }
+        } else {
+          /* '<S10>:1:100' */
+          Bilateral_Ankle_Exo_DW.smooth_filter_b = 0.0;
+        }
+
+        /* '<S10>:1:103' */
+        Bilateral_Ankle_Exo_B.motor_vel_cmd_l =
+          (((((Bilateral_Ankle_Exo_B.torque_des_l - Bilateral_Ankle_Exo_B.RT8[0])
+              * Bilateral_Ankle_Exo_B.RT2[0] +
+              (Bilateral_Ankle_Exo_B.torque_delta_des_l -
+               Bilateral_Ankle_Exo_B.RT8[1]) * Bilateral_Ankle_Exo_B.RT2[1]) +
+             Bilateral_Ankle_Exo_B.lrn_cmd_l) + Bilateral_Ankle_Exo_B.RT2[5] *
+            Bilateral_Ankle_Exo_B.torque_delta_des_l) * (1.0 -
+            Bilateral_Ankle_Exo_DW.smooth_filter_b) +
+           (((Bilateral_Ankle_Exo_B.RT9[0] -
+              Bilateral_Ankle_Exo_P.Controller_L_FOLLOW_SLACK_ANGLE) -
+             Bilateral_Ankle_Exo_B.RT10[0] * 0.37037037037037035) *
+            Bilateral_Ankle_Exo_B.RT2[3] + Bilateral_Ankle_Exo_B.RT9[1] *
+            0.37037037037037035 * Bilateral_Ankle_Exo_B.RT2[4]) *
+           Bilateral_Ankle_Exo_DW.smooth_filter_b) * 5.0 / 0.05;
+      } else {
+        /* '<S10>:1:107' */
+        Bilateral_Ankle_Exo_DW.smooth_filter_b = 0.0;
+
+        /* '<S10>:1:108' */
+        /* '<S10>:1:109' */
+        /* '<S10>:1:110' */
+        Bilateral_Ankle_Exo_B.motor_vel_cmd_l = (((Bilateral_Ankle_Exo_B.RT9[0]
+          - Bilateral_Ankle_Exo_P.Controller_L_FOLLOW_SLACK_ANGLE) -
+          Bilateral_Ankle_Exo_B.RT10[0] * 0.37037037037037035) *
+          Bilateral_Ankle_Exo_B.RT2[3] + Bilateral_Ankle_Exo_B.RT9[1] *
+          0.37037037037037035 * Bilateral_Ankle_Exo_B.RT2[4]) * 5.0 / 0.05;
+      }
+      break;
+
+     default:
+      /* '<S10>:1:113' */
+      Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
+      break;
+    }
+    break;
+
+   case 0:
+    /* '<S10>:1:117' */
+    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
+    break;
+
+   default:
+    /* '<S10>:1:120' */
+    Bilateral_Ankle_Exo_B.motor_vel_cmd_l = 0.0;
+    break;
+  }
+
+  /* End of MATLAB Function: '<S2>/Controller_L' */
+
+  /* MATLAB Function: '<S14>/MATLAB Function' */
+  Bilateral_Ankle__MATLABFunction(Bilateral_Ankle_Exo_B.RT8,
+    Bilateral_Ankle_Exo_B.RT10, Bilateral_Ankle_Exo_B.motor_vel_cmd_l,
+    &Bilateral_Ankle_Exo_B.sf_MATLABFunction_h,
+    Bilateral_Ankle_Exo_P.MATLABFunction_MAX_MOTOR_ANGLE,
+    Bilateral_Ankle_Exo_P.MATLABFunction_MAX_SPEED,
+    Bilateral_Ankle_Exo_P.MATLABFunction_MAX_TORQUE,
+    Bilateral_Ankle_Exo_P.MATLABFunction_MIN_MOTOR_ANGLE);
+
+  /* Gain: '<S14>/Gain2' */
+  Bilateral_Ankle_Exo_B.Gain2_ch = Bilateral_Ankle_Exo_P.Gain2_Gain *
+    Bilateral_Ankle_Exo_B.sf_MATLABFunction_h.vel;
+
+  /* Gain: '<S14>/Gain1' */
+  Bilateral_Ankle_Exo_B.Gain1_la = Bilateral_Ankle_Exo_P.Gain1_Gain *
+    Bilateral_Ankle_Exo_B.Gain2_ch;
+
+  /* S-Function (rti_commonblock): '<S18>/S-Function1' */
+  /* This comment workarounds a code generation problem */
+
+  /* --- Bilateral_Ankle_Exo/Control Module/Motor_L/DAC_CLASS1_BL1 --- */
+  /* --- [RTI120X, DAC C1] - Channel: 16 --- */
+  {
+    /* define variables required for DAC realtime functions */
+    Float64 inportDacData= 0.0;
+    inportDacData = (real_T) Bilateral_Ankle_Exo_B.Gain1_la;
+
+    /* write value of CL1 DAC for output channel 16 */
+    DacCl1AnalogOut_setOutputValue(pRTIDacC1AnalogOut_Ch_16,
+      DAC_CLASS1_CHANNEL_16, inportDacData);
+    DacCl1AnalogOut_write(pRTIDacC1AnalogOut_Ch_16);
+  }
+
+  /* MATLAB Function: '<S2>/Torque Track R' incorporates:
+   *  Constant: '<S2>/torque_offset'
+   */
+  /* MATLAB Function 'Control Module/Torque Track R': '<S17>:1' */
+  /* '<S17>:1:52' */
+  /* '<S17>:1:12' */
+  mode = Bilateral_Ankle_Exo_B.RT1[0];
+
+  /* '<S17>:1:13' */
+  footstate = Bilateral_Ankle_Exo_B.RT1[1];
+
+  /* '<S17>:1:14' */
+  /* '<S17>:1:15' */
+  /* '<S17>:1:17' */
+  peak_torque = Bilateral_Ankle_Exo_B.RT3[0];
+
+  /* '<S17>:1:18' */
+  /* '<S17>:1:19' */
+  /* '<S17>:1:20' */
+  /* '<S17>:1:21' */
+  /* '<S17>:1:22' */
+  /* '<S17>:1:23' */
+  transit_torque = Bilateral_Ankle_Exo_B.RT3[6];
+
+  /* '<S17>:1:24' */
+  maintain_torque = Bilateral_Ankle_Exo_B.RT3[7];
+
+  /* '<S17>:1:25' */
+  /* '<S17>:1:39' */
+  torque_measure = Bilateral_Ankle_Exo_B.RT4[0];
+
+  /* '<S17>:1:40' */
+  troque_delta = Bilateral_Ankle_Exo_B.RT4[1];
+
+  /* '<S17>:1:41' */
+  stride_index = Bilateral_Ankle_Exo_B.RT1[3] * 500.0 + 1.0;
+  if (stride_index > 750.0) {
+    /* '<S17>:1:42' */
+    /* '<S17>:1:43' */
+    stride_index = 750.0;
+  }
+
+  if ((Bilateral_Ankle_Exo_DW.last_footstate == 0.0) &&
+      (Bilateral_Ankle_Exo_B.RT1[1] == 1.0) && ((Bilateral_Ankle_Exo_B.RT1[0] ==
+        2.0) || (Bilateral_Ankle_Exo_B.RT1[0] == 1.0))) {
+    /* '<S17>:1:47' */
+    /* '<S17>:1:48' */
+    /* '<S17>:1:50' */
+    memset(&Bilateral_Ankle_Exo_B.torque_track[0], 0, 750U * sizeof(real_T));
+    memset(&Bilateral_Ankle_Exo_B.torque_delta_track[0], 0, 750U * sizeof(real_T));
+
+    /* '<S17>:1:51' */
+    /* '<S17>:1:52' */
+    if (Bilateral_Ankle_Exo_B.RT3[8] == 1.0) {
+      /* '<S17>:1:54' */
+      /* '<S17>:1:56' */
+      index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+      /* '<S17>:1:57' */
+      index_rise = index_peak - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
+        Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+      /* '<S17>:1:58' */
+      index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT1[2] * 500.0) + index_peak;
+      if (1.0 > index_rise - 1.0) {
+        q1 = 0;
+      } else {
+        q1 = (int32_T)(index_rise - 1.0);
+      }
+
+      /* '<S17>:1:61' */
+      for (dd = 0; dd < q1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = (real_T)(int16_T)(1 + (int16_T)
+          dd) / index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
+      }
+
+      if (0 <= q1 - 1) {
+        memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
+               &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
+      }
+
+      /* '<S17>:1:65' */
+      /* '<S17>:1:69' */
+      /* '<S17>:1:70' */
+      parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
+      parm1[1] = Bilateral_Ankle_Exo_B.RT3[0];
+      parm1[2] = 0.0;
+      parm1[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_rise;
+      tmp[8] = index_rise * index_rise;
+      tmp[12] = rt_powd_snf(index_rise, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_peak;
+      tmp[9] = index_peak * index_peak;
+      tmp[13] = rt_powd_snf(index_peak, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_rise;
+      tmp[14] = index_rise * index_rise * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_peak;
+      tmp[15] = index_peak * index_peak * 3.0;
+      Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
+      index_transit = index_peak - index_rise;
+      if (1.0 > index_transit) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_transit;
+      }
+
+      if (index_rise > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        ia = (int32_T)index_rise - 1;
+        fd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_6[0] = 1;
+      tmp_size_6[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_6,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_7[0] = 1;
+      tmp_size_7[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_7,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S17>:1:71' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      index_transit = index_peak - index_rise;
+      if (1.0 > index_transit) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_transit;
+      }
+
+      if (index_rise > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_5[0] = 1;
+      tmp_size_5[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_5,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S17>:1:72' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+
+      /* '<S17>:1:75' */
+      /* '<S17>:1:79' */
+      /* '<S17>:1:80' */
+      parm1[0] = peak_torque;
+      parm1[1] = 0.0;
+      parm1[2] = 0.0;
+      parm1[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_peak;
+      tmp[8] = index_peak * index_peak;
+      tmp[12] = rt_powd_snf(index_peak, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_fall;
+      tmp[9] = index_fall * index_fall;
+      tmp[13] = rt_powd_snf(index_fall, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_peak;
+      tmp[14] = index_peak * index_peak * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_fall;
+      tmp[15] = index_fall * index_fall * 3.0;
+      Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
+      peak_torque = (index_fall + 1.0) - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)index_fall;
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)index_fall;
+        ia = (int32_T)index_peak - 1;
+        fd = (int32_T)index_fall;
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_3[0] = 1;
+      tmp_size_3[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_3,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_4[0] = 1;
+      tmp_size_4[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_4,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S17>:1:81' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      peak_torque = index_fall - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)(index_fall - 1.0);
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)(index_fall - 1.0);
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_2[0] = 1;
+      tmp_size_2[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_2,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S17>:1:82' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+    } else if (Bilateral_Ankle_Exo_B.RT3[8] == 2.0) {
+      /* '<S17>:1:84' */
+      /* '<S17>:1:86' */
+      index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+      /* '<S17>:1:87' */
+      index_transit = floor(Bilateral_Ankle_Exo_B.RT3[4] / 100.0 *
+                            Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+      /* '<S17>:1:88' */
+      index_rise = index_transit - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
+        Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+      /* '<S17>:1:89' */
+      index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
+                         Bilateral_Ankle_Exo_B.RT1[2] * 500.0) + index_peak;
+      if (1.0 > index_rise - 1.0) {
+        q1 = 0;
+      } else {
+        q1 = (int32_T)(index_rise - 1.0);
+      }
+
+      /* '<S17>:1:92' */
+      for (dd = 0; dd < q1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = (real_T)(int16_T)(1 + (int16_T)
+          dd) / index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
+      }
+
+      if (0 <= q1 - 1) {
+        memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
+               &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
+      }
+
+      /* '<S17>:1:95' */
+      /* '<S17>:1:99' */
+      /* '<S17>:1:100' */
+      parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
+      parm1[1] = Bilateral_Ankle_Exo_B.RT3[6];
+      parm1[2] = 0.0;
+      parm1[3] = Bilateral_Ankle_Exo_B.RT3[0] / (index_peak - index_rise);
+      tmp[0] = 1.0;
+      tmp[4] = index_rise;
+      tmp[8] = index_rise * index_rise;
+      tmp[12] = rt_powd_snf(index_rise, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_transit;
+      tmp[9] = index_transit * index_transit;
+      tmp[13] = rt_powd_snf(index_transit, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_rise;
+      tmp[14] = index_rise * index_rise * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_transit;
+      tmp[15] = index_transit * index_transit * 3.0;
+      Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
+      maintain_torque = index_transit - index_rise;
+      if (1.0 > maintain_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)maintain_torque;
+      }
+
+      if (index_rise > index_transit - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_transit - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_transit - 1.0);
+        ia = (int32_T)index_rise - 1;
+        fd = (int32_T)(index_transit - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_6[0] = 1;
+      tmp_size_6[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_6,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_7[0] = 1;
+      tmp_size_7[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_7,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S17>:1:101' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      maintain_torque = index_transit - index_rise;
+      if (1.0 > maintain_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)maintain_torque;
+      }
+
+      if (index_rise > index_transit - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_rise;
+        bd = (int32_T)(index_transit - 1.0);
+        ar = (int32_T)index_rise - 1;
+        dd = (int32_T)(index_transit - 1.0);
+        q1 = (int32_T)index_rise - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_5[0] = 1;
+      tmp_size_5[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_5,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S17>:1:102' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+
+      /* '<S17>:1:105' */
+      /* '<S17>:1:109' */
+      /* '<S17>:1:110' */
+      parm1[0] = transit_torque;
+      parm1[1] = peak_torque;
+      parm1[2] = peak_torque / (index_peak - index_rise);
+      parm1[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_transit;
+      tmp[8] = index_transit * index_transit;
+      tmp[12] = rt_powd_snf(index_transit, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_peak;
+      tmp[9] = index_peak * index_peak;
+      tmp[13] = rt_powd_snf(index_peak, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_transit;
+      tmp[14] = index_transit * index_transit * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_peak;
+      tmp[15] = index_peak * index_peak * 3.0;
+      Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
+      index_rise = index_peak - index_transit;
+      if (1.0 > index_rise) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_rise;
+      }
+
+      if (index_transit > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_transit;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_transit - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        ia = (int32_T)index_transit - 1;
+        fd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_transit - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_3[0] = 1;
+      tmp_size_3[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_3,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_4[0] = 1;
+      tmp_size_4[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_4,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S17>:1:111' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      index_rise = index_peak - index_transit;
+      if (1.0 > index_rise) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)index_rise;
+      }
+
+      if (index_transit > index_peak - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_transit;
+        bd = (int32_T)(index_peak - 1.0);
+        ar = (int32_T)index_transit - 1;
+        dd = (int32_T)(index_peak - 1.0);
+        q1 = (int32_T)index_transit - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_2[0] = 1;
+      tmp_size_2[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_2,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S17>:1:112' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+
+      /* '<S17>:1:115' */
+      /* '<S17>:1:119' */
+      /* '<S17>:1:120' */
+      parm3[0] = peak_torque;
+      parm3[1] = 0.0;
+      parm3[2] = 0.0;
+      parm3[3] = 0.0;
+      tmp[0] = 1.0;
+      tmp[4] = index_peak;
+      tmp[8] = index_peak * index_peak;
+      tmp[12] = rt_powd_snf(index_peak, 3.0);
+      tmp[1] = 1.0;
+      tmp[5] = index_fall;
+      tmp[9] = index_fall * index_fall;
+      tmp[13] = rt_powd_snf(index_fall, 3.0);
+      tmp[2] = 0.0;
+      tmp[6] = 1.0;
+      tmp[10] = 2.0 * index_peak;
+      tmp[14] = index_peak * index_peak * 3.0;
+      tmp[3] = 0.0;
+      tmp[7] = 1.0;
+      tmp[11] = 2.0 * index_fall;
+      tmp[15] = index_fall * index_fall * 3.0;
+      Bilateral_Ankle_Exo_mldivide_l(tmp, parm3);
+      peak_torque = (index_fall + 1.0) - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        ia = 0;
+        fd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)index_fall;
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)index_fall;
+        ia = (int32_T)index_peak - 1;
+        fd = (int32_T)index_fall;
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size_0[0] = 1;
+      tmp_size_0[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_0,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      tmp_size_idx_1 = fd - ia;
+      loop_ub = fd - ia;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+      }
+
+      tmp_size_1[0] = 1;
+      tmp_size_1[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size_1,
+        Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)((br
+          + dd) - 1) + 1);
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+      }
+
+      loop_ub = tmp_size_g[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+        Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+        Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+        Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+          Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 4; dd++) {
+            if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                  Bilateral_Ankle_Exo_B.result_data[dd] * parm3[ia];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 4;
+        }
+      }
+
+      /* '<S17>:1:121' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+      }
+
+      peak_torque = index_fall - index_peak;
+      if (1.0 > peak_torque) {
+        b_n = 0;
+      } else {
+        b_n = (int32_T)peak_torque;
+      }
+
+      if (index_peak > index_fall - 1.0) {
+        br = 1;
+        bd = 0;
+        ar = 0;
+        dd = 0;
+        q1 = 0;
+      } else {
+        br = (int32_T)index_peak;
+        bd = (int32_T)(index_fall - 1.0);
+        ar = (int32_T)index_peak - 1;
+        dd = (int32_T)(index_fall - 1.0);
+        q1 = (int32_T)index_peak - 1;
+      }
+
+      tmp_size_idx_1 = dd - ar;
+      loop_ub = dd - ar;
+      for (dd = 0; dd < loop_ub; dd++) {
+        tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+      }
+
+      tmp_size[0] = 1;
+      tmp_size[1] = tmp_size_idx_1;
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+      }
+
+      Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size,
+        Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+      }
+
+      loop_ub = bd - br;
+      for (dd = 0; dd <= loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+          ((int16_T)((br + dd) - 1) + 1) * 2.0;
+      }
+
+      loop_ub = tmp_size_f[1];
+      for (dd = 0; dd < loop_ub; dd++) {
+        Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+      }
+
+      br = b_n;
+      for (dd = 0; dd < b_n; dd++) {
+        Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+        Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+        Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+      }
+
+      tmp_0 = (int16_T)br;
+      tmp_size_idx_1 = tmp_0;
+      b_n = br - 1;
+      if (0 <= tmp_size_idx_1 - 1) {
+        memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 * sizeof
+               (real_T));
+      }
+
+      if (br != 0) {
+        for (br = 1; br - 1 <= b_n; br++) {
+          for (bd = br; bd <= br; bd++) {
+            Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+          }
+        }
+
+        br = 0;
+        for (bd = 0; bd <= b_n; bd++) {
+          ar = -1;
+          for (dd = br; dd + 1 <= br + 3; dd++) {
+            if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+              ia = ar;
+              for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                ia++;
+                Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                  Bilateral_Ankle_Exo_B.b_result_data[dd];
+              }
+            }
+
+            ar++;
+          }
+
+          br += 3;
+        }
+      }
+
+      /* '<S17>:1:122' */
+      for (dd = 0; dd < tmp_size_idx_1; dd++) {
+        Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+      }
+    } else {
+      if (Bilateral_Ankle_Exo_B.RT3[8] == 3.0) {
+        /* '<S17>:1:124' */
+        /* '<S17>:1:126' */
+        index_peak = floor(Bilateral_Ankle_Exo_B.RT3[2] / 100.0 *
+                           Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+        /* '<S17>:1:127' */
+        index_transit = floor(Bilateral_Ankle_Exo_B.RT3[4] / 100.0 *
+                              Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+        /* '<S17>:1:128' */
+        transit_torque = floor(Bilateral_Ankle_Exo_B.RT3[5] / 100.0 *
+          Bilateral_Ankle_Exo_B.RT1[2] * 500.0) + index_transit;
+
+        /* '<S17>:1:129' */
+        index_rise = index_transit - floor(Bilateral_Ankle_Exo_B.RT3[1] / 100.0 *
+          Bilateral_Ankle_Exo_B.RT1[2] * 500.0);
+
+        /* '<S17>:1:130' */
+        index_fall = floor(Bilateral_Ankle_Exo_B.RT3[3] / 100.0 *
+                           Bilateral_Ankle_Exo_B.RT1[2] * 500.0) + index_peak;
+        if (1.0 > index_rise - 1.0) {
+          q1 = 0;
+        } else {
+          q1 = (int32_T)(index_rise - 1.0);
+        }
+
+        /* '<S17>:1:133' */
+        for (dd = 0; dd < q1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = (real_T)(int16_T)(1 + (int16_T)
+            dd) / index_rise * Bilateral_Ankle_Exo_P.torque_offset_Value;
+        }
+
+        if (0 <= q1 - 1) {
+          memcpy(&Bilateral_Ankle_Exo_B.torque_track[0],
+                 &Bilateral_Ankle_Exo_B.tmp_data_cx[0], q1 * sizeof(real_T));
+        }
+
+        /* '<S17>:1:136' */
+        /* '<S17>:1:140' */
+        /* '<S17>:1:141' */
+        parm1[0] = Bilateral_Ankle_Exo_P.torque_offset_Value;
+        parm1[1] = Bilateral_Ankle_Exo_B.RT3[7];
+        parm1[2] = 0.0;
+        parm1[3] = 0.0;
+        tmp[0] = 1.0;
+        tmp[4] = index_rise;
+        tmp[8] = index_rise * index_rise;
+        tmp[12] = rt_powd_snf(index_rise, 3.0);
+        tmp[1] = 1.0;
+        tmp[5] = index_transit;
+        tmp[9] = index_transit * index_transit;
+        tmp[13] = rt_powd_snf(index_transit, 3.0);
+        tmp[2] = 0.0;
+        tmp[6] = 1.0;
+        tmp[10] = 2.0 * index_rise;
+        tmp[14] = index_rise * index_rise * 3.0;
+        tmp[3] = 0.0;
+        tmp[7] = 1.0;
+        tmp[11] = 2.0 * index_transit;
+        tmp[15] = index_transit * index_transit * 3.0;
+        Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
+        yc = index_transit - index_rise;
+        if (1.0 > yc) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)yc;
+        }
+
+        if (index_rise > index_transit - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          ia = 0;
+          fd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_rise;
+          bd = (int32_T)(index_transit - 1.0);
+          ar = (int32_T)index_rise - 1;
+          dd = (int32_T)(index_transit - 1.0);
+          ia = (int32_T)index_rise - 1;
+          fd = (int32_T)(index_transit - 1.0);
+          q1 = (int32_T)index_rise - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_6[0] = 1;
+        tmp_size_6[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_6, Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        tmp_size_idx_1 = fd - ia;
+        loop_ub = fd - ia;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+        }
+
+        tmp_size_7[0] = 1;
+        tmp_size_7[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_7, Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)
+            ((br + dd) - 1) + 1);
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+        }
+
+        loop_ub = tmp_size_g[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+            Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+          Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+          Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+          Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 4; dd++) {
+              if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                    Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 4;
+          }
+        }
+
+        /* '<S17>:1:142' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        yc = index_transit - index_rise;
+        if (1.0 > yc) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)yc;
+        }
+
+        if (index_rise > index_transit - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_rise;
+          bd = (int32_T)(index_transit - 1.0);
+          ar = (int32_T)index_rise - 1;
+          dd = (int32_T)(index_transit - 1.0);
+          q1 = (int32_T)index_rise - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_5[0] = 1;
+        tmp_size_5[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_5, Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+            ((int16_T)((br + dd) - 1) + 1) * 2.0;
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+          Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+          Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 3; dd++) {
+              if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                    Bilateral_Ankle_Exo_B.b_result_data[dd];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 3;
+          }
+        }
+
+        /* '<S17>:1:143' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+        }
+
+        index_rise = transit_torque - index_transit;
+        if (1.0 > index_rise) {
+          q1 = 0;
+        } else {
+          q1 = (int32_T)index_rise;
+        }
+
+        if (index_transit > transit_torque - 1.0) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit - 1;
+        }
+
+        /* '<S17>:1:146' */
+        for (dd = 0; dd < q1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = maintain_torque;
+        }
+
+        for (dd = 0; dd < q1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[b_n + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        index_rise = transit_torque - index_transit;
+        if (1.0 > index_rise) {
+          q1 = 0;
+        } else {
+          q1 = (int32_T)index_rise;
+        }
+
+        if (index_transit > transit_torque - 1.0) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit - 1;
+        }
+
+        /* '<S17>:1:147' */
+        if (0 <= q1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.torque_delta_track[b_n], 0, ((q1 + b_n)
+                  - b_n) * sizeof(real_T));
+        }
+
+        /* '<S17>:1:150' */
+        /* '<S17>:1:154' */
+        /* '<S17>:1:155' */
+        parm1[0] = maintain_torque;
+        parm1[1] = peak_torque;
+        parm1[2] = 0.0;
+        parm1[3] = 0.0;
+        tmp[0] = 1.0;
+        tmp[4] = transit_torque;
+        tmp[8] = transit_torque * transit_torque;
+        tmp[12] = rt_powd_snf(transit_torque, 3.0);
+        tmp[1] = 1.0;
+        tmp[5] = index_peak;
+        tmp[9] = index_peak * index_peak;
+        tmp[13] = rt_powd_snf(index_peak, 3.0);
+        tmp[2] = 0.0;
+        tmp[6] = 1.0;
+        tmp[10] = 2.0 * transit_torque;
+        tmp[14] = transit_torque * transit_torque * 3.0;
+        tmp[3] = 0.0;
+        tmp[7] = 1.0;
+        tmp[11] = 2.0 * index_peak;
+        tmp[15] = index_peak * index_peak * 3.0;
+        Bilateral_Ankle_Exo_mldivide_l(tmp, parm1);
+        index_transit = index_peak - transit_torque;
+        if (1.0 > index_transit) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit;
+        }
+
+        if (transit_torque > index_peak - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          ia = 0;
+          fd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)transit_torque;
+          bd = (int32_T)(index_peak - 1.0);
+          ar = (int32_T)transit_torque - 1;
+          dd = (int32_T)(index_peak - 1.0);
+          ia = (int32_T)transit_torque - 1;
+          fd = (int32_T)(index_peak - 1.0);
+          q1 = (int32_T)transit_torque - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_3[0] = 1;
+        tmp_size_3[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_3, Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        tmp_size_idx_1 = fd - ia;
+        loop_ub = fd - ia;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+        }
+
+        tmp_size_4[0] = 1;
+        tmp_size_4[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_4, Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)
+            ((br + dd) - 1) + 1);
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+        }
+
+        loop_ub = tmp_size_g[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+            Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+          Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+          Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+          Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 4; dd++) {
+              if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                    Bilateral_Ankle_Exo_B.result_data[dd] * parm1[ia];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 4;
+          }
+        }
+
+        /* '<S17>:1:156' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        index_transit = index_peak - transit_torque;
+        if (1.0 > index_transit) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)index_transit;
+        }
+
+        if (transit_torque > index_peak - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)transit_torque;
+          bd = (int32_T)(index_peak - 1.0);
+          ar = (int32_T)transit_torque - 1;
+          dd = (int32_T)(index_peak - 1.0);
+          q1 = (int32_T)transit_torque - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_2[0] = 1;
+        tmp_size_2[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_2, Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+            ((int16_T)((br + dd) - 1) + 1) * 2.0;
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+          Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+          Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 3; dd++) {
+              if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                    Bilateral_Ankle_Exo_B.b_result_data[dd];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 3;
+          }
+        }
+
+        /* '<S17>:1:157' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+        }
+
+        /* '<S17>:1:160' */
+        /* '<S17>:1:164' */
+        /* '<S17>:1:165' */
+        parm3[0] = peak_torque;
+        parm3[1] = 0.0;
+        parm3[2] = 0.0;
+        parm3[3] = 0.0;
+        tmp[0] = 1.0;
+        tmp[4] = index_peak;
+        tmp[8] = index_peak * index_peak;
+        tmp[12] = rt_powd_snf(index_peak, 3.0);
+        tmp[1] = 1.0;
+        tmp[5] = index_fall;
+        tmp[9] = index_fall * index_fall;
+        tmp[13] = rt_powd_snf(index_fall, 3.0);
+        tmp[2] = 0.0;
+        tmp[6] = 1.0;
+        tmp[10] = 2.0 * index_peak;
+        tmp[14] = index_peak * index_peak * 3.0;
+        tmp[3] = 0.0;
+        tmp[7] = 1.0;
+        tmp[11] = 2.0 * index_fall;
+        tmp[15] = index_fall * index_fall * 3.0;
+        Bilateral_Ankle_Exo_mldivide_l(tmp, parm3);
+        peak_torque = (index_fall + 1.0) - index_peak;
+        if (1.0 > peak_torque) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)peak_torque;
+        }
+
+        if (index_peak > index_fall) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          ia = 0;
+          fd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_peak;
+          bd = (int32_T)index_fall;
+          ar = (int32_T)index_peak - 1;
+          dd = (int32_T)index_fall;
+          ia = (int32_T)index_peak - 1;
+          fd = (int32_T)index_fall;
+          q1 = (int32_T)index_peak - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size_0[0] = 1;
+        tmp_size_0[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_0, Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        tmp_size_idx_1 = fd - ia;
+        loop_ub = fd - ia;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ia + dd) + 1);
+        }
+
+        tmp_size_1[0] = 1;
+        tmp_size_1[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_ju(Bilateral_Ankle_Exo_B.tmp_data_cx,
+          tmp_size_1, Bilateral_Ankle_Exo_B.tmp_data_k, tmp_size_g);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[dd << 2] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[1 + (dd << 2)] = (int16_T)((int16_T)
+            ((br + dd) - 1) + 1);
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd];
+        }
+
+        loop_ub = tmp_size_g[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data_k[tmp_size_g[0] * dd];
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.result_data[dd << 2] =
+            Bilateral_Ankle_Exo_B.tmp_data[dd << 2];
+          Bilateral_Ankle_Exo_B.result_data[1 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 1];
+          Bilateral_Ankle_Exo_B.result_data[2 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 2];
+          Bilateral_Ankle_Exo_B.result_data[3 + (dd << 2)] =
+            Bilateral_Ankle_Exo_B.tmp_data[(dd << 2) + 3];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 4; dd++) {
+              if (Bilateral_Ankle_Exo_B.result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] +=
+                    Bilateral_Ankle_Exo_B.result_data[dd] * parm3[ia];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 4;
+          }
+        }
+
+        /* '<S17>:1:166' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd];
+        }
+
+        peak_torque = index_fall - index_peak;
+        if (1.0 > peak_torque) {
+          b_n = 0;
+        } else {
+          b_n = (int32_T)peak_torque;
+        }
+
+        if (index_peak > index_fall - 1.0) {
+          br = 1;
+          bd = 0;
+          ar = 0;
+          dd = 0;
+          q1 = 0;
+        } else {
+          br = (int32_T)index_peak;
+          bd = (int32_T)(index_fall - 1.0);
+          ar = (int32_T)index_peak - 1;
+          dd = (int32_T)(index_fall - 1.0);
+          q1 = (int32_T)index_peak - 1;
+        }
+
+        tmp_size_idx_1 = dd - ar;
+        loop_ub = dd - ar;
+        for (dd = 0; dd < loop_ub; dd++) {
+          tmp_data[dd] = (int16_T)((int16_T)(ar + dd) + 1);
+        }
+
+        tmp_size[0] = 1;
+        tmp_size[1] = tmp_size_idx_1;
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_cx[dd] = tmp_data[dd];
+        }
+
+        Bilateral_Ankle_Exo_power_j(Bilateral_Ankle_Exo_B.tmp_data_cx, tmp_size,
+          Bilateral_Ankle_Exo_B.tmp_data_c, tmp_size_f);
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd] = 1.0;
+        }
+
+        loop_ub = bd - br;
+        for (dd = 0; dd <= loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[1 + 3 * dd] = (real_T)(int16_T)
+            ((int16_T)((br + dd) - 1) + 1) * 2.0;
+        }
+
+        loop_ub = tmp_size_f[1];
+        for (dd = 0; dd < loop_ub; dd++) {
+          Bilateral_Ankle_Exo_B.tmp_data_m[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_c[tmp_size_f[0] * dd] * 3.0;
+        }
+
+        br = b_n;
+        for (dd = 0; dd < b_n; dd++) {
+          Bilateral_Ankle_Exo_B.b_result_data[3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd];
+          Bilateral_Ankle_Exo_B.b_result_data[1 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 1];
+          Bilateral_Ankle_Exo_B.b_result_data[2 + 3 * dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_m[3 * dd + 2];
+        }
+
+        tmp_0 = (int16_T)br;
+        tmp_size_idx_1 = tmp_0;
+        b_n = br - 1;
+        if (0 <= tmp_size_idx_1 - 1) {
+          memset(&Bilateral_Ankle_Exo_B.tmp_data_cx[0], 0, tmp_size_idx_1 *
+                 sizeof(real_T));
+        }
+
+        if (br != 0) {
+          for (br = 1; br - 1 <= b_n; br++) {
+            for (bd = br; bd <= br; bd++) {
+              Bilateral_Ankle_Exo_B.tmp_data_cx[bd - 1] = 0.0;
+            }
+          }
+
+          br = 0;
+          for (bd = 0; bd <= b_n; bd++) {
+            ar = -1;
+            for (dd = br; dd + 1 <= br + 3; dd++) {
+              if (Bilateral_Ankle_Exo_B.b_result_data[dd] != 0.0) {
+                ia = ar;
+                for (fd = bd; fd + 1 <= bd + 1; fd++) {
+                  ia++;
+                  Bilateral_Ankle_Exo_B.tmp_data_cx[fd] += parm1[1 + ia] *
+                    Bilateral_Ankle_Exo_B.b_result_data[dd];
+                }
+              }
+
+              ar++;
+            }
+
+            br += 3;
+          }
+        }
+
+        /* '<S17>:1:167' */
+        for (dd = 0; dd < tmp_size_idx_1; dd++) {
+          Bilateral_Ankle_Exo_B.torque_delta_track[q1 + dd] =
+            Bilateral_Ankle_Exo_B.tmp_data_cx[dd] * 500.0;
+        }
+      }
+    }
+
+    /* '<S17>:1:173' */
+    /* '<S17>:1:175' */
+    for (dd = 0; dd < 750; dd++) {
+      Bilateral_Ankle_Exo_DW.TorqueMem_R[dd << 2] =
+        Bilateral_Ankle_Exo_B.torque_track[dd];
+      Bilateral_Ankle_Exo_DW.TorqueMem_R[2 + (dd << 2)] =
+        Bilateral_Ankle_Exo_B.torque_delta_track[dd];
+    }
+  }
+
+  /* '<S17>:1:179' */
+  Bilateral_Ankle_Exo_DW.last_footstate = footstate;
+
+  /* '<S17>:1:180' */
+  Bilateral_Ankle_Exo_DW.TorqueMem_R[1 + (((int32_T)stride_index - 1) << 2)] =
+    torque_measure;
+
+  /* '<S17>:1:181' */
+  Bilateral_Ankle_Exo_DW.TorqueMem_R[3 + (((int32_T)stride_index - 1) << 2)] =
+    troque_delta;
+  if (mode == 2.0) {
+    /* '<S17>:1:183' */
+    /* '<S17>:1:184' */
+    mode = Bilateral_Ankle_Exo_DW.TorqueMem_R[((int32_T)stride_index - 1) << 2];
+
+    /* '<S17>:1:185' */
+    stride_index = Bilateral_Ankle_Exo_DW.TorqueMem_R[(((int32_T)stride_index -
+      1) << 2) + 2];
+  } else {
+    /* '<S17>:1:187' */
+    mode = 0.0;
+
+    /* '<S17>:1:188' */
+    stride_index = 0.0;
+  }
+
+  /* '<S17>:1:191' */
+  /* '<S17>:1:192' */
+  /* '<S17>:1:194' */
+  Bilateral_Ankle_Exo_B.torque_des_r = mode;
+  Bilateral_Ankle_Exo_B.torque_delta_des_r = stride_index;
+  for (dd = 0; dd < 750; dd++) {
+    Bilateral_Ankle_Exo_B.torque_trace_r[dd << 1] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_R[dd << 2];
+    Bilateral_Ankle_Exo_B.torque_trace_r[1 + (dd << 1)] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_R[(dd << 2) + 1];
+  }
+
+  for (dd = 0; dd < 750; dd++) {
+    Bilateral_Ankle_Exo_B.torque_delta_trace_r[dd << 1] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_R[(dd << 2) + 2];
+    Bilateral_Ankle_Exo_B.torque_delta_trace_r[1 + (dd << 1)] =
+      Bilateral_Ankle_Exo_DW.TorqueMem_R[(dd << 2) + 3];
+  }
+
+  Bilateral_Ankle_Exo_B.torque_error_r[0] = mode - Bilateral_Ankle_Exo_B.RT4[0];
+  Bilateral_Ankle_Exo_B.torque_error_r[1] = mode - Bilateral_Ankle_Exo_B.RT4[1];
+
+  /* End of MATLAB Function: '<S2>/Torque Track R' */
+
+  /* MATLAB Function: '<S2>/LRN_R' */
+  /* MATLAB Function 'Control Module/LRN_R': '<S13>:1' */
+  if (!Bilateral_Ankle_Exo_DW.last_footstate_not_empty) {
+    /* '<S13>:1:10' */
+    Bilateral_Ankle_Exo_DW.last_footstate_not_empty = true;
+
+    /* '<S13>:1:14' */
+    Bilateral_Ankle_Exo_DW.last_torque_parm[0] = Bilateral_Ankle_Exo_B.RT3[0];
+    Bilateral_Ankle_Exo_DW.last_torque_parm[1] = Bilateral_Ankle_Exo_B.RT3[2];
+  }
+
+  /* '<S13>:1:18' */
+  /* '<S13>:1:22' */
+  /* '<S13>:1:25' */
+  /* '<S13>:1:26' */
+  /* '<S13>:1:28' */
+  /* '<S13>:1:30' */
+  /* '<S13>:1:32' */
+  stride_index = Bilateral_Ankle_Exo_B.RT1[3] * 500.0 + 1.0;
+  if (stride_index > 750.0) {
+    /* '<S13>:1:33' */
+    /* '<S13>:1:34' */
+    stride_index = 750.0;
+  }
+
+  if ((Bilateral_Ankle_Exo_DW.last_footstate_a == 0.0) &&
+      (Bilateral_Ankle_Exo_B.RT1[1] == 1.0) && (Bilateral_Ankle_Exo_B.RT1[0] ==
+       2.0) && Bilateral_Ankle_Exo_P.LRN_R_BT_LRN_ON_R) {
+    /* '<S13>:1:37' */
+    /* '<S13>:1:38' */
+    /* '<S13>:1:39' */
+    mode = 1.0 - Bilateral_Ankle_Exo_P.LRN_R_error_filter_k_r;
+
+    /* '<S13>:1:40' */
+    footstate = Bilateral_Ankle_Exo_B.RT2[2];
+    for (dd = 0; dd < 750; dd++) {
+      peak_torque = (Bilateral_Ankle_Exo_DW.TorqueMem_R[dd << 2] -
+                     Bilateral_Ankle_Exo_DW.TorqueMem_R[(dd << 2) + 1]) *
+        Bilateral_Ankle_Exo_P.LRN_R_error_filter_k_r + mode *
+        Bilateral_Ankle_Exo_DW.torque_error_memory[dd];
+      Bilateral_Ankle_Exo_DW.torque_error_memory[dd] = peak_torque;
+      Bilateral_Ankle_Exo_DW.lrn_cmd_memory[dd] =
+        Bilateral_Ankle_Exo_P.LRN_R_lrn_shrink_r *
+        Bilateral_Ankle_Exo_DW.lrn_cmd_memory[dd] + footstate *
+        Bilateral_Ankle_Exo_DW.torque_error_memory[dd];
+    }
+  }
+
+  if (Bilateral_Ankle_Exo_P.LRN_R_BT_LRN_CLEAR_R ||
+      (Bilateral_Ankle_Exo_DW.last_torque_parm[0] != Bilateral_Ankle_Exo_B.RT3[0])
+      || (Bilateral_Ankle_Exo_DW.last_torque_parm[1] !=
+          Bilateral_Ankle_Exo_B.RT3[2])) {
+    /* '<S13>:1:43' */
+    /* '<S13>:1:44' */
+    /* '<S13>:1:45' */
+    memset(&Bilateral_Ankle_Exo_DW.torque_error_memory[0], 0, 1000U * sizeof
+           (real_T));
+    memset(&Bilateral_Ankle_Exo_DW.lrn_cmd_memory[0], 0, 1000U * sizeof(real_T));
+  }
+
+  if (Bilateral_Ankle_Exo_B.RT1[0] == 2.0) {
+    /* '<S13>:1:48' */
+    q1 = Bilateral_Ankle_Exo_P.LRN_R_time_delay_r;
+    if (q1 < -2147482897) {
+      q1 = MAX_int32_T;
+    } else {
+      q1 = 750 - q1;
+    }
+
+    if (stride_index >= q1) {
+      /* '<S13>:1:49' */
+      /* '<S13>:1:50' */
+      Bilateral_Ankle_Exo_B.lrn_cmd_r = 0.0;
+    } else {
+      /* '<S13>:1:52' */
+      mode = rt_roundd_snf(stride_index + (real_T)
+                           Bilateral_Ankle_Exo_P.LRN_R_time_delay_r);
+      if (mode < 2.147483648E+9) {
+        if (mode >= -2.147483648E+9) {
+          dd = (int32_T)mode;
+        } else {
+          dd = MIN_int32_T;
+        }
+      } else {
+        dd = MAX_int32_T;
+      }
+
+      Bilateral_Ankle_Exo_B.lrn_cmd_r = Bilateral_Ankle_Exo_DW.lrn_cmd_memory[dd
+        - 1];
+    }
+  } else {
+    /* '<S13>:1:55' */
+    Bilateral_Ankle_Exo_B.lrn_cmd_r = 0.0;
+  }
+
+  /* '<S13>:1:58' */
+  Bilateral_Ankle_Exo_DW.last_footstate_a = Bilateral_Ankle_Exo_B.RT1[1];
+
+  /* '<S13>:1:59' */
+  Bilateral_Ankle_Exo_DW.last_torque_parm[0] = Bilateral_Ankle_Exo_B.RT3[0];
+  Bilateral_Ankle_Exo_DW.last_torque_parm[1] = Bilateral_Ankle_Exo_B.RT3[2];
+
+  /* '<S13>:1:60' */
+  memcpy(&Bilateral_Ankle_Exo_B.lrn_mem_r[0],
+         &Bilateral_Ankle_Exo_DW.lrn_cmd_memory[0], 750U * sizeof(real_T));
+
+  /* End of MATLAB Function: '<S2>/LRN_R' */
+
+  /* MATLAB Function: '<S2>/Controller_R' */
+  /* MATLAB Function 'Control Module/Controller_R': '<S11>:1' */
+  /* '<S11>:1:25' */
+  /* '<S11>:1:26' */
+  /* '<S11>:1:28' */
+  /* '<S11>:1:29' */
+  /* '<S11>:1:30' */
+  /* '<S11>:1:31' */
+  /* '<S11>:1:34' */
+  /* '<S11>:1:35' */
+  /* '<S11>:1:39' */
+  /* '<S11>:1:40' */
+  /* '<S11>:1:41' */
+  /* '<S11>:1:44' */
+  /* '<S11>:1:45' */
+  /* '<S11>:1:49' */
+  /* '<S11>:1:50' */
+  /* '<S11>:1:51' */
+  /* '<S11>:1:52' */
+  /* '<S11>:1:53' */
+  switch ((int32_T)Bilateral_Ankle_Exo_B.RT1[0]) {
+   case 1:
+    /* '<S11>:1:58' */
+    Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 0.0;
+
+    /* '<S11>:1:59' */
+    Bilateral_Ankle_Exo_DW.calib_state = 0.0;
+    break;
+
+   case 3:
+    /* '<S11>:1:62' */
     Bilateral_Ankle_Exo_B.motor_vel_cmd_r = -150.0;
     break;
 
    case 4:
     if ((Bilateral_Ankle_Exo_DW.calib_state == 0.0) &&
         (Bilateral_Ankle_Exo_B.RT4[0] < 5.0)) {
-      /* '<S10>:1:65' */
-      /* '<S10>:1:66' */
+      /* '<S11>:1:65' */
+      /* '<S11>:1:66' */
       Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 150.0;
     } else if ((Bilateral_Ankle_Exo_DW.calib_state == 0.0) &&
                (Bilateral_Ankle_Exo_B.RT4[0] > 5.0)) {
-      /* '<S10>:1:67' */
-      /* '<S10>:1:68' */
+      /* '<S11>:1:67' */
+      /* '<S11>:1:68' */
       Bilateral_Ankle_Exo_DW.calib_state = 1.0;
 
-      /* '<S10>:1:69' */
+      /* '<S11>:1:69' */
       Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 0.0;
 
-      /* '<S10>:1:70' */
-      /* '<S10>:1:71' */
+      /* '<S11>:1:70' */
+      /* '<S11>:1:71' */
       Bilateral_Ankle_Exo_DW.ParmReg_R[1] = (Bilateral_Ankle_Exo_DW.ParmReg_R[1]
         + Bilateral_Ankle_Exo_B.RT6[0]) - 20.0;
     } else {
-      /* '<S10>:1:73' */
+      /* '<S11>:1:73' */
       Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 0.0;
     }
     break;
 
    case 2:
-    /* '<S10>:1:77' */
+    /* '<S11>:1:77' */
     switch (Bilateral_Ankle_Exo_P.Controller_R_MODE_R) {
      case 1:
-      /* '<S10>:1:80' */
-      /* '<S10>:1:81' */
-      /* '<S10>:1:82' */
+      /* '<S11>:1:80' */
+      /* '<S11>:1:81' */
+      /* '<S11>:1:82' */
       Bilateral_Ankle_Exo_B.motor_vel_cmd_r = (((Bilateral_Ankle_Exo_B.RT5[0] -
         Bilateral_Ankle_Exo_P.Controller_R_FOLLOW_SLACK_ANGLE) -
         Bilateral_Ankle_Exo_B.RT6[0] * 0.37037037037037035) *
@@ -2345,27 +5982,27 @@ void Bilateral_Ankle_E_ControlModule(void)
 
      case 2:
       if (Bilateral_Ankle_Exo_B.RT1[1] == 1.0) {
-        /* '<S10>:1:85' */
-        /* '<S10>:1:86' */
-        /* '<S10>:1:87' */
-        /* '<S10>:1:88' */
-        /* '<S10>:1:90' */
-        /* '<S10>:1:91' */
+        /* '<S11>:1:85' */
+        /* '<S11>:1:86' */
+        /* '<S11>:1:87' */
+        /* '<S11>:1:88' */
+        /* '<S11>:1:90' */
+        /* '<S11>:1:91' */
         if (Bilateral_Ankle_Exo_B.torque_des_r < 0.001) {
-          /* '<S10>:1:94' */
-          /* '<S10>:1:95' */
+          /* '<S11>:1:94' */
+          /* '<S11>:1:95' */
           Bilateral_Ankle_Exo_DW.smooth_filter += 0.05;
           if (Bilateral_Ankle_Exo_DW.smooth_filter > 1.0) {
-            /* '<S10>:1:96' */
-            /* '<S10>:1:97' */
+            /* '<S11>:1:96' */
+            /* '<S11>:1:97' */
             Bilateral_Ankle_Exo_DW.smooth_filter = 1.0;
           }
         } else {
-          /* '<S10>:1:100' */
+          /* '<S11>:1:100' */
           Bilateral_Ankle_Exo_DW.smooth_filter = 0.0;
         }
 
-        /* '<S10>:1:103' */
+        /* '<S11>:1:103' */
         Bilateral_Ankle_Exo_B.motor_vel_cmd_r =
           (((((Bilateral_Ankle_Exo_B.torque_des_r - Bilateral_Ankle_Exo_B.RT4[0])
               * Bilateral_Ankle_Exo_B.RT2[0] +
@@ -2381,12 +6018,12 @@ void Bilateral_Ankle_E_ControlModule(void)
             0.37037037037037035 * Bilateral_Ankle_Exo_B.RT2[4]) *
            Bilateral_Ankle_Exo_DW.smooth_filter) * 5.0 / 0.05;
       } else {
-        /* '<S10>:1:107' */
+        /* '<S11>:1:107' */
         Bilateral_Ankle_Exo_DW.smooth_filter = 0.0;
 
-        /* '<S10>:1:108' */
-        /* '<S10>:1:109' */
-        /* '<S10>:1:110' */
+        /* '<S11>:1:108' */
+        /* '<S11>:1:109' */
+        /* '<S11>:1:110' */
         Bilateral_Ankle_Exo_B.motor_vel_cmd_r = (((Bilateral_Ankle_Exo_B.RT5[0]
           - Bilateral_Ankle_Exo_P.Controller_R_FOLLOW_SLACK_ANGLE) -
           Bilateral_Ankle_Exo_B.RT6[0] * 0.37037037037037035) *
@@ -2396,26 +6033,26 @@ void Bilateral_Ankle_E_ControlModule(void)
       break;
 
      default:
-      /* '<S10>:1:113' */
+      /* '<S11>:1:113' */
       Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 0.0;
       break;
     }
     break;
 
    case 0:
-    /* '<S10>:1:117' */
+    /* '<S11>:1:117' */
     Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 0.0;
     break;
 
    default:
-    /* '<S10>:1:120' */
+    /* '<S11>:1:120' */
     Bilateral_Ankle_Exo_B.motor_vel_cmd_r = 0.0;
     break;
   }
 
-  /* End of MATLAB Function: '<S1>/Controller_R' */
+  /* End of MATLAB Function: '<S2>/Controller_R' */
 
-  /* MATLAB Function: '<S14>/MATLAB Function' */
+  /* MATLAB Function: '<S15>/MATLAB Function' */
   Bilateral_Ankle__MATLABFunction(Bilateral_Ankle_Exo_B.RT4,
     Bilateral_Ankle_Exo_B.RT6, Bilateral_Ankle_Exo_B.motor_vel_cmd_r,
     &Bilateral_Ankle_Exo_B.sf_MATLABFunction_b,
@@ -2424,15 +6061,15 @@ void Bilateral_Ankle_E_ControlModule(void)
     Bilateral_Ankle_Exo_P.MATLABFunction_MAX_TORQUE_p,
     Bilateral_Ankle_Exo_P.MATLABFunction_MIN_MOTOR_ANGL_g);
 
-  /* Gain: '<S14>/Gain2' */
+  /* Gain: '<S15>/Gain2' */
   Bilateral_Ankle_Exo_B.Gain2_o = Bilateral_Ankle_Exo_P.Gain2_Gain_g *
     Bilateral_Ankle_Exo_B.sf_MATLABFunction_b.vel;
 
-  /* Gain: '<S14>/Gain1' */
+  /* Gain: '<S15>/Gain1' */
   Bilateral_Ankle_Exo_B.Gain1_h = Bilateral_Ankle_Exo_P.Gain1_Gain_c *
     Bilateral_Ankle_Exo_B.Gain2_o;
 
-  /* S-Function (rti_commonblock): '<S19>/S-Function1' */
+  /* S-Function (rti_commonblock): '<S20>/S-Function1' */
   /* This comment workarounds a code generation problem */
 
   /* --- Bilateral_Ankle_Exo/Control Module/Motor_R/DAC_CLASS1_BL1 --- */
@@ -2452,7 +6089,7 @@ void Bilateral_Ankle_E_ControlModule(void)
 /* Termination for function-call system: '<Root>/Control Module' */
 void Bilateral_An_ControlModule_Term(void)
 {
-  /* Terminate for S-Function (rti_commonblock): '<S17>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S18>/S-Function1' */
 
   /* --- Bilateral_Ankle_Exo/Control Module/Motor_L/DAC_CLASS1_BL1 --- */
   /* --- [RTI120X, DAC C1] - Channel: 16 --- */
@@ -2463,7 +6100,7 @@ void Bilateral_An_ControlModule_Term(void)
   /* Deactivates AnalogOut functionality */
   DacCl1AnalogOut_stop(pRTIDacC1AnalogOut_Ch_16);
 
-  /* Terminate for S-Function (rti_commonblock): '<S19>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S20>/S-Function1' */
 
   /* --- Bilateral_Ankle_Exo/Control Module/Motor_R/DAC_CLASS1_BL1 --- */
   /* --- [RTI120X, DAC C1] - Channel: 15 --- */
@@ -2475,7 +6112,7 @@ void Bilateral_An_ControlModule_Term(void)
   DacCl1AnalogOut_stop(pRTIDacC1AnalogOut_Ch_15);
 }
 
-/* Function for MATLAB Function: '<S33>/MATLAB Function' */
+/* Function for MATLAB Function: '<S34>/MATLAB Function' */
 static real_T Bilateral_Ankle_Exo_xnrm2(const real_T x[30], int32_T ix0)
 {
   real_T y;
@@ -2500,7 +6137,7 @@ static real_T Bilateral_Ankle_Exo_xnrm2(const real_T x[30], int32_T ix0)
   return scale * sqrt(y);
 }
 
-/* Function for MATLAB Function: '<S33>/MATLAB Function' */
+/* Function for MATLAB Function: '<S34>/MATLAB Function' */
 static real_T Bilateral_Ankle_Exo_xnrm2_o(int32_T n, const real_T x[30], int32_T
   ix0)
 {
@@ -2557,7 +6194,7 @@ real_T rt_hypotd_snf(real_T u0, real_T u1)
   return y;
 }
 
-/* Function for MATLAB Function: '<S33>/MATLAB Function' */
+/* Function for MATLAB Function: '<S34>/MATLAB Function' */
 static void Bilateral_Ankle_Exo_xgeqp3(real_T A[30], real_T tau[2], int32_T
   jpvt[2])
 {
@@ -2825,7 +6462,7 @@ void Bilateral_Ankle_Exo_output(void)
 
   if (rtmIsMajorTimeStep(Bilateral_Ankle_Exo_M) &&
       Bilateral_Ankle_Exo_M->Timing.TaskCounters.TID[1] == 0) {
-    /* S-Function (rti_commonblock): '<S89>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S113>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Bilateral_Ankle_Exo/Sensor Data/Torque module/ADC_CLASS1_BL6 --- */
@@ -2849,11 +6486,11 @@ void Bilateral_Ankle_Exo_output(void)
         (real_T*) &Bilateral_Ankle_Exo_B.SFunction1);
     }
 
-    /* Gain: '<S33>/Gain' */
+    /* Gain: '<S34>/Gain' */
     Bilateral_Ankle_Exo_B.Gain = Bilateral_Ankle_Exo_P.Gain_Gain *
       Bilateral_Ankle_Exo_B.SFunction1;
 
-    /* DiscreteFilter: '<S33>/0.4low2' */
+    /* DiscreteFilter: '<S34>/0.4low2' */
     torque_zero = Bilateral_Ankle_Exo_B.Gain;
     torque_zero -= Bilateral_Ankle_Exo_P.u4low2_DenCoef[1] *
       Bilateral_Ankle_Exo_DW.u4low2_states[0];
@@ -2873,67 +6510,67 @@ void Bilateral_Ankle_Exo_output(void)
       Bilateral_Ankle_Exo_DW.u4low2_states[2];
     Bilateral_Ankle_Exo_B.u4low2 = torque_zero;
 
-    /* MATLAB Function: '<S33>/Calibration_R' */
-    /* MATLAB Function 'Sensor Data/Torque module/Calibration_R': '<S91>:1' */
-    /* '<S91>:1:4' */
+    /* MATLAB Function: '<S34>/Calibration_R' */
+    /* MATLAB Function 'Sensor Data/Torque module/Calibration_R': '<S115>:1' */
+    /* '<S115>:1:4' */
     torque_zero = Bilateral_Ankle_Exo_DW.ParmReg_R[0];
     if (Bilateral_Ankle_Exo_P.Calibration_R_BT_RESET_TORQUE_R) {
-      /* '<S91>:1:7' */
-      /* '<S91>:1:8' */
+      /* '<S115>:1:7' */
+      /* '<S115>:1:8' */
       torque_zero = Bilateral_Ankle_Exo_B.u4low2 *
         Bilateral_Ankle_Exo_P.Calibration_R_load_vol_gain +
         Bilateral_Ankle_Exo_P.Calibration_R_load_vol_offset;
 
-      /* '<S91>:1:9' */
+      /* '<S115>:1:9' */
       Bilateral_Ankle_Exo_DW.ParmReg_R[0] = torque_zero;
     }
 
-    /* '<S91>:1:12' */
+    /* '<S115>:1:12' */
     Bilateral_Ankle_Exo_B.torque = (Bilateral_Ankle_Exo_B.u4low2 *
       Bilateral_Ankle_Exo_P.Calibration_R_load_vol_gain +
       Bilateral_Ankle_Exo_P.Calibration_R_load_vol_offset) - torque_zero;
 
-    /* End of MATLAB Function: '<S33>/Calibration_R' */
+    /* End of MATLAB Function: '<S34>/Calibration_R' */
 
-    /* UnitDelay: '<S86>/Unit Delay1' */
+    /* UnitDelay: '<S110>/Unit Delay1' */
     Bilateral_Ankle_Exo_B.x2k1 = Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE;
 
-    /* UnitDelay: '<S86>/Unit Delay' */
+    /* UnitDelay: '<S110>/Unit Delay' */
     Bilateral_Ankle_Exo_B.x1k1 = Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE;
 
-    /* Gain: '<S86>/Gain1' */
+    /* Gain: '<S110>/Gain1' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD_T1 * Bilateral_Ankle_Exo_P.uOrderTD_T2;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain1 = torque_zero * Bilateral_Ankle_Exo_B.x1k1;
 
-    /* Gain: '<S86>/Gain2' */
+    /* Gain: '<S110>/Gain2' */
     torque_zero = Bilateral_Ankle_Exo_P.uOrderTD_T1 +
       Bilateral_Ankle_Exo_P.uOrderTD_T2;
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD_T1 * Bilateral_Ankle_Exo_P.uOrderTD_T2;
     torque_zero /= B_0;
     Bilateral_Ankle_Exo_B.Gain2 = torque_zero * Bilateral_Ankle_Exo_B.x2k1;
 
-    /* UnitDelay: '<S86>/Unit Delay2' */
+    /* UnitDelay: '<S110>/Unit Delay2' */
     Bilateral_Ankle_Exo_B.UnitDelay2 = Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE;
 
-    /* Gain: '<S86>/Gain4' */
+    /* Gain: '<S110>/Gain4' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD_T1 * Bilateral_Ankle_Exo_P.uOrderTD_T2;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain4 = torque_zero * Bilateral_Ankle_Exo_B.UnitDelay2;
 
-    /* Sum: '<S86>/Add2' */
+    /* Sum: '<S110>/Add2' */
     Bilateral_Ankle_Exo_B.Add2 = (Bilateral_Ankle_Exo_B.Gain1 +
       Bilateral_Ankle_Exo_B.Gain2) - Bilateral_Ankle_Exo_B.Gain4;
 
-    /* Gain: '<S86>/Gain3' */
+    /* Gain: '<S110>/Gain3' */
     Bilateral_Ankle_Exo_B.Gain3 = Bilateral_Ankle_Exo_P.uOrderTD_Ts *
       Bilateral_Ankle_Exo_B.Add2;
 
-    /* Sum: '<S86>/Add1' */
+    /* Sum: '<S110>/Add1' */
     Bilateral_Ankle_Exo_B.x2k = Bilateral_Ankle_Exo_B.x2k1 -
       Bilateral_Ankle_Exo_B.Gain3;
 
-    /* MATLAB Function: '<S33>/Mux_R' */
+    /* MATLAB Function: '<S34>/Mux_R' */
     Bilateral_Ankle_Exo_Mux(Bilateral_Ankle_Exo_B.torque,
       Bilateral_Ankle_Exo_B.x2k, &Bilateral_Ankle_Exo_B.sf_Mux_R);
 
@@ -2967,36 +6604,36 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT4' */
 
-    /* S-Function (rti_commonblock): '<S36>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S37>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S28>/Gain' */
+    /* Gain: '<S29>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_g = Bilateral_Ankle_Exo_P.Gain_Gain_o *
       Bilateral_Ankle_Exo_B.SFunction1_o1;
 
-    /* MATLAB Function: '<S28>/Calibration_R' */
-    /* MATLAB Function 'Sensor Data/Ankle Encoder/Calibration_R': '<S35>:1' */
-    /* '<S35>:1:3' */
+    /* MATLAB Function: '<S29>/Calibration_R' */
+    /* MATLAB Function 'Sensor Data/Ankle Encoder/Calibration_R': '<S36>:1' */
+    /* '<S36>:1:3' */
     torque_zero = Bilateral_Ankle_Exo_DW.ParmReg_R[2];
     if (Bilateral_Ankle_Exo_P.Calibration_R_BT_RESET_ANKLE_R) {
-      /* '<S35>:1:6' */
-      /* '<S35>:1:7' */
+      /* '<S36>:1:6' */
+      /* '<S36>:1:7' */
       torque_zero = Bilateral_Ankle_Exo_B.Gain_g;
 
-      /* '<S35>:1:8' */
+      /* '<S36>:1:8' */
       Bilateral_Ankle_Exo_DW.ParmReg_R[2] = Bilateral_Ankle_Exo_B.Gain_g;
     }
 
-    /* '<S35>:1:11' */
+    /* '<S36>:1:11' */
     Bilateral_Ankle_Exo_B.angle_k = Bilateral_Ankle_Exo_B.Gain_g - torque_zero;
 
-    /* End of MATLAB Function: '<S28>/Calibration_R' */
+    /* End of MATLAB Function: '<S29>/Calibration_R' */
 
-    /* Gain: '<S28>/Gain1' */
+    /* Gain: '<S29>/Gain1' */
     Bilateral_Ankle_Exo_B.Gain1_o = Bilateral_Ankle_Exo_P.Gain1_Gain_m *
       Bilateral_Ankle_Exo_B.SFunction1_o2;
 
-    /* MATLAB Function: '<S28>/Mux' */
+    /* MATLAB Function: '<S29>/Mux' */
     Bilateral_Ankle_Exo_Mux(Bilateral_Ankle_Exo_B.angle_k,
       Bilateral_Ankle_Exo_B.Gain1_o, &Bilateral_Ankle_Exo_B.sf_Mux);
 
@@ -3030,48 +6667,48 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT5' */
 
-    /* S-Function (rti_commonblock): '<S80>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S104>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S32>/Gain1' */
+    /* Gain: '<S33>/Gain1' */
     Bilateral_Ankle_Exo_B.Gain1_k = Bilateral_Ankle_Exo_P.Gain1_Gain_cu *
       Bilateral_Ankle_Exo_B.SFunction1_o1_j;
 
-    /* MATLAB Function: '<S32>/Calibration_R' */
-    /* MATLAB Function 'Sensor Data/Motor Encoder/Calibration_R': '<S79>:1' */
-    /* '<S79>:1:3' */
+    /* MATLAB Function: '<S33>/Calibration_R' */
+    /* MATLAB Function 'Sensor Data/Motor Encoder/Calibration_R': '<S103>:1' */
+    /* '<S103>:1:3' */
     torque_zero = Bilateral_Ankle_Exo_DW.ParmReg_R[1];
     if (Bilateral_Ankle_Exo_P.Calibration_R_BT_RESET_MOTOR_R) {
-      /* '<S79>:1:5' */
-      /* '<S79>:1:6' */
+      /* '<S103>:1:5' */
+      /* '<S103>:1:6' */
       torque_zero = Bilateral_Ankle_Exo_B.Gain1_k;
 
-      /* '<S79>:1:7' */
+      /* '<S103>:1:7' */
       Bilateral_Ankle_Exo_DW.ParmReg_R[1] = Bilateral_Ankle_Exo_B.Gain1_k;
     }
 
-    /* '<S79>:1:10' */
+    /* '<S103>:1:10' */
     Bilateral_Ankle_Exo_B.angle = Bilateral_Ankle_Exo_B.Gain1_k - torque_zero;
 
-    /* End of MATLAB Function: '<S32>/Calibration_R' */
+    /* End of MATLAB Function: '<S33>/Calibration_R' */
 
-    /* Gain: '<S32>/Gain4' */
+    /* Gain: '<S33>/Gain4' */
     Bilateral_Ankle_Exo_B.Gain4_m = Bilateral_Ankle_Exo_P.Gain4_Gain *
       Bilateral_Ankle_Exo_B.SFunction1_o2_h;
 
-    /* UnitDelay: '<S77>/Unit Delay1' */
+    /* UnitDelay: '<S101>/Unit Delay1' */
     Bilateral_Ankle_Exo_B.x2k1_h = Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_n;
 
-    /* UnitDelay: '<S77>/Unit Delay' */
+    /* UnitDelay: '<S101>/Unit Delay' */
     Bilateral_Ankle_Exo_B.x1k1_g = Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_o;
 
-    /* Gain: '<S77>/Gain1' */
+    /* Gain: '<S101>/Gain1' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD1_T1 *
       Bilateral_Ankle_Exo_P.uOrderTD1_T2;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain1_m = torque_zero * Bilateral_Ankle_Exo_B.x1k1_g;
 
-    /* Gain: '<S77>/Gain2' */
+    /* Gain: '<S101>/Gain2' */
     torque_zero = Bilateral_Ankle_Exo_P.uOrderTD1_T1 +
       Bilateral_Ankle_Exo_P.uOrderTD1_T2;
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD1_T1 *
@@ -3079,30 +6716,30 @@ void Bilateral_Ankle_Exo_output(void)
     torque_zero /= B_0;
     Bilateral_Ankle_Exo_B.Gain2_h = torque_zero * Bilateral_Ankle_Exo_B.x2k1_h;
 
-    /* UnitDelay: '<S77>/Unit Delay2' */
+    /* UnitDelay: '<S101>/Unit Delay2' */
     Bilateral_Ankle_Exo_B.UnitDelay2_e =
       Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_i;
 
-    /* Gain: '<S77>/Gain4' */
+    /* Gain: '<S101>/Gain4' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD1_T1 *
       Bilateral_Ankle_Exo_P.uOrderTD1_T2;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain4_p = torque_zero *
       Bilateral_Ankle_Exo_B.UnitDelay2_e;
 
-    /* Sum: '<S77>/Add2' */
+    /* Sum: '<S101>/Add2' */
     Bilateral_Ankle_Exo_B.Add2_f = (Bilateral_Ankle_Exo_B.Gain1_m +
       Bilateral_Ankle_Exo_B.Gain2_h) - Bilateral_Ankle_Exo_B.Gain4_p;
 
-    /* Gain: '<S77>/Gain3' */
+    /* Gain: '<S101>/Gain3' */
     Bilateral_Ankle_Exo_B.Gain3_i = Bilateral_Ankle_Exo_P.uOrderTD1_Ts *
       Bilateral_Ankle_Exo_B.Add2_f;
 
-    /* Sum: '<S77>/Add1' */
+    /* Sum: '<S101>/Add1' */
     Bilateral_Ankle_Exo_B.x2k_k = Bilateral_Ankle_Exo_B.x2k1_h -
       Bilateral_Ankle_Exo_B.Gain3_i;
 
-    /* MATLAB Function: '<S32>/Mux3' */
+    /* MATLAB Function: '<S33>/Mux3' */
     Bilateral_Ankle_Exo_Mux1(Bilateral_Ankle_Exo_B.angle,
       Bilateral_Ankle_Exo_B.Gain4_m, Bilateral_Ankle_Exo_B.x2k_k,
       &Bilateral_Ankle_Exo_B.sf_Mux3);
@@ -3139,130 +6776,130 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT6' */
 
-    /* S-Function (rti_commonblock): '<S60>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S84>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* MATLAB Function: '<S30>/Filter_R' */
+    /* MATLAB Function: '<S31>/Filter_R' */
     Bilateral_Ankle_Exo_Filter_L(Bilateral_Ankle_Exo_B.SFunction1_it,
       &Bilateral_Ankle_Exo_B.sf_Filter_R, &Bilateral_Ankle_Exo_DW.sf_Filter_R);
 
-    /* MATLAB Function: '<S7>/State Machine' */
-    /* MATLAB Function 'State_Module_r/State Machine': '<S99>:1' */
-    /* '<S99>:1:21' */
-    /* '<S99>:1:22' */
-    /* '<S99>:1:23' */
-    /* '<S99>:1:24' */
-    /* '<S99>:1:27' */
-    /* '<S99>:1:28' */
-    /* '<S99>:1:29' */
-    /* '<S99>:1:30' */
-    /* '<S99>:1:31' */
+    /* MATLAB Function: '<S8>/State Machine' */
+    /* MATLAB Function 'State_Module_r/State Machine': '<S123>:1' */
+    /* '<S123>:1:21' */
+    /* '<S123>:1:22' */
+    /* '<S123>:1:23' */
+    /* '<S123>:1:24' */
+    /* '<S123>:1:27' */
+    /* '<S123>:1:28' */
+    /* '<S123>:1:29' */
+    /* '<S123>:1:30' */
+    /* '<S123>:1:31' */
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_RUN_R) {
-      /* '<S99>:1:34' */
-      /* '<S99>:1:35' */
+      /* '<S123>:1:34' */
+      /* '<S123>:1:35' */
       Bilateral_Ankle_Exo_DW.bt_run = 1.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_CALIB_R) {
-      /* '<S99>:1:37' */
-      /* '<S99>:1:38' */
+      /* '<S123>:1:37' */
+      /* '<S123>:1:38' */
       Bilateral_Ankle_Exo_DW.reg_mode = 4.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_SLACK_R) {
-      /* '<S99>:1:40' */
-      /* '<S99>:1:41' */
+      /* '<S123>:1:40' */
+      /* '<S123>:1:41' */
       Bilateral_Ankle_Exo_DW.reg_mode = 3.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_IDLE_R) {
-      /* '<S99>:1:43' */
-      /* '<S99>:1:44' */
+      /* '<S123>:1:43' */
+      /* '<S123>:1:44' */
       Bilateral_Ankle_Exo_DW.reg_mode = 1.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_ERROR_R) {
-      /* '<S99>:1:46' */
-      /* '<S99>:1:47' */
+      /* '<S123>:1:46' */
+      /* '<S123>:1:47' */
       Bilateral_Ankle_Exo_DW.reg_mode = 0.0;
     }
 
     if ((Bilateral_Ankle_Exo_DW.bt_run == 1.0) &&
         (Bilateral_Ankle_Exo_DW.reg_last_switch == 0.0) &&
         (Bilateral_Ankle_Exo_B.sf_Filter_R.state == 1.0)) {
-      /* '<S99>:1:50' */
-      /* '<S99>:1:51' */
+      /* '<S123>:1:50' */
+      /* '<S123>:1:51' */
       Bilateral_Ankle_Exo_DW.reg_mode = 2.0;
 
-      /* '<S99>:1:52' */
+      /* '<S123>:1:52' */
       Bilateral_Ankle_Exo_DW.bt_run = 0.0;
     }
 
     if ((Bilateral_Ankle_Exo_DW.reg_mode == 2.0) ||
         (Bilateral_Ankle_Exo_DW.reg_mode == 1.0)) {
-      /* '<S99>:1:55' */
+      /* '<S123>:1:55' */
       if ((Bilateral_Ankle_Exo_DW.reg_last_switch == 0.0) &&
           (Bilateral_Ankle_Exo_B.sf_Filter_R.state == 1.0)) {
-        /* '<S99>:1:56' */
-        /* '<S99>:1:57' */
+        /* '<S123>:1:56' */
+        /* '<S123>:1:57' */
         Bilateral_Ankle_Exo_DW.reg_state = 1.0;
         if ((Bilateral_Ankle_Exo_DW.reg_stride_time_count < 1.5) &&
             (Bilateral_Ankle_Exo_DW.reg_stride_time_count > 0.5)) {
-          /* '<S99>:1:59' */
-          /* '<S99>:1:60' */
+          /* '<S123>:1:59' */
+          /* '<S123>:1:60' */
           Bilateral_Ankle_Exo_DW.reg_stride_time = 0.618 *
             Bilateral_Ankle_Exo_DW.reg_stride_time + 0.382 *
             Bilateral_Ankle_Exo_DW.reg_stride_time_count;
         }
 
-        /* '<S99>:1:63' */
+        /* '<S123>:1:63' */
         Bilateral_Ankle_Exo_DW.reg_stride_time_count = 0.0;
       } else if ((Bilateral_Ankle_Exo_DW.reg_state == 1.0) &&
                  (Bilateral_Ankle_Exo_DW.reg_stride_time_count > 0.65 *
                   Bilateral_Ankle_Exo_DW.reg_stride_time)) {
-        /* '<S99>:1:65' */
-        /* '<S99>:1:66' */
+        /* '<S123>:1:65' */
+        /* '<S123>:1:66' */
         Bilateral_Ankle_Exo_DW.reg_state = 0.0;
 
-        /* '<S99>:1:67' */
+        /* '<S123>:1:67' */
         Bilateral_Ankle_Exo_DW.reg_stride_time_count += 0.0002;
       } else {
-        /* '<S99>:1:69' */
+        /* '<S123>:1:69' */
         Bilateral_Ankle_Exo_DW.reg_stride_time_count += 0.0002;
       }
     }
 
-    /* '<S99>:1:73' */
+    /* '<S123>:1:73' */
     Bilateral_Ankle_Exo_DW.reg_last_switch =
       Bilateral_Ankle_Exo_B.sf_Filter_R.state;
     if (Bilateral_Ankle_Exo_DW.reg_stride_time > 1.5) {
-      /* '<S99>:1:74' */
-      /* '<S99>:1:75' */
+      /* '<S123>:1:74' */
+      /* '<S123>:1:75' */
       Bilateral_Ankle_Exo_DW.reg_stride_time = 1.5;
     } else {
       if (Bilateral_Ankle_Exo_DW.reg_stride_time < 0.5) {
-        /* '<S99>:1:76' */
-        /* '<S99>:1:77' */
+        /* '<S123>:1:76' */
+        /* '<S123>:1:77' */
         Bilateral_Ankle_Exo_DW.reg_stride_time = 0.5;
       }
     }
 
-    /* '<S99>:1:80' */
+    /* '<S123>:1:80' */
     Bilateral_Ankle_Exo_B.mode_r = Bilateral_Ankle_Exo_DW.reg_mode;
 
-    /* '<S99>:1:81' */
+    /* '<S123>:1:81' */
     Bilateral_Ankle_Exo_B.state_r = Bilateral_Ankle_Exo_DW.reg_state;
 
-    /* '<S99>:1:82' */
+    /* '<S123>:1:82' */
     Bilateral_Ankle_Exo_B.stride_time_r = Bilateral_Ankle_Exo_DW.reg_stride_time;
 
-    /* '<S99>:1:83' */
+    /* '<S123>:1:83' */
     Bilateral_Ankle_Exo_B.stride_timer_r =
       Bilateral_Ankle_Exo_DW.reg_stride_time_count;
 
-    /* End of MATLAB Function: '<S7>/State Machine' */
+    /* End of MATLAB Function: '<S8>/State Machine' */
 
-    /* MATLAB Function: '<S7>/Mux1' */
+    /* MATLAB Function: '<S8>/Mux1' */
     Bilateral_Ankle_Exo_Mux1_p(Bilateral_Ankle_Exo_B.mode_r,
       Bilateral_Ankle_Exo_B.state_r, Bilateral_Ankle_Exo_B.stride_time_r,
       Bilateral_Ankle_Exo_B.stride_timer_r, &Bilateral_Ankle_Exo_B.sf_Mux1);
@@ -3301,24 +6938,24 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT1' */
 
-    /* MATLAB Function: '<S21>/Mux1' incorporates:
-     *  Constant: '<S21>/Kd'
-     *  Constant: '<S21>/Kl'
-     *  Constant: '<S21>/Ko'
-     *  Constant: '<S21>/Kp'
-     *  Constant: '<S21>/Ksd'
-     *  Constant: '<S21>/Ksp'
-     *  Constant: '<S21>/control reset'
+    /* MATLAB Function: '<S22>/Mux1' incorporates:
+     *  Constant: '<S22>/Kd'
+     *  Constant: '<S22>/Kl'
+     *  Constant: '<S22>/Ko'
+     *  Constant: '<S22>/Kp'
+     *  Constant: '<S22>/Ksd'
+     *  Constant: '<S22>/Ksp'
+     *  Constant: '<S22>/control reset'
      */
-    /* MATLAB Function 'Parameter Module/Control Parameter/Mux1': '<S23>:1' */
+    /* MATLAB Function 'Parameter Module/Control Parameter/Mux1': '<S24>:1' */
     if (Bilateral_Ankle_Exo_P.controlreset_Value == 1.0) {
-      /* '<S23>:1:3' */
-      /* '<S23>:1:4' */
+      /* '<S24>:1:3' */
+      /* '<S24>:1:4' */
       for (i = 0; i < 6; i++) {
         Bilateral_Ankle_Exo_B.x_h[i] = 0.0;
       }
     } else {
-      /* '<S23>:1:6' */
+      /* '<S24>:1:6' */
       Bilateral_Ankle_Exo_B.x_h[0] = Bilateral_Ankle_Exo_P.Kp_Value;
       Bilateral_Ankle_Exo_B.x_h[1] = Bilateral_Ankle_Exo_P.Kd_Value;
       Bilateral_Ankle_Exo_B.x_h[2] = Bilateral_Ankle_Exo_P.Kl_Value;
@@ -3327,7 +6964,7 @@ void Bilateral_Ankle_Exo_output(void)
       Bilateral_Ankle_Exo_B.x_h[5] = Bilateral_Ankle_Exo_P.Ko_Value;
     }
 
-    /* End of MATLAB Function: '<S21>/Mux1' */
+    /* End of MATLAB Function: '<S22>/Mux1' */
 
     /* RateTransition: '<Root>/RT2' */
     switch (Bilateral_Ankle_Exo_DW.RT2_read_buf) {
@@ -3361,18 +6998,118 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT2' */
 
-    /* MATLAB Function: '<S22>/Mux1' incorporates:
-     *  Constant: '<S22>/fall_time'
-     *  Constant: '<S22>/peak_time'
-     *  Constant: '<S22>/peak_torque'
-     *  Constant: '<S22>/rise_time'
+    /* MATLAB Function: '<S23>/Mux1' incorporates:
+     *  Constant: '<S23>/Torque_Mode'
+     *  Constant: '<S23>/fall_time'
+     *  Constant: '<S23>/maintain_time'
+     *  Constant: '<S23>/maintain_torque'
+     *  Constant: '<S23>/peak_time'
+     *  Constant: '<S23>/peak_torque'
+     *  Constant: '<S23>/rise_time'
+     *  Constant: '<S23>/transit_time'
+     *  Constant: '<S23>/transit_torque'
      */
-    /* MATLAB Function 'Parameter Module/Torque Parameter/Mux1': '<S24>:1' */
-    /* '<S24>:1:3' */
+    /* MATLAB Function 'Parameter Module/Torque Parameter/Mux1': '<S25>:1' */
+    /* '<S25>:1:3' */
     Bilateral_Ankle_Exo_B.x_k[0] = Bilateral_Ankle_Exo_P.peak_torque_Value;
     Bilateral_Ankle_Exo_B.x_k[1] = Bilateral_Ankle_Exo_P.rise_time_Value;
     Bilateral_Ankle_Exo_B.x_k[2] = Bilateral_Ankle_Exo_P.peak_time_Value;
     Bilateral_Ankle_Exo_B.x_k[3] = Bilateral_Ankle_Exo_P.fall_time_Value;
+    Bilateral_Ankle_Exo_B.x_k[4] = Bilateral_Ankle_Exo_P.transit_time_Value;
+    Bilateral_Ankle_Exo_B.x_k[5] = Bilateral_Ankle_Exo_P.maintain_time_Value;
+    Bilateral_Ankle_Exo_B.x_k[6] = Bilateral_Ankle_Exo_P.transit_torque_Value;
+    Bilateral_Ankle_Exo_B.x_k[7] = Bilateral_Ankle_Exo_P.maintain_torque_Value;
+    Bilateral_Ankle_Exo_B.x_k[8] = Bilateral_Ankle_Exo_P.Torque_Mode_Value;
+
+    /* MATLAB Function: '<Root>/AutoTunning' */
+    /* MATLAB Function 'AutoTunning': '<S1>:1' */
+    /* '<S1>:1:19' */
+    if (Bilateral_Ankle_Exo_P.AutoTunning_BT_SCAN == 1.0) {
+      /* '<S1>:1:21' */
+      /* '<S1>:1:22' */
+      Bilateral_Ankle_Exo_DW.Scan_state = 1.0;
+
+      /* '<S1>:1:23' */
+      Bilateral_Ankle_Exo_DW.Scan_step = 1.0;
+
+      /* '<S1>:1:24' */
+      Bilateral_Ankle_Exo_DW.Scan_dir = 1.0;
+
+      /* '<S1>:1:25' */
+      Bilateral_Ankle_Exo_DW.step_count = 0.0;
+
+      /* '<S1>:1:26' */
+      Bilateral_Ankle_Exo_DW.parm_delta =
+        Bilateral_Ankle_Exo_P.AutoTunning_Scan_Min;
+    }
+
+    if (Bilateral_Ankle_Exo_DW.Scan_state == 0.0) {
+      /* '<S1>:1:29' */
+      /* '<S1>:1:30' */
+      memcpy(&Bilateral_Ankle_Exo_B.parm_out[0], &Bilateral_Ankle_Exo_B.x_k[0],
+             9U * sizeof(real_T));
+    } else {
+      if ((Bilateral_Ankle_Exo_DW.last_state == 0.0) &&
+          (Bilateral_Ankle_Exo_B.sf_Mux1.x[1] == 1.0)) {
+        /* '<S1>:1:32' */
+        /* '<S1>:1:33' */
+        Bilateral_Ankle_Exo_DW.step_count++;
+        if (Bilateral_Ankle_Exo_DW.step_count > 5.0) {
+          /* '<S1>:1:34' */
+          /* '<S1>:1:35' */
+          Bilateral_Ankle_Exo_DW.step_count = 0.0;
+
+          /* '<S1>:1:36' */
+          Bilateral_Ankle_Exo_DW.Scan_step++;
+
+          /* '<S1>:1:37' */
+          Bilateral_Ankle_Exo_DW.parm_delta += Bilateral_Ankle_Exo_DW.Scan_dir *
+            Bilateral_Ankle_Exo_P.AutoTunning_Scan_Interval;
+          if ((Bilateral_Ankle_Exo_DW.parm_delta >=
+               Bilateral_Ankle_Exo_P.AutoTunning_Scan_Max) &&
+              (Bilateral_Ankle_Exo_DW.Scan_dir == 1.0)) {
+            /* '<S1>:1:38' */
+            /* '<S1>:1:39' */
+            Bilateral_Ankle_Exo_DW.Scan_dir = -1.0;
+          } else {
+            if ((Bilateral_Ankle_Exo_DW.parm_delta <=
+                 Bilateral_Ankle_Exo_P.AutoTunning_Scan_Min) &&
+                (Bilateral_Ankle_Exo_DW.Scan_dir == -1.0)) {
+              /* '<S1>:1:40' */
+              /* '<S1>:1:41' */
+              Bilateral_Ankle_Exo_DW.Scan_state = 0.0;
+
+              /* '<S1>:1:42' */
+              Bilateral_Ankle_Exo_DW.parm_delta = 0.0;
+            }
+          }
+        }
+      }
+
+      /* '<S1>:1:47' */
+      memcpy(&Bilateral_Ankle_Exo_B.parm_out[0], &Bilateral_Ankle_Exo_B.x_k[0],
+             9U * sizeof(real_T));
+
+      /* '<S1>:1:48' */
+      Bilateral_Ankle_Exo_B.parm_out[(int32_T)
+        Bilateral_Ankle_Exo_P.AutoTunning_Parm_index - 1] =
+        Bilateral_Ankle_Exo_B.x_k[(int32_T)
+        Bilateral_Ankle_Exo_P.AutoTunning_Parm_index - 1] +
+        Bilateral_Ankle_Exo_DW.parm_delta;
+
+      /* '<S1>:1:49' */
+    }
+
+    /* '<S1>:1:52' */
+    Bilateral_Ankle_Exo_DW.last_state = Bilateral_Ankle_Exo_B.sf_Mux1.x[1];
+
+    /* '<S1>:1:53' */
+    Bilateral_Ankle_Exo_B.scan_state = Bilateral_Ankle_Exo_DW.Scan_state;
+
+    /* '<S1>:1:54' */
+    Bilateral_Ankle_Exo_B.scan_step = Bilateral_Ankle_Exo_DW.Scan_step;
+
+    /* End of MATLAB Function: '<Root>/AutoTunning' */
 
     /* RateTransition: '<Root>/RT3' */
     switch (Bilateral_Ankle_Exo_DW.RT3_read_buf) {
@@ -3391,15 +7128,13 @@ void Bilateral_Ankle_Exo_output(void)
     }
 
     if (Bilateral_Ankle_Exo_DW.RT3_write_buf != 0) {
-      Bilateral_Ankle_Exo_DW.RT3_Buffer1[0] = Bilateral_Ankle_Exo_B.x_k[0];
-      Bilateral_Ankle_Exo_DW.RT3_Buffer1[1] = Bilateral_Ankle_Exo_B.x_k[1];
-      Bilateral_Ankle_Exo_DW.RT3_Buffer1[2] = Bilateral_Ankle_Exo_B.x_k[2];
-      Bilateral_Ankle_Exo_DW.RT3_Buffer1[3] = Bilateral_Ankle_Exo_B.x_k[3];
+      for (i = 0; i < 9; i++) {
+        Bilateral_Ankle_Exo_DW.RT3_Buffer1[i] = Bilateral_Ankle_Exo_B.parm_out[i];
+      }
     } else {
-      Bilateral_Ankle_Exo_DW.RT3_Buffer0[0] = Bilateral_Ankle_Exo_B.x_k[0];
-      Bilateral_Ankle_Exo_DW.RT3_Buffer0[1] = Bilateral_Ankle_Exo_B.x_k[1];
-      Bilateral_Ankle_Exo_DW.RT3_Buffer0[2] = Bilateral_Ankle_Exo_B.x_k[2];
-      Bilateral_Ankle_Exo_DW.RT3_Buffer0[3] = Bilateral_Ankle_Exo_B.x_k[3];
+      for (i = 0; i < 9; i++) {
+        Bilateral_Ankle_Exo_DW.RT3_Buffer0[i] = Bilateral_Ankle_Exo_B.parm_out[i];
+      }
     }
 
     Bilateral_Ankle_Exo_DW.RT3_last_buf_wr =
@@ -3408,131 +7143,131 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT3' */
 
-    /* S-Function (rti_commonblock): '<S61>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S85>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* MATLAB Function: '<S30>/Filter_L' */
+    /* MATLAB Function: '<S31>/Filter_L' */
     Bilateral_Ankle_Exo_Filter_L(Bilateral_Ankle_Exo_B.SFunction1_jo,
       &Bilateral_Ankle_Exo_B.sf_Filter_L, &Bilateral_Ankle_Exo_DW.sf_Filter_L);
 
-    /* MATLAB Function: '<S6>/State Machine' */
-    /* MATLAB Function 'State_Module_l/State Machine': '<S97>:1' */
-    /* '<S97>:1:21' */
-    /* '<S97>:1:22' */
-    /* '<S97>:1:23' */
-    /* '<S97>:1:24' */
-    /* '<S97>:1:27' */
-    /* '<S97>:1:28' */
-    /* '<S97>:1:29' */
-    /* '<S97>:1:30' */
-    /* '<S97>:1:31' */
+    /* MATLAB Function: '<S7>/State Machine' */
+    /* MATLAB Function 'State_Module_l/State Machine': '<S121>:1' */
+    /* '<S121>:1:21' */
+    /* '<S121>:1:22' */
+    /* '<S121>:1:23' */
+    /* '<S121>:1:24' */
+    /* '<S121>:1:27' */
+    /* '<S121>:1:28' */
+    /* '<S121>:1:29' */
+    /* '<S121>:1:30' */
+    /* '<S121>:1:31' */
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_RUN_L) {
-      /* '<S97>:1:34' */
-      /* '<S97>:1:35' */
+      /* '<S121>:1:34' */
+      /* '<S121>:1:35' */
       Bilateral_Ankle_Exo_DW.bt_run_c = 1.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_CALIB_L) {
-      /* '<S97>:1:37' */
-      /* '<S97>:1:38' */
+      /* '<S121>:1:37' */
+      /* '<S121>:1:38' */
       Bilateral_Ankle_Exo_DW.reg_mode_d = 4.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_SLACK_L) {
-      /* '<S97>:1:40' */
-      /* '<S97>:1:41' */
+      /* '<S121>:1:40' */
+      /* '<S121>:1:41' */
       Bilateral_Ankle_Exo_DW.reg_mode_d = 3.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_IDLE_L) {
-      /* '<S97>:1:43' */
-      /* '<S97>:1:44' */
+      /* '<S121>:1:43' */
+      /* '<S121>:1:44' */
       Bilateral_Ankle_Exo_DW.reg_mode_d = 1.0;
     }
 
     if (Bilateral_Ankle_Exo_P.StateMachine_BT_ERROR_L) {
-      /* '<S97>:1:46' */
-      /* '<S97>:1:47' */
+      /* '<S121>:1:46' */
+      /* '<S121>:1:47' */
       Bilateral_Ankle_Exo_DW.reg_mode_d = 0.0;
     }
 
     if ((Bilateral_Ankle_Exo_DW.bt_run_c == 1.0) &&
         (Bilateral_Ankle_Exo_DW.reg_last_switch_p == 0.0) &&
         (Bilateral_Ankle_Exo_B.sf_Filter_L.state == 1.0)) {
-      /* '<S97>:1:50' */
-      /* '<S97>:1:51' */
+      /* '<S121>:1:50' */
+      /* '<S121>:1:51' */
       Bilateral_Ankle_Exo_DW.reg_mode_d = 2.0;
 
-      /* '<S97>:1:52' */
+      /* '<S121>:1:52' */
       Bilateral_Ankle_Exo_DW.bt_run_c = 0.0;
     }
 
     if ((Bilateral_Ankle_Exo_DW.reg_mode_d == 2.0) ||
         (Bilateral_Ankle_Exo_DW.reg_mode_d == 1.0)) {
-      /* '<S97>:1:55' */
+      /* '<S121>:1:55' */
       if ((Bilateral_Ankle_Exo_DW.reg_last_switch_p == 0.0) &&
           (Bilateral_Ankle_Exo_B.sf_Filter_L.state == 1.0)) {
-        /* '<S97>:1:56' */
-        /* '<S97>:1:57' */
+        /* '<S121>:1:56' */
+        /* '<S121>:1:57' */
         Bilateral_Ankle_Exo_DW.reg_state_p = 1.0;
         if ((Bilateral_Ankle_Exo_DW.reg_stride_time_count_a < 1.5) &&
             (Bilateral_Ankle_Exo_DW.reg_stride_time_count_a > 0.5)) {
-          /* '<S97>:1:59' */
-          /* '<S97>:1:60' */
+          /* '<S121>:1:59' */
+          /* '<S121>:1:60' */
           Bilateral_Ankle_Exo_DW.reg_stride_time_e = 0.618 *
             Bilateral_Ankle_Exo_DW.reg_stride_time_e + 0.382 *
             Bilateral_Ankle_Exo_DW.reg_stride_time_count_a;
         }
 
-        /* '<S97>:1:63' */
+        /* '<S121>:1:63' */
         Bilateral_Ankle_Exo_DW.reg_stride_time_count_a = 0.0;
       } else if ((Bilateral_Ankle_Exo_DW.reg_state_p == 1.0) &&
                  (Bilateral_Ankle_Exo_DW.reg_stride_time_count_a > 0.65 *
                   Bilateral_Ankle_Exo_DW.reg_stride_time_e)) {
-        /* '<S97>:1:65' */
-        /* '<S97>:1:66' */
+        /* '<S121>:1:65' */
+        /* '<S121>:1:66' */
         Bilateral_Ankle_Exo_DW.reg_state_p = 0.0;
 
-        /* '<S97>:1:67' */
+        /* '<S121>:1:67' */
         Bilateral_Ankle_Exo_DW.reg_stride_time_count_a += 0.0002;
       } else {
-        /* '<S97>:1:69' */
+        /* '<S121>:1:69' */
         Bilateral_Ankle_Exo_DW.reg_stride_time_count_a += 0.0002;
       }
     }
 
-    /* '<S97>:1:73' */
+    /* '<S121>:1:73' */
     Bilateral_Ankle_Exo_DW.reg_last_switch_p =
       Bilateral_Ankle_Exo_B.sf_Filter_L.state;
     if (Bilateral_Ankle_Exo_DW.reg_stride_time_e > 1.5) {
-      /* '<S97>:1:74' */
-      /* '<S97>:1:75' */
+      /* '<S121>:1:74' */
+      /* '<S121>:1:75' */
       Bilateral_Ankle_Exo_DW.reg_stride_time_e = 1.5;
     } else {
       if (Bilateral_Ankle_Exo_DW.reg_stride_time_e < 0.5) {
-        /* '<S97>:1:76' */
-        /* '<S97>:1:77' */
+        /* '<S121>:1:76' */
+        /* '<S121>:1:77' */
         Bilateral_Ankle_Exo_DW.reg_stride_time_e = 0.5;
       }
     }
 
-    /* '<S97>:1:80' */
+    /* '<S121>:1:80' */
     Bilateral_Ankle_Exo_B.mode_l = Bilateral_Ankle_Exo_DW.reg_mode_d;
 
-    /* '<S97>:1:81' */
+    /* '<S121>:1:81' */
     Bilateral_Ankle_Exo_B.state_l = Bilateral_Ankle_Exo_DW.reg_state_p;
 
-    /* '<S97>:1:82' */
+    /* '<S121>:1:82' */
     Bilateral_Ankle_Exo_B.stride_time_l =
       Bilateral_Ankle_Exo_DW.reg_stride_time_e;
 
-    /* '<S97>:1:83' */
+    /* '<S121>:1:83' */
     Bilateral_Ankle_Exo_B.stride_timer_l =
       Bilateral_Ankle_Exo_DW.reg_stride_time_count_a;
 
-    /* End of MATLAB Function: '<S6>/State Machine' */
+    /* End of MATLAB Function: '<S7>/State Machine' */
 
-    /* MATLAB Function: '<S6>/Mux1' */
+    /* MATLAB Function: '<S7>/Mux1' */
     Bilateral_Ankle_Exo_Mux1_p(Bilateral_Ankle_Exo_B.mode_l,
       Bilateral_Ankle_Exo_B.state_l, Bilateral_Ankle_Exo_B.stride_time_l,
       Bilateral_Ankle_Exo_B.stride_timer_l, &Bilateral_Ankle_Exo_B.sf_Mux1_p);
@@ -3579,7 +7314,7 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT7' */
 
-    /* S-Function (rti_commonblock): '<S88>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S112>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Bilateral_Ankle_Exo/Sensor Data/Torque module/ADC_CLASS1_BL1 --- */
@@ -3603,11 +7338,11 @@ void Bilateral_Ankle_Exo_output(void)
         (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_o);
     }
 
-    /* Gain: '<S33>/Gain1' */
+    /* Gain: '<S34>/Gain1' */
     Bilateral_Ankle_Exo_B.Gain1_l = Bilateral_Ankle_Exo_P.Gain1_Gain_e *
       Bilateral_Ankle_Exo_B.SFunction1_o;
 
-    /* DiscreteFilter: '<S33>/0.4low1' */
+    /* DiscreteFilter: '<S34>/0.4low1' */
     torque_zero = Bilateral_Ankle_Exo_B.Gain1_l;
     torque_zero -= Bilateral_Ankle_Exo_P.u4low1_DenCoef[1] *
       Bilateral_Ankle_Exo_DW.u4low1_states[0];
@@ -3627,41 +7362,41 @@ void Bilateral_Ankle_Exo_output(void)
       Bilateral_Ankle_Exo_DW.u4low1_states[2];
     Bilateral_Ankle_Exo_B.u4low1 = torque_zero;
 
-    /* MATLAB Function: '<S33>/Calibration_L' */
-    /* MATLAB Function 'Sensor Data/Torque module/Calibration_L': '<S90>:1' */
-    /* '<S90>:1:4' */
+    /* MATLAB Function: '<S34>/Calibration_L' */
+    /* MATLAB Function 'Sensor Data/Torque module/Calibration_L': '<S114>:1' */
+    /* '<S114>:1:4' */
     torque_zero = Bilateral_Ankle_Exo_DW.ParmReg_L[0];
     if (Bilateral_Ankle_Exo_P.Calibration_L_BT_RESET_TORQUE_L) {
-      /* '<S90>:1:7' */
-      /* '<S90>:1:8' */
+      /* '<S114>:1:7' */
+      /* '<S114>:1:8' */
       torque_zero = Bilateral_Ankle_Exo_B.u4low1 *
         Bilateral_Ankle_Exo_P.Calibration_L_load_vol_gain +
         Bilateral_Ankle_Exo_P.Calibration_L_load_vol_offset;
 
-      /* '<S90>:1:9' */
+      /* '<S114>:1:9' */
       Bilateral_Ankle_Exo_DW.ParmReg_L[0] = torque_zero;
     }
 
-    /* '<S90>:1:12' */
+    /* '<S114>:1:12' */
     Bilateral_Ankle_Exo_B.torque_k = (Bilateral_Ankle_Exo_B.u4low1 *
       Bilateral_Ankle_Exo_P.Calibration_L_load_vol_gain +
       Bilateral_Ankle_Exo_P.Calibration_L_load_vol_offset) - torque_zero;
 
-    /* End of MATLAB Function: '<S33>/Calibration_L' */
+    /* End of MATLAB Function: '<S34>/Calibration_L' */
 
-    /* UnitDelay: '<S87>/Unit Delay1' */
+    /* UnitDelay: '<S111>/Unit Delay1' */
     Bilateral_Ankle_Exo_B.x2k1_m = Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_m;
 
-    /* UnitDelay: '<S87>/Unit Delay' */
+    /* UnitDelay: '<S111>/Unit Delay' */
     Bilateral_Ankle_Exo_B.x1k1_f = Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_n;
 
-    /* Gain: '<S87>/Gain1' */
+    /* Gain: '<S111>/Gain1' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD1_T1_a *
       Bilateral_Ankle_Exo_P.uOrderTD1_T2_f;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain1_a = torque_zero * Bilateral_Ankle_Exo_B.x1k1_f;
 
-    /* Gain: '<S87>/Gain2' */
+    /* Gain: '<S111>/Gain2' */
     torque_zero = Bilateral_Ankle_Exo_P.uOrderTD1_T1_a +
       Bilateral_Ankle_Exo_P.uOrderTD1_T2_f;
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD1_T1_a *
@@ -3669,30 +7404,30 @@ void Bilateral_Ankle_Exo_output(void)
     torque_zero /= B_0;
     Bilateral_Ankle_Exo_B.Gain2_j = torque_zero * Bilateral_Ankle_Exo_B.x2k1_m;
 
-    /* UnitDelay: '<S87>/Unit Delay2' */
+    /* UnitDelay: '<S111>/Unit Delay2' */
     Bilateral_Ankle_Exo_B.UnitDelay2_b =
       Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_l;
 
-    /* Gain: '<S87>/Gain4' */
+    /* Gain: '<S111>/Gain4' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD1_T1_a *
       Bilateral_Ankle_Exo_P.uOrderTD1_T2_f;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain4_g = torque_zero *
       Bilateral_Ankle_Exo_B.UnitDelay2_b;
 
-    /* Sum: '<S87>/Add2' */
+    /* Sum: '<S111>/Add2' */
     Bilateral_Ankle_Exo_B.Add2_c = (Bilateral_Ankle_Exo_B.Gain1_a +
       Bilateral_Ankle_Exo_B.Gain2_j) - Bilateral_Ankle_Exo_B.Gain4_g;
 
-    /* Gain: '<S87>/Gain3' */
+    /* Gain: '<S111>/Gain3' */
     Bilateral_Ankle_Exo_B.Gain3_f = Bilateral_Ankle_Exo_P.uOrderTD1_Ts_a *
       Bilateral_Ankle_Exo_B.Add2_c;
 
-    /* Sum: '<S87>/Add1' */
+    /* Sum: '<S111>/Add1' */
     Bilateral_Ankle_Exo_B.x2k_l = Bilateral_Ankle_Exo_B.x2k1_m -
       Bilateral_Ankle_Exo_B.Gain3_f;
 
-    /* MATLAB Function: '<S33>/Mux_L' */
+    /* MATLAB Function: '<S34>/Mux_L' */
     Bilateral_Ankle_Exo_Mux(Bilateral_Ankle_Exo_B.torque_k,
       Bilateral_Ankle_Exo_B.x2k_l, &Bilateral_Ankle_Exo_B.sf_Mux_L);
 
@@ -3726,36 +7461,36 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT8' */
 
-    /* S-Function (rti_commonblock): '<S37>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S38>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S28>/Gain2' */
+    /* Gain: '<S29>/Gain2' */
     Bilateral_Ankle_Exo_B.Gain2_n = Bilateral_Ankle_Exo_P.Gain2_Gain_l *
       Bilateral_Ankle_Exo_B.SFunction1_o1_jc;
 
-    /* MATLAB Function: '<S28>/Calibration_L' */
-    /* MATLAB Function 'Sensor Data/Ankle Encoder/Calibration_L': '<S34>:1' */
-    /* '<S34>:1:3' */
+    /* MATLAB Function: '<S29>/Calibration_L' */
+    /* MATLAB Function 'Sensor Data/Ankle Encoder/Calibration_L': '<S35>:1' */
+    /* '<S35>:1:3' */
     torque_zero = Bilateral_Ankle_Exo_DW.ParmReg_L[2];
     if (Bilateral_Ankle_Exo_P.Calibration_L_BT_RESET_ANKLE_L) {
-      /* '<S34>:1:5' */
-      /* '<S34>:1:6' */
+      /* '<S35>:1:5' */
+      /* '<S35>:1:6' */
       torque_zero = Bilateral_Ankle_Exo_B.Gain2_n;
 
-      /* '<S34>:1:7' */
+      /* '<S35>:1:7' */
       Bilateral_Ankle_Exo_DW.ParmReg_L[2] = Bilateral_Ankle_Exo_B.Gain2_n;
     }
 
-    /* '<S34>:1:10' */
+    /* '<S35>:1:10' */
     Bilateral_Ankle_Exo_B.angle_b = Bilateral_Ankle_Exo_B.Gain2_n - torque_zero;
 
-    /* End of MATLAB Function: '<S28>/Calibration_L' */
+    /* End of MATLAB Function: '<S29>/Calibration_L' */
 
-    /* Gain: '<S28>/Gain3' */
+    /* Gain: '<S29>/Gain3' */
     Bilateral_Ankle_Exo_B.Gain3_o = Bilateral_Ankle_Exo_P.Gain3_Gain *
       Bilateral_Ankle_Exo_B.SFunction1_o2_o;
 
-    /* MATLAB Function: '<S28>/Mux1' */
+    /* MATLAB Function: '<S29>/Mux1' */
     Bilateral_Ankle_Exo_Mux(Bilateral_Ankle_Exo_B.angle_b,
       Bilateral_Ankle_Exo_B.Gain3_o, &Bilateral_Ankle_Exo_B.sf_Mux1_b);
 
@@ -3793,48 +7528,48 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT9' */
 
-    /* S-Function (rti_commonblock): '<S81>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S105>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S32>/Gain2' */
+    /* Gain: '<S33>/Gain2' */
     Bilateral_Ankle_Exo_B.Gain2_c = Bilateral_Ankle_Exo_P.Gain2_Gain_h *
       Bilateral_Ankle_Exo_B.SFunction1_o1_jr;
 
-    /* MATLAB Function: '<S32>/Calibration_L' */
-    /* MATLAB Function 'Sensor Data/Motor Encoder/Calibration_L': '<S78>:1' */
-    /* '<S78>:1:3' */
+    /* MATLAB Function: '<S33>/Calibration_L' */
+    /* MATLAB Function 'Sensor Data/Motor Encoder/Calibration_L': '<S102>:1' */
+    /* '<S102>:1:3' */
     torque_zero = Bilateral_Ankle_Exo_DW.ParmReg_L[1];
     if (Bilateral_Ankle_Exo_P.Calibration_L_BT_RESET_MOTOR_L) {
-      /* '<S78>:1:5' */
-      /* '<S78>:1:6' */
+      /* '<S102>:1:5' */
+      /* '<S102>:1:6' */
       torque_zero = Bilateral_Ankle_Exo_B.Gain2_c;
 
-      /* '<S78>:1:7' */
+      /* '<S102>:1:7' */
       Bilateral_Ankle_Exo_DW.ParmReg_L[1] = Bilateral_Ankle_Exo_B.Gain2_c;
     }
 
-    /* '<S78>:1:10' */
+    /* '<S102>:1:10' */
     Bilateral_Ankle_Exo_B.angle_a = Bilateral_Ankle_Exo_B.Gain2_c - torque_zero;
 
-    /* End of MATLAB Function: '<S32>/Calibration_L' */
+    /* End of MATLAB Function: '<S33>/Calibration_L' */
 
-    /* Gain: '<S32>/Gain3' */
+    /* Gain: '<S33>/Gain3' */
     Bilateral_Ankle_Exo_B.Gain3_h = Bilateral_Ankle_Exo_P.Gain3_Gain_e *
       Bilateral_Ankle_Exo_B.SFunction1_o2_j;
 
-    /* UnitDelay: '<S76>/Unit Delay1' */
+    /* UnitDelay: '<S100>/Unit Delay1' */
     Bilateral_Ankle_Exo_B.x2k1_d = Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_f;
 
-    /* UnitDelay: '<S76>/Unit Delay' */
+    /* UnitDelay: '<S100>/Unit Delay' */
     Bilateral_Ankle_Exo_B.x1k1_e = Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_a;
 
-    /* Gain: '<S76>/Gain1' */
+    /* Gain: '<S100>/Gain1' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD_T1_p *
       Bilateral_Ankle_Exo_P.uOrderTD_T2_k;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain1_p = torque_zero * Bilateral_Ankle_Exo_B.x1k1_e;
 
-    /* Gain: '<S76>/Gain2' */
+    /* Gain: '<S100>/Gain2' */
     torque_zero = Bilateral_Ankle_Exo_P.uOrderTD_T1_p +
       Bilateral_Ankle_Exo_P.uOrderTD_T2_k;
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD_T1_p *
@@ -3842,30 +7577,30 @@ void Bilateral_Ankle_Exo_output(void)
     torque_zero /= B_0;
     Bilateral_Ankle_Exo_B.Gain2_na = torque_zero * Bilateral_Ankle_Exo_B.x2k1_d;
 
-    /* UnitDelay: '<S76>/Unit Delay2' */
+    /* UnitDelay: '<S100>/Unit Delay2' */
     Bilateral_Ankle_Exo_B.UnitDelay2_i =
       Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_e;
 
-    /* Gain: '<S76>/Gain4' */
+    /* Gain: '<S100>/Gain4' */
     B_0 = Bilateral_Ankle_Exo_P.uOrderTD_T1_p *
       Bilateral_Ankle_Exo_P.uOrderTD_T2_k;
     torque_zero = 1.0 / B_0;
     Bilateral_Ankle_Exo_B.Gain4_o = torque_zero *
       Bilateral_Ankle_Exo_B.UnitDelay2_i;
 
-    /* Sum: '<S76>/Add2' */
+    /* Sum: '<S100>/Add2' */
     Bilateral_Ankle_Exo_B.Add2_fk = (Bilateral_Ankle_Exo_B.Gain1_p +
       Bilateral_Ankle_Exo_B.Gain2_na) - Bilateral_Ankle_Exo_B.Gain4_o;
 
-    /* Gain: '<S76>/Gain3' */
+    /* Gain: '<S100>/Gain3' */
     Bilateral_Ankle_Exo_B.Gain3_hf = Bilateral_Ankle_Exo_P.uOrderTD_Ts_n *
       Bilateral_Ankle_Exo_B.Add2_fk;
 
-    /* Sum: '<S76>/Add1' */
+    /* Sum: '<S100>/Add1' */
     Bilateral_Ankle_Exo_B.x2k_a = Bilateral_Ankle_Exo_B.x2k1_d -
       Bilateral_Ankle_Exo_B.Gain3_hf;
 
-    /* MATLAB Function: '<S32>/Mux1' */
+    /* MATLAB Function: '<S33>/Mux1' */
     Bilateral_Ankle_Exo_Mux1(Bilateral_Ankle_Exo_B.angle_a,
       Bilateral_Ankle_Exo_B.Gain3_h, Bilateral_Ankle_Exo_B.x2k_a,
       &Bilateral_Ankle_Exo_B.sf_Mux1_o);
@@ -3908,29 +7643,29 @@ void Bilateral_Ankle_Exo_output(void)
 
     /* End of RateTransition: '<Root>/RT10' */
 
-    /* S-Function (rti_commonblock): '<S8>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S9>/S-Function1' */
 
     /* This comment workarounds a code generation problem */
 
-    /* End of Outputs for S-Function (rti_commonblock): '<S8>/S-Function1' */
+    /* End of Outputs for S-Function (rti_commonblock): '<S9>/S-Function1' */
 
-    /* Gain: '<S86>/Gain' */
+    /* Gain: '<S110>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_h = Bilateral_Ankle_Exo_P.uOrderTD_Ts *
       Bilateral_Ankle_Exo_B.x2k1;
 
-    /* Sum: '<S86>/Add' */
+    /* Sum: '<S110>/Add' */
     Bilateral_Ankle_Exo_B.x1k = Bilateral_Ankle_Exo_B.Gain_h +
       Bilateral_Ankle_Exo_B.x1k1;
 
-    /* MATLAB Function: '<S33>/MATLAB Function' */
-    /* MATLAB Function 'Sensor Data/Torque module/MATLAB Function': '<S93>:1' */
-    /* '<S93>:1:13' */
-    /* '<S93>:1:8' */
+    /* MATLAB Function: '<S34>/MATLAB Function' */
+    /* MATLAB Function 'Sensor Data/Torque module/MATLAB Function': '<S117>:1' */
+    /* '<S117>:1:13' */
+    /* '<S117>:1:8' */
     memcpy(&B[0], &Bilateral_Ankle_Exo_DW.data[1], 14U * sizeof(real_T));
     B[14] = Bilateral_Ankle_Exo_B.torque;
     memcpy(&Bilateral_Ankle_Exo_DW.data[0], &B[0], 15U * sizeof(real_T));
 
-    /* '<S93>:1:13' */
+    /* '<S117>:1:13' */
     for (i = 0; i < 30; i++) {
       A[i] = b_A[i];
     }
@@ -3988,24 +7723,24 @@ void Bilateral_Ankle_Exo_output(void)
       }
     }
 
-    /* '<S93>:1:15' */
+    /* '<S117>:1:15' */
     Bilateral_Ankle_Exo_B.torque_dot = x[1] * 5000.0;
 
-    /* End of MATLAB Function: '<S33>/MATLAB Function' */
+    /* End of MATLAB Function: '<S34>/MATLAB Function' */
 
-    /* Gain: '<S87>/Gain' */
+    /* Gain: '<S111>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_n = Bilateral_Ankle_Exo_P.uOrderTD1_Ts_a *
       Bilateral_Ankle_Exo_B.x2k1_m;
 
-    /* Sum: '<S87>/Add' */
+    /* Sum: '<S111>/Add' */
     Bilateral_Ankle_Exo_B.x1k_o = Bilateral_Ankle_Exo_B.Gain_n +
       Bilateral_Ankle_Exo_B.x1k1_f;
 
-    /* S-Function (rti_commonblock): '<S92>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S116>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* S-Function (rti_commonblock): '<S38>/S-Function1' incorporates:
-     *  Constant: '<S28>/VCC1'
+    /* S-Function (rti_commonblock): '<S39>/S-Function1' incorporates:
+     *  Constant: '<S29>/VCC1'
      */
     /* This comment workarounds a code generation problem */
 
@@ -4022,8 +7757,8 @@ void Bilateral_Ankle_Exo_output(void)
       DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_15);
     }
 
-    /* S-Function (rti_commonblock): '<S39>/S-Function1' incorporates:
-     *  Constant: '<S28>/VCC2'
+    /* S-Function (rti_commonblock): '<S40>/S-Function1' incorporates:
+     *  Constant: '<S29>/VCC2'
      */
     /* This comment workarounds a code generation problem */
 
@@ -4040,24 +7775,24 @@ void Bilateral_Ankle_Exo_output(void)
       DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_16);
     }
 
-    /* Gain: '<S77>/Gain' */
+    /* Gain: '<S101>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_hf = Bilateral_Ankle_Exo_P.uOrderTD1_Ts *
       Bilateral_Ankle_Exo_B.x2k1_h;
 
-    /* Sum: '<S77>/Add' */
+    /* Sum: '<S101>/Add' */
     Bilateral_Ankle_Exo_B.x1k_i = Bilateral_Ankle_Exo_B.Gain_hf +
       Bilateral_Ankle_Exo_B.x1k1_g;
 
-    /* Gain: '<S76>/Gain' */
+    /* Gain: '<S100>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_o = Bilateral_Ankle_Exo_P.uOrderTD_Ts_n *
       Bilateral_Ankle_Exo_B.x2k1_d;
 
-    /* Sum: '<S76>/Add' */
+    /* Sum: '<S100>/Add' */
     Bilateral_Ankle_Exo_B.x1k_k = Bilateral_Ankle_Exo_B.Gain_o +
       Bilateral_Ankle_Exo_B.x1k1_e;
 
-    /* S-Function (rti_commonblock): '<S82>/S-Function1' incorporates:
-     *  Constant: '<S32>/VCC2'
+    /* S-Function (rti_commonblock): '<S106>/S-Function1' incorporates:
+     *  Constant: '<S33>/VCC2'
      */
     /* This comment workarounds a code generation problem */
 
@@ -4074,8 +7809,8 @@ void Bilateral_Ankle_Exo_output(void)
       DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_12);
     }
 
-    /* S-Function (rti_commonblock): '<S83>/S-Function1' incorporates:
-     *  Constant: '<S32>/VCC3'
+    /* S-Function (rti_commonblock): '<S107>/S-Function1' incorporates:
+     *  Constant: '<S33>/VCC3'
      */
     /* This comment workarounds a code generation problem */
 
@@ -4092,8 +7827,8 @@ void Bilateral_Ankle_Exo_output(void)
       DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_13);
     }
 
-    /* S-Function (rti_commonblock): '<S62>/S-Function1' incorporates:
-     *  Constant: '<S30>/Constant'
+    /* S-Function (rti_commonblock): '<S86>/S-Function1' incorporates:
+     *  Constant: '<S31>/Constant'
      */
     /* This comment workarounds a code generation problem */
 
@@ -4110,8 +7845,8 @@ void Bilateral_Ankle_Exo_output(void)
       DioCl1DigOut_write(pRTIDioC1DigOut_Port_1_Ch_1);
     }
 
-    /* S-Function (rti_commonblock): '<S63>/S-Function1' incorporates:
-     *  Constant: '<S30>/Constant1'
+    /* S-Function (rti_commonblock): '<S87>/S-Function1' incorporates:
+     *  Constant: '<S31>/Constant1'
      */
     /* This comment workarounds a code generation problem */
 
@@ -4128,7 +7863,7 @@ void Bilateral_Ankle_Exo_output(void)
       DioCl1DigOut_write(pRTIDioC1DigOut_Port_1_Ch_3);
     }
 
-    /* S-Function (rti_commonblock): '<S42>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S43>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL1 --- */
@@ -4149,10 +7884,82 @@ void Bilateral_Ankle_Exo_output(void)
 
       /* retrieve conversion result */
       AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_1, readStateFlag,
-        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_g);
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_l);
     }
 
-    /* S-Function (rti_commonblock): '<S43>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S44>/S-Function1' */
+    /* This comment workarounds a code generation problem */
+
+    /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL10 --- */
+    /* --- [RTI120X, ADC C1] - Channel: 10 --- */
+    {
+      UInt32 readStateFlag[] = { 1 };
+
+      /* define variable required for adc cl1 realtime functions */
+      UInt32 IsNew = 0;
+
+      /* wait until conversion result is available */
+      while (IsNew == 0) {
+        AdcCl1AnalogIn_isDataReady(pRTIAdcC1AnalogIn_Ch_10, &IsNew);
+      }
+
+      /* read conversion result from hardware */
+      AdcCl1AnalogIn_read(pRTIAdcC1AnalogIn_Ch_10);
+
+      /* retrieve conversion result */
+      AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_10, readStateFlag,
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_i);
+    }
+
+    /* S-Function (rti_commonblock): '<S45>/S-Function1' */
+    /* This comment workarounds a code generation problem */
+
+    /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL11 --- */
+    /* --- [RTI120X, ADC C1] - Channel: 11 --- */
+    {
+      UInt32 readStateFlag[] = { 1 };
+
+      /* define variable required for adc cl1 realtime functions */
+      UInt32 IsNew = 0;
+
+      /* wait until conversion result is available */
+      while (IsNew == 0) {
+        AdcCl1AnalogIn_isDataReady(pRTIAdcC1AnalogIn_Ch_11, &IsNew);
+      }
+
+      /* read conversion result from hardware */
+      AdcCl1AnalogIn_read(pRTIAdcC1AnalogIn_Ch_11);
+
+      /* retrieve conversion result */
+      AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_11, readStateFlag,
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_m);
+    }
+
+    /* S-Function (rti_commonblock): '<S46>/S-Function1' */
+    /* This comment workarounds a code generation problem */
+
+    /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL12 --- */
+    /* --- [RTI120X, ADC C1] - Channel: 12 --- */
+    {
+      UInt32 readStateFlag[] = { 1 };
+
+      /* define variable required for adc cl1 realtime functions */
+      UInt32 IsNew = 0;
+
+      /* wait until conversion result is available */
+      while (IsNew == 0) {
+        AdcCl1AnalogIn_isDataReady(pRTIAdcC1AnalogIn_Ch_12, &IsNew);
+      }
+
+      /* read conversion result from hardware */
+      AdcCl1AnalogIn_read(pRTIAdcC1AnalogIn_Ch_12);
+
+      /* retrieve conversion result */
+      AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_12, readStateFlag,
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_j);
+    }
+
+    /* S-Function (rti_commonblock): '<S47>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL2 --- */
@@ -4173,10 +7980,10 @@ void Bilateral_Ankle_Exo_output(void)
 
       /* retrieve conversion result */
       AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_2, readStateFlag,
-        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_i);
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_k);
     }
 
-    /* S-Function (rti_commonblock): '<S44>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S48>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL3 --- */
@@ -4197,10 +8004,10 @@ void Bilateral_Ankle_Exo_output(void)
 
       /* retrieve conversion result */
       AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_3, readStateFlag,
-        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_m);
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_g);
     }
 
-    /* S-Function (rti_commonblock): '<S45>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S49>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL4 --- */
@@ -4221,13 +8028,13 @@ void Bilateral_Ankle_Exo_output(void)
 
       /* retrieve conversion result */
       AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_4, readStateFlag,
-        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_j);
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_a);
     }
 
-    /* S-Function (rti_commonblock): '<S46>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S50>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL5 --- */
+    /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL9 --- */
     /* --- [RTI120X, ADC C1] - Channel: 9 --- */
     {
       UInt32 readStateFlag[] = { 1 };
@@ -4245,217 +8052,310 @@ void Bilateral_Ankle_Exo_output(void)
 
       /* retrieve conversion result */
       AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_9, readStateFlag,
-        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_l);
+        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_gi);
     }
 
-    /* S-Function (rti_commonblock): '<S47>/S-Function1' */
-    /* This comment workarounds a code generation problem */
-
-    /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL6 --- */
-    /* --- [RTI120X, ADC C1] - Channel: 10 --- */
-    {
-      UInt32 readStateFlag[] = { 1 };
-
-      /* define variable required for adc cl1 realtime functions */
-      UInt32 IsNew = 0;
-
-      /* wait until conversion result is available */
-      while (IsNew == 0) {
-        AdcCl1AnalogIn_isDataReady(pRTIAdcC1AnalogIn_Ch_10, &IsNew);
-      }
-
-      /* read conversion result from hardware */
-      AdcCl1AnalogIn_read(pRTIAdcC1AnalogIn_Ch_10);
-
-      /* retrieve conversion result */
-      AdcCl1AnalogIn_getSingleValue(pRTIAdcC1AnalogIn_Ch_10, readStateFlag,
-        (real_T*) &Bilateral_Ankle_Exo_B.SFunction1_k);
-    }
-
-    /* Gain: '<S29>/Gain' */
-    Bilateral_Ankle_Exo_B.Gain_m = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
+    /* Gain: '<S30>/Gain6' */
+    Bilateral_Ankle_Exo_B.Gain6 = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
       Bilateral_Ankle_Exo_B.SFunction1_g;
 
-    /* Gain: '<S29>/Gain1' */
-    Bilateral_Ankle_Exo_B.Gain1_aa = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
-      Bilateral_Ankle_Exo_B.SFunction1_i;
+    /* MATLAB Function: '<S30>/EMG3' */
+    Bilateral_Ankle_Exo_EMG3(Bilateral_Ankle_Exo_B.Gain6,
+      &Bilateral_Ankle_Exo_B.sf_EMG3);
 
-    /* Gain: '<S29>/Gain2' */
-    Bilateral_Ankle_Exo_B.Gain2_p = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
-      Bilateral_Ankle_Exo_B.SFunction1_m;
+    /* Gain: '<S30>/Gain7' */
+    Bilateral_Ankle_Exo_B.Gain7 = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
+      Bilateral_Ankle_Exo_B.SFunction1_a;
 
-    /* Gain: '<S29>/Gain3' */
-    Bilateral_Ankle_Exo_B.Gain3_n = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
-      Bilateral_Ankle_Exo_B.SFunction1_j;
+    /* MATLAB Function: '<S30>/EMG4' */
+    Bilateral_Ankle_Exo_EMG4(Bilateral_Ankle_Exo_B.Gain7,
+      &Bilateral_Ankle_Exo_B.sf_EMG4);
 
-    /* Gain: '<S29>/Gain4' */
+    /* Gain: '<S30>/Gain4' */
     Bilateral_Ankle_Exo_B.Gain4_mo = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
       Bilateral_Ankle_Exo_B.SFunction1_l;
 
-    /* Gain: '<S29>/Gain5' */
+    /* MATLAB Function: '<S30>/EMG_o1' */
+    Bilateral_Ankle_Exo_EMG_o1(Bilateral_Ankle_Exo_B.Gain4_mo,
+      &Bilateral_Ankle_Exo_B.sf_EMG_o1);
+
+    /* Gain: '<S30>/Gain5' */
     Bilateral_Ankle_Exo_B.Gain5 = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
       Bilateral_Ankle_Exo_B.SFunction1_k;
+
+    /* MATLAB Function: '<S30>/EMG_o2' */
+    Bilateral_Ankle_Exo_EMG_o2(Bilateral_Ankle_Exo_B.Gain5,
+      &Bilateral_Ankle_Exo_B.sf_EMG_o2);
+
+    /* Gain: '<S30>/Gain' */
+    Bilateral_Ankle_Exo_B.Gain_m = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
+      Bilateral_Ankle_Exo_B.SFunction1_gi;
+
+    /* MATLAB Function: '<S30>/EMG_o5' */
+    Bilateral_Ankle_Exo_EMG_o5(Bilateral_Ankle_Exo_B.Gain_m,
+      &Bilateral_Ankle_Exo_B.sf_EMG_o5);
+
+    /* Gain: '<S30>/Gain1' */
+    Bilateral_Ankle_Exo_B.Gain1_aa = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
+      Bilateral_Ankle_Exo_B.SFunction1_i;
+
+    /* MATLAB Function: '<S30>/EMG_o6' */
+    Bilateral_Ankle_Exo_EMG_o6(Bilateral_Ankle_Exo_B.Gain1_aa,
+      &Bilateral_Ankle_Exo_B.sf_EMG_o6);
+
+    /* Gain: '<S30>/Gain2' */
+    Bilateral_Ankle_Exo_B.Gain2_p = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
+      Bilateral_Ankle_Exo_B.SFunction1_m;
+
+    /* MATLAB Function: '<S30>/EMG_o7' */
+    Bilateral_Ankle_Exo_EMG_o7(Bilateral_Ankle_Exo_B.Gain2_p,
+      &Bilateral_Ankle_Exo_B.sf_EMG_o7);
+
+    /* Gain: '<S30>/Gain3' */
+    Bilateral_Ankle_Exo_B.Gain3_n = Bilateral_Ankle_Exo_P.EMGmodule_Kemg *
+      Bilateral_Ankle_Exo_B.SFunction1_j;
+
+    /* MATLAB Function: '<S30>/EMG_o8' */
+    Bilateral_Ankle_Exo_EMG_o8(Bilateral_Ankle_Exo_B.Gain3_n,
+      &Bilateral_Ankle_Exo_B.sf_EMG_o8);
   }
 
-  /* StateSpace: '<S49>/low_pass' */
+  /* StateSpace: '<S68>/low_pass' */
   Bilateral_Ankle_Exo_B.low_pass = 0.0;
   Bilateral_Ankle_Exo_B.low_pass += Bilateral_Ankle_Exo_P.low_pass_C *
     Bilateral_Ankle_Exo_X.low_pass_CSTATE[1];
 
-  /* MATLAB Function: '<S49>/MVC' */
-  /* MATLAB Function 'Sensor Data/EMG module/Preprocessing/MVC': '<S55>:1' */
-  /* '<S55>:1:3' */
-  Bilateral_Ankle_Exo_B.y_b = (Bilateral_Ankle_Exo_B.low_pass -
-    Bilateral_Ankle_Exo_P.MVC_r_SOL_MIN) / (Bilateral_Ankle_Exo_P.MVC_r_SOL_MAX
-    - Bilateral_Ankle_Exo_P.MVC_r_SOL_MIN);
+  /* MATLAB Function: '<S68>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass,
+    &Bilateral_Ankle_Exo_B.sf_MVC,
+    Bilateral_Ankle_Exo_P.Preprocessing1_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing1_r_SOL_MIN);
 
-  /* StateSpace: '<S50>/low_pass' */
-  Bilateral_Ankle_Exo_B.low_pass_e = 0.0;
-  Bilateral_Ankle_Exo_B.low_pass_e += Bilateral_Ankle_Exo_P.low_pass_C_a *
+  /* MATLAB Function: '<S30>/EMG_p1' */
+  Bilateral_Ankle_Exo_EMG_o1(Bilateral_Ankle_Exo_B.sf_MVC.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p1);
+
+  /* StateSpace: '<S69>/low_pass' */
+  Bilateral_Ankle_Exo_B.low_pass_l = 0.0;
+  Bilateral_Ankle_Exo_B.low_pass_l += Bilateral_Ankle_Exo_P.low_pass_C_p *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_n[1];
+
+  /* MATLAB Function: '<S69>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass_l,
+    &Bilateral_Ankle_Exo_B.sf_MVC_o,
+    Bilateral_Ankle_Exo_P.Preprocessing2_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing2_r_SOL_MIN);
+
+  /* MATLAB Function: '<S30>/EMG_p2' */
+  Bilateral_Ankle_Exo_EMG_o2(Bilateral_Ankle_Exo_B.sf_MVC_o.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p2);
+
+  /* StateSpace: '<S70>/low_pass' */
+  Bilateral_Ankle_Exo_B.low_pass_k = 0.0;
+  Bilateral_Ankle_Exo_B.low_pass_k += Bilateral_Ankle_Exo_P.low_pass_C_e *
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[1];
 
-  /* MATLAB Function: '<S50>/MVC' */
-  /* MATLAB Function 'Sensor Data/EMG module/Preprocessing1/MVC': '<S56>:1' */
-  /* '<S56>:1:3' */
-  Bilateral_Ankle_Exo_B.y_g = (Bilateral_Ankle_Exo_B.low_pass_e -
-    Bilateral_Ankle_Exo_P.MVC_r_M_GAS_MIN) /
-    (Bilateral_Ankle_Exo_P.MVC_r_M_GAS_MAX -
-     Bilateral_Ankle_Exo_P.MVC_r_M_GAS_MIN);
+  /* MATLAB Function: '<S70>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass_k,
+    &Bilateral_Ankle_Exo_B.sf_MVC_e,
+    Bilateral_Ankle_Exo_P.Preprocessing3_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing3_r_SOL_MIN);
 
-  /* StateSpace: '<S51>/low_pass' */
-  Bilateral_Ankle_Exo_B.low_pass_m = 0.0;
-  Bilateral_Ankle_Exo_B.low_pass_m += Bilateral_Ankle_Exo_P.low_pass_C_g *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_m[1];
+  /* MATLAB Function: '<S30>/EMG_p3' */
+  Bilateral_Ankle_Exo_EMG3(Bilateral_Ankle_Exo_B.sf_MVC_e.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p3);
 
-  /* MATLAB Function: '<S51>/MVC' */
-  /* MATLAB Function 'Sensor Data/EMG module/Preprocessing2/MVC': '<S57>:1' */
-  /* '<S57>:1:3' */
-  Bilateral_Ankle_Exo_B.y_j = (Bilateral_Ankle_Exo_B.low_pass_m -
-    Bilateral_Ankle_Exo_P.MVC_r_L_GAS_MIN) /
-    (Bilateral_Ankle_Exo_P.MVC_r_L_GAS_MAX -
-     Bilateral_Ankle_Exo_P.MVC_r_L_GAS_MIN);
-
-  /* StateSpace: '<S52>/low_pass' */
-  Bilateral_Ankle_Exo_B.low_pass_d = 0.0;
-  Bilateral_Ankle_Exo_B.low_pass_d += Bilateral_Ankle_Exo_P.low_pass_C_e *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[1];
-
-  /* MATLAB Function: '<S52>/MVC' */
-  /* MATLAB Function 'Sensor Data/EMG module/Preprocessing3/MVC': '<S58>:1' */
-  /* '<S58>:1:3' */
-  Bilateral_Ankle_Exo_B.y_e = (Bilateral_Ankle_Exo_B.low_pass_d -
-    Bilateral_Ankle_Exo_P.MVC_l_M_GAS_MIN) /
-    (Bilateral_Ankle_Exo_P.MVC_l_M_GAS_MAX -
-     Bilateral_Ankle_Exo_P.MVC_l_M_GAS_MIN);
-
-  /* StateSpace: '<S54>/low_pass' */
-  Bilateral_Ankle_Exo_B.low_pass_p = 0.0;
-  Bilateral_Ankle_Exo_B.low_pass_p += Bilateral_Ankle_Exo_P.low_pass_C_o *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_j[1];
-
-  /* MATLAB Function: '<S54>/MVC' */
-  /* MATLAB Function 'Sensor Data/EMG module/Preprocessing9/MVC': '<S59>:1' */
-  /* '<S59>:1:3' */
-  Bilateral_Ankle_Exo_B.y = (Bilateral_Ankle_Exo_B.low_pass_p -
-    Bilateral_Ankle_Exo_P.MVC_l_L_GAS_MIN) /
-    (Bilateral_Ankle_Exo_P.MVC_l_L_GAS_MAX -
-     Bilateral_Ankle_Exo_P.MVC_l_L_GAS_MIN);
-
-  /* StateSpace: '<S53>/low_pass' */
-  Bilateral_Ankle_Exo_B.low_pass_i = 0.0;
-  Bilateral_Ankle_Exo_B.low_pass_i += Bilateral_Ankle_Exo_P.low_pass_C_p *
+  /* StateSpace: '<S71>/low_pass' */
+  Bilateral_Ankle_Exo_B.low_pass_o = 0.0;
+  Bilateral_Ankle_Exo_B.low_pass_o += Bilateral_Ankle_Exo_P.low_pass_C_f *
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_a[1];
 
-  /* MATLAB Function: '<S29>/Mux1' */
-  /* MATLAB Function 'Sensor Data/EMG module/Mux1': '<S48>:1' */
-  /* '<S48>:1:3' */
-  Bilateral_Ankle_Exo_B.x[0] = Bilateral_Ankle_Exo_B.y_b;
-  Bilateral_Ankle_Exo_B.x[1] = Bilateral_Ankle_Exo_B.y_g;
-  Bilateral_Ankle_Exo_B.x[2] = Bilateral_Ankle_Exo_B.y_j;
-  Bilateral_Ankle_Exo_B.x[3] = Bilateral_Ankle_Exo_B.y_e;
-  Bilateral_Ankle_Exo_B.x[4] = Bilateral_Ankle_Exo_B.y;
-  Bilateral_Ankle_Exo_B.x[5] = Bilateral_Ankle_Exo_B.low_pass_i;
+  /* MATLAB Function: '<S71>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass_o,
+    &Bilateral_Ankle_Exo_B.sf_MVC_j,
+    Bilateral_Ankle_Exo_P.Preprocessing4_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing4_r_SOL_MIN);
 
-  /* StateSpace: '<S49>/high_pass' */
+  /* MATLAB Function: '<S30>/EMG_p4' */
+  Bilateral_Ankle_Exo_EMG4(Bilateral_Ankle_Exo_B.sf_MVC_j.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p4);
+
+  /* StateSpace: '<S72>/low_pass' */
+  Bilateral_Ankle_Exo_B.low_pass_d = 0.0;
+  Bilateral_Ankle_Exo_B.low_pass_d += Bilateral_Ankle_Exo_P.low_pass_C_j *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[1];
+
+  /* MATLAB Function: '<S72>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass_d,
+    &Bilateral_Ankle_Exo_B.sf_MVC_m,
+    Bilateral_Ankle_Exo_P.Preprocessing5_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing5_r_SOL_MIN);
+
+  /* MATLAB Function: '<S30>/EMG_p5' */
+  Bilateral_Ankle_Exo_EMG_o5(Bilateral_Ankle_Exo_B.sf_MVC_m.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p5);
+
+  /* StateSpace: '<S73>/low_pass' */
+  Bilateral_Ankle_Exo_B.low_pass_p = 0.0;
+  Bilateral_Ankle_Exo_B.low_pass_p += Bilateral_Ankle_Exo_P.low_pass_C_eg *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_de[1];
+
+  /* MATLAB Function: '<S73>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass_p,
+    &Bilateral_Ankle_Exo_B.sf_MVC_md,
+    Bilateral_Ankle_Exo_P.Preprocessing6_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing6_r_SOL_MIN);
+
+  /* MATLAB Function: '<S30>/EMG_p6' */
+  Bilateral_Ankle_Exo_EMG_o6(Bilateral_Ankle_Exo_B.sf_MVC_md.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p6);
+
+  /* StateSpace: '<S74>/low_pass' */
+  Bilateral_Ankle_Exo_B.low_pass_l2 = 0.0;
+  Bilateral_Ankle_Exo_B.low_pass_l2 += Bilateral_Ankle_Exo_P.low_pass_C_h *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_h[1];
+
+  /* MATLAB Function: '<S74>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass_l2,
+    &Bilateral_Ankle_Exo_B.sf_MVC_d,
+    Bilateral_Ankle_Exo_P.Preprocessing7_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing7_r_SOL_MIN);
+
+  /* MATLAB Function: '<S30>/EMG_p7' */
+  Bilateral_Ankle_Exo_EMG_o7(Bilateral_Ankle_Exo_B.sf_MVC_d.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p7);
+
+  /* StateSpace: '<S75>/low_pass' */
+  Bilateral_Ankle_Exo_B.low_pass_kv = 0.0;
+  Bilateral_Ankle_Exo_B.low_pass_kv += Bilateral_Ankle_Exo_P.low_pass_C_a *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_l[1];
+
+  /* MATLAB Function: '<S75>/MVC' */
+  Bilateral_Ankle_Exo_MVC(Bilateral_Ankle_Exo_B.low_pass_kv,
+    &Bilateral_Ankle_Exo_B.sf_MVC_f,
+    Bilateral_Ankle_Exo_P.Preprocessing8_r_SOL_MAX,
+    Bilateral_Ankle_Exo_P.Preprocessing8_r_SOL_MIN);
+
+  /* MATLAB Function: '<S30>/EMG_p8' */
+  Bilateral_Ankle_Exo_EMG_o8(Bilateral_Ankle_Exo_B.sf_MVC_f.y,
+    &Bilateral_Ankle_Exo_B.sf_EMG_p8);
+
+  /* MATLAB Function: '<S30>/Mux1' */
+  /* MATLAB Function 'Sensor Data/EMG module/Mux1': '<S67>:1' */
+  /* '<S67>:1:3' */
+  Bilateral_Ankle_Exo_B.x[0] = Bilateral_Ankle_Exo_B.sf_EMG_p1.EMG_L_O1;
+  Bilateral_Ankle_Exo_B.x[1] = Bilateral_Ankle_Exo_B.sf_EMG_p2.EMG_L_O2;
+  Bilateral_Ankle_Exo_B.x[2] = Bilateral_Ankle_Exo_B.sf_EMG_p3.EMG_L_O3;
+  Bilateral_Ankle_Exo_B.x[3] = Bilateral_Ankle_Exo_B.sf_EMG_p4.EMG_L_O4;
+  Bilateral_Ankle_Exo_B.x[4] = Bilateral_Ankle_Exo_B.sf_EMG_p5.EMG_R_O1;
+  Bilateral_Ankle_Exo_B.x[5] = Bilateral_Ankle_Exo_B.sf_EMG_p6.EMG_R_O2;
+  Bilateral_Ankle_Exo_B.x[6] = Bilateral_Ankle_Exo_B.sf_EMG_p7.EMG_R_O3;
+  Bilateral_Ankle_Exo_B.x[7] = Bilateral_Ankle_Exo_B.sf_EMG_p8.EMG_R_O4;
+
+  /* StateSpace: '<S68>/high_pass' */
   Bilateral_Ankle_Exo_B.high_pass = 0.0;
   Bilateral_Ankle_Exo_B.high_pass += Bilateral_Ankle_Exo_P.high_pass_C[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE[0];
   Bilateral_Ankle_Exo_B.high_pass += Bilateral_Ankle_Exo_P.high_pass_C[1] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE[1];
   Bilateral_Ankle_Exo_B.high_pass += Bilateral_Ankle_Exo_P.high_pass_D *
-    Bilateral_Ankle_Exo_B.Gain_m;
+    Bilateral_Ankle_Exo_B.sf_EMG_o1.EMG_L_O1;
 
-  /* Abs: '<S49>/Abs' */
+  /* Abs: '<S68>/Abs' */
   Bilateral_Ankle_Exo_B.Abs = fabs(Bilateral_Ankle_Exo_B.high_pass);
 
-  /* StateSpace: '<S50>/high_pass' */
+  /* StateSpace: '<S69>/high_pass' */
   Bilateral_Ankle_Exo_B.high_pass_h = 0.0;
-  Bilateral_Ankle_Exo_B.high_pass_h += Bilateral_Ankle_Exo_P.high_pass_C_b[0] *
+  Bilateral_Ankle_Exo_B.high_pass_h += Bilateral_Ankle_Exo_P.high_pass_C_l[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_p[0];
-  Bilateral_Ankle_Exo_B.high_pass_h += Bilateral_Ankle_Exo_P.high_pass_C_b[1] *
+  Bilateral_Ankle_Exo_B.high_pass_h += Bilateral_Ankle_Exo_P.high_pass_C_l[1] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_p[1];
-  Bilateral_Ankle_Exo_B.high_pass_h += Bilateral_Ankle_Exo_P.high_pass_D_d *
-    Bilateral_Ankle_Exo_B.Gain1_aa;
+  Bilateral_Ankle_Exo_B.high_pass_h += Bilateral_Ankle_Exo_P.high_pass_D_p *
+    Bilateral_Ankle_Exo_B.sf_EMG_o2.EMG_L_O2;
 
-  /* Abs: '<S50>/Abs' */
-  Bilateral_Ankle_Exo_B.Abs_i = fabs(Bilateral_Ankle_Exo_B.high_pass_h);
+  /* Abs: '<S69>/Abs' */
+  Bilateral_Ankle_Exo_B.Abs_p = fabs(Bilateral_Ankle_Exo_B.high_pass_h);
 
-  /* StateSpace: '<S51>/high_pass' */
-  Bilateral_Ankle_Exo_B.high_pass_hy = 0.0;
-  Bilateral_Ankle_Exo_B.high_pass_hy += Bilateral_Ankle_Exo_P.high_pass_C_by[0] *
+  /* StateSpace: '<S70>/high_pass' */
+  Bilateral_Ankle_Exo_B.high_pass_d = 0.0;
+  Bilateral_Ankle_Exo_B.high_pass_d += Bilateral_Ankle_Exo_P.high_pass_C_o[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_h[0];
+  Bilateral_Ankle_Exo_B.high_pass_d += Bilateral_Ankle_Exo_P.high_pass_C_o[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_h[1];
+  Bilateral_Ankle_Exo_B.high_pass_d += Bilateral_Ankle_Exo_P.high_pass_D_c *
+    Bilateral_Ankle_Exo_B.sf_EMG3.EMG_L_O3;
+
+  /* Abs: '<S70>/Abs' */
+  Bilateral_Ankle_Exo_B.Abs_e = fabs(Bilateral_Ankle_Exo_B.high_pass_d);
+
+  /* StateSpace: '<S71>/high_pass' */
+  Bilateral_Ankle_Exo_B.high_pass_c = 0.0;
+  Bilateral_Ankle_Exo_B.high_pass_c += Bilateral_Ankle_Exo_P.high_pass_C_g[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_f[0];
-  Bilateral_Ankle_Exo_B.high_pass_hy += Bilateral_Ankle_Exo_P.high_pass_C_by[1] *
+  Bilateral_Ankle_Exo_B.high_pass_c += Bilateral_Ankle_Exo_P.high_pass_C_g[1] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_f[1];
-  Bilateral_Ankle_Exo_B.high_pass_hy += Bilateral_Ankle_Exo_P.high_pass_D_o *
-    Bilateral_Ankle_Exo_B.Gain2_p;
+  Bilateral_Ankle_Exo_B.high_pass_c += Bilateral_Ankle_Exo_P.high_pass_D_j *
+    Bilateral_Ankle_Exo_B.sf_EMG4.EMG_L_O4;
 
-  /* Abs: '<S51>/Abs' */
-  Bilateral_Ankle_Exo_B.Abs_l = fabs(Bilateral_Ankle_Exo_B.high_pass_hy);
+  /* Abs: '<S71>/Abs' */
+  Bilateral_Ankle_Exo_B.Abs_o = fabs(Bilateral_Ankle_Exo_B.high_pass_c);
 
-  /* StateSpace: '<S52>/high_pass' */
-  Bilateral_Ankle_Exo_B.high_pass_j = 0.0;
-  Bilateral_Ankle_Exo_B.high_pass_j += Bilateral_Ankle_Exo_P.high_pass_C_p[0] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_a[0];
-  Bilateral_Ankle_Exo_B.high_pass_j += Bilateral_Ankle_Exo_P.high_pass_C_p[1] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_a[1];
-  Bilateral_Ankle_Exo_B.high_pass_j += Bilateral_Ankle_Exo_P.high_pass_D_n *
-    Bilateral_Ankle_Exo_B.Gain3_n;
+  /* StateSpace: '<S72>/high_pass' */
+  Bilateral_Ankle_Exo_B.high_pass_hg = 0.0;
+  Bilateral_Ankle_Exo_B.high_pass_hg += Bilateral_Ankle_Exo_P.high_pass_C_f[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_i[0];
+  Bilateral_Ankle_Exo_B.high_pass_hg += Bilateral_Ankle_Exo_P.high_pass_C_f[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_i[1];
+  Bilateral_Ankle_Exo_B.high_pass_hg += Bilateral_Ankle_Exo_P.high_pass_D_a *
+    Bilateral_Ankle_Exo_B.sf_EMG_o5.EMG_R_O1;
 
-  /* Abs: '<S52>/Abs' */
-  Bilateral_Ankle_Exo_B.Abs_b = fabs(Bilateral_Ankle_Exo_B.high_pass_j);
+  /* Abs: '<S72>/Abs' */
+  Bilateral_Ankle_Exo_B.Abs_h = fabs(Bilateral_Ankle_Exo_B.high_pass_hg);
 
-  /* StateSpace: '<S53>/high_pass' */
-  Bilateral_Ankle_Exo_B.high_pass_e = 0.0;
-  Bilateral_Ankle_Exo_B.high_pass_e += Bilateral_Ankle_Exo_P.high_pass_C_e[0] *
+  /* StateSpace: '<S73>/high_pass' */
+  Bilateral_Ankle_Exo_B.high_pass_ci = 0.0;
+  Bilateral_Ankle_Exo_B.high_pass_ci += Bilateral_Ankle_Exo_P.high_pass_C_o5[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[0];
-  Bilateral_Ankle_Exo_B.high_pass_e += Bilateral_Ankle_Exo_P.high_pass_C_e[1] *
+  Bilateral_Ankle_Exo_B.high_pass_ci += Bilateral_Ankle_Exo_P.high_pass_C_o5[1] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[1];
-  Bilateral_Ankle_Exo_B.high_pass_e += Bilateral_Ankle_Exo_P.high_pass_D_l *
-    Bilateral_Ankle_Exo_B.Gain5;
+  Bilateral_Ankle_Exo_B.high_pass_ci += Bilateral_Ankle_Exo_P.high_pass_D_l *
+    Bilateral_Ankle_Exo_B.sf_EMG_o6.EMG_R_O2;
 
-  /* Abs: '<S53>/Abs' */
-  Bilateral_Ankle_Exo_B.Abs_lh = fabs(Bilateral_Ankle_Exo_B.high_pass_e);
+  /* Abs: '<S73>/Abs' */
+  Bilateral_Ankle_Exo_B.Abs_i = fabs(Bilateral_Ankle_Exo_B.high_pass_ci);
 
-  /* StateSpace: '<S54>/high_pass' */
-  Bilateral_Ankle_Exo_B.high_pass_b = 0.0;
-  Bilateral_Ankle_Exo_B.high_pass_b += Bilateral_Ankle_Exo_P.high_pass_C_h[0] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_ff[0];
-  Bilateral_Ankle_Exo_B.high_pass_b += Bilateral_Ankle_Exo_P.high_pass_C_h[1] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_ff[1];
-  Bilateral_Ankle_Exo_B.high_pass_b += Bilateral_Ankle_Exo_P.high_pass_D_e *
-    Bilateral_Ankle_Exo_B.Gain4_mo;
+  /* StateSpace: '<S74>/high_pass' */
+  Bilateral_Ankle_Exo_B.high_pass_i = 0.0;
+  Bilateral_Ankle_Exo_B.high_pass_i += Bilateral_Ankle_Exo_P.high_pass_C_o3[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_m[0];
+  Bilateral_Ankle_Exo_B.high_pass_i += Bilateral_Ankle_Exo_P.high_pass_C_o3[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_m[1];
+  Bilateral_Ankle_Exo_B.high_pass_i += Bilateral_Ankle_Exo_P.high_pass_D_b *
+    Bilateral_Ankle_Exo_B.sf_EMG_o7.EMG_R_O3;
 
-  /* Abs: '<S54>/Abs' */
-  Bilateral_Ankle_Exo_B.Abs_p = fabs(Bilateral_Ankle_Exo_B.high_pass_b);
+  /* Abs: '<S74>/Abs' */
+  Bilateral_Ankle_Exo_B.Abs_id = fabs(Bilateral_Ankle_Exo_B.high_pass_i);
+
+  /* StateSpace: '<S75>/high_pass' */
+  Bilateral_Ankle_Exo_B.high_pass_p = 0.0;
+  Bilateral_Ankle_Exo_B.high_pass_p += Bilateral_Ankle_Exo_P.high_pass_C_gb[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_f3[0];
+  Bilateral_Ankle_Exo_B.high_pass_p += Bilateral_Ankle_Exo_P.high_pass_C_gb[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_f3[1];
+  Bilateral_Ankle_Exo_B.high_pass_p += Bilateral_Ankle_Exo_P.high_pass_D_e *
+    Bilateral_Ankle_Exo_B.sf_EMG_o8.EMG_R_O4;
+
+  /* Abs: '<S75>/Abs' */
+  Bilateral_Ankle_Exo_B.Abs_m = fabs(Bilateral_Ankle_Exo_B.high_pass_p);
   if (rtmIsMajorTimeStep(Bilateral_Ankle_Exo_M) &&
       Bilateral_Ankle_Exo_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Constant: '<S5>/Constant' */
+    /* Constant: '<S6>/Constant' */
     Bilateral_Ankle_Exo_B.Constant = Bilateral_Ankle_Exo_P.Constant_Value;
 
-    /* Constant: '<S5>/Constant1' */
+    /* Constant: '<S6>/Constant1' */
     Bilateral_Ankle_Exo_B.Constant1 = Bilateral_Ankle_Exo_P.Constant1_Value;
 
-    /* S-Function (rti_commonblock): '<S72>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S96>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* dSPACE RTICAN RX Message Block: "RX Message" Id:3 */
@@ -4526,37 +8426,37 @@ void Bilateral_Ankle_Exo_output(void)
       }
     }
 
-    /* DataTypeConversion: '<S73>/Data Type Conversion' */
+    /* DataTypeConversion: '<S97>/Data Type Conversion' */
     Bilateral_Ankle_Exo_B.DataTypeConversion =
       Bilateral_Ankle_Exo_B.SFunction1_o1_c;
 
-    /* Gain: '<S73>/Gain' */
+    /* Gain: '<S97>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_gd = Bilateral_Ankle_Exo_P.Gain_Gain_a *
       Bilateral_Ankle_Exo_B.DataTypeConversion;
 
-    /* DataTypeConversion: '<S74>/Data Type Conversion' */
+    /* DataTypeConversion: '<S98>/Data Type Conversion' */
     Bilateral_Ankle_Exo_B.DataTypeConversion_j =
       Bilateral_Ankle_Exo_B.SFunction1_o2_l;
 
-    /* Gain: '<S74>/Gain' */
+    /* Gain: '<S98>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_b = Bilateral_Ankle_Exo_P.Gain_Gain_h *
       Bilateral_Ankle_Exo_B.DataTypeConversion_j;
 
-    /* DataTypeConversion: '<S75>/Data Type Conversion' */
+    /* DataTypeConversion: '<S99>/Data Type Conversion' */
     Bilateral_Ankle_Exo_B.DataTypeConversion_m =
       Bilateral_Ankle_Exo_B.SFunction1_o3;
 
-    /* Gain: '<S75>/Gain' */
+    /* Gain: '<S99>/Gain' */
     Bilateral_Ankle_Exo_B.Gain_n4 = Bilateral_Ankle_Exo_P.Gain_Gain_j *
       Bilateral_Ankle_Exo_B.DataTypeConversion_m;
 
-    /* S-Function (rti_commonblock): '<S66>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S90>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* S-Function (rti_commonblock): '<S67>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S91>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* S-Function (rti_commonblock): '<S70>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S94>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* dSPACE RTICAN RX Message Block: "RX Message" Id:100 */
@@ -4605,13 +8505,13 @@ void Bilateral_Ankle_Exo_output(void)
     }
   }
 
-  /* Sin: '<S68>/Sine Wave' */
+  /* Sin: '<S92>/Sine Wave' */
   Bilateral_Ankle_Exo_B.SineWave = sin(Bilateral_Ankle_Exo_P.SineWave_Freq *
     Bilateral_Ankle_Exo_M->Timing.t[0] + Bilateral_Ankle_Exo_P.SineWave_Phase) *
     Bilateral_Ankle_Exo_P.SineWave_Amp + Bilateral_Ankle_Exo_P.SineWave_Bias;
   if (rtmIsMajorTimeStep(Bilateral_Ankle_Exo_M) &&
       Bilateral_Ankle_Exo_M->Timing.TaskCounters.TID[1] == 0) {
-    /* S-Function (rti_commonblock): '<S71>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S95>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* dSPACE RTICAN TX Message Block: "TX Message" Id:100 */
@@ -4665,7 +8565,7 @@ void Bilateral_Ankle_Exo_output(void)
 
   if (rtmIsMajorTimeStep(Bilateral_Ankle_Exo_M) &&
       Bilateral_Ankle_Exo_M->Timing.TaskCounters.TID[2] == 0) {
-    /* S-Function (rti_commonblock): '<S2>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S3>/S-Function1' */
     /* This comment workarounds a code generation problem */
   }
 
@@ -4686,54 +8586,54 @@ void Bilateral_Ankle_Exo_update(void)
 {
   if (rtmIsMajorTimeStep(Bilateral_Ankle_Exo_M) &&
       Bilateral_Ankle_Exo_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Update for DiscreteFilter: '<S33>/0.4low2' */
+    /* Update for DiscreteFilter: '<S34>/0.4low2' */
     Bilateral_Ankle_Exo_DW.u4low2_states[2] =
       Bilateral_Ankle_Exo_DW.u4low2_states[1];
     Bilateral_Ankle_Exo_DW.u4low2_states[1] =
       Bilateral_Ankle_Exo_DW.u4low2_states[0];
     Bilateral_Ankle_Exo_DW.u4low2_states[0] = Bilateral_Ankle_Exo_DW.u4low2_tmp;
 
-    /* Update for UnitDelay: '<S86>/Unit Delay1' */
+    /* Update for UnitDelay: '<S110>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE = Bilateral_Ankle_Exo_B.x2k;
 
-    /* Update for UnitDelay: '<S86>/Unit Delay' */
+    /* Update for UnitDelay: '<S110>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE = Bilateral_Ankle_Exo_B.x1k;
 
-    /* Update for UnitDelay: '<S86>/Unit Delay2' */
+    /* Update for UnitDelay: '<S110>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE = Bilateral_Ankle_Exo_B.torque;
 
-    /* Update for UnitDelay: '<S77>/Unit Delay1' */
+    /* Update for UnitDelay: '<S101>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_n = Bilateral_Ankle_Exo_B.x2k_k;
 
-    /* Update for UnitDelay: '<S77>/Unit Delay' */
+    /* Update for UnitDelay: '<S101>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_o = Bilateral_Ankle_Exo_B.x1k_i;
 
-    /* Update for UnitDelay: '<S77>/Unit Delay2' */
+    /* Update for UnitDelay: '<S101>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_i = Bilateral_Ankle_Exo_B.Gain4_m;
 
-    /* Update for DiscreteFilter: '<S33>/0.4low1' */
+    /* Update for DiscreteFilter: '<S34>/0.4low1' */
     Bilateral_Ankle_Exo_DW.u4low1_states[2] =
       Bilateral_Ankle_Exo_DW.u4low1_states[1];
     Bilateral_Ankle_Exo_DW.u4low1_states[1] =
       Bilateral_Ankle_Exo_DW.u4low1_states[0];
     Bilateral_Ankle_Exo_DW.u4low1_states[0] = Bilateral_Ankle_Exo_DW.u4low1_tmp;
 
-    /* Update for UnitDelay: '<S87>/Unit Delay1' */
+    /* Update for UnitDelay: '<S111>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_m = Bilateral_Ankle_Exo_B.x2k_l;
 
-    /* Update for UnitDelay: '<S87>/Unit Delay' */
+    /* Update for UnitDelay: '<S111>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_n = Bilateral_Ankle_Exo_B.x1k_o;
 
-    /* Update for UnitDelay: '<S87>/Unit Delay2' */
+    /* Update for UnitDelay: '<S111>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_l = Bilateral_Ankle_Exo_B.torque_k;
 
-    /* Update for UnitDelay: '<S76>/Unit Delay1' */
+    /* Update for UnitDelay: '<S100>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_f = Bilateral_Ankle_Exo_B.x2k_a;
 
-    /* Update for UnitDelay: '<S76>/Unit Delay' */
+    /* Update for UnitDelay: '<S100>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_a = Bilateral_Ankle_Exo_B.x1k_k;
 
-    /* Update for UnitDelay: '<S76>/Unit Delay2' */
+    /* Update for UnitDelay: '<S100>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_e = Bilateral_Ankle_Exo_B.Gain3_h;
   }
 
@@ -4782,7 +8682,7 @@ void Bilateral_Ankle_Exo_derivatives(void)
   XDot_Bilateral_Ankle_Exo_T *_rtXdot;
   _rtXdot = ((XDot_Bilateral_Ankle_Exo_T *) Bilateral_Ankle_Exo_M->derivs);
 
-  /* Derivatives for StateSpace: '<S49>/low_pass' */
+  /* Derivatives for StateSpace: '<S68>/low_pass' */
   _rtXdot->low_pass_CSTATE[0] = 0.0;
   _rtXdot->low_pass_CSTATE[1] = 0.0;
   _rtXdot->low_pass_CSTATE[0] += Bilateral_Ankle_Exo_P.low_pass_A[0] *
@@ -4794,103 +8694,93 @@ void Bilateral_Ankle_Exo_derivatives(void)
   _rtXdot->low_pass_CSTATE[0] += Bilateral_Ankle_Exo_P.low_pass_B *
     Bilateral_Ankle_Exo_B.Abs;
 
-  /* Derivatives for StateSpace: '<S50>/low_pass' */
-  _rtXdot->low_pass_CSTATE_b[0] = 0.0;
-  _rtXdot->low_pass_CSTATE_b[1] = 0.0;
-  _rtXdot->low_pass_CSTATE_b[0] += Bilateral_Ankle_Exo_P.low_pass_A_k[0] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[0];
-  _rtXdot->low_pass_CSTATE_b[0] += Bilateral_Ankle_Exo_P.low_pass_A_k[1] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[1];
-  _rtXdot->low_pass_CSTATE_b[1] += Bilateral_Ankle_Exo_P.low_pass_A_k[2] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[0];
-  _rtXdot->low_pass_CSTATE_b[0] += Bilateral_Ankle_Exo_P.low_pass_B_j *
-    Bilateral_Ankle_Exo_B.Abs_i;
-
-  /* Derivatives for StateSpace: '<S51>/low_pass' */
-  _rtXdot->low_pass_CSTATE_m[0] = 0.0;
-  _rtXdot->low_pass_CSTATE_m[1] = 0.0;
-  _rtXdot->low_pass_CSTATE_m[0] += Bilateral_Ankle_Exo_P.low_pass_A_e[0] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_m[0];
-  _rtXdot->low_pass_CSTATE_m[0] += Bilateral_Ankle_Exo_P.low_pass_A_e[1] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_m[1];
-  _rtXdot->low_pass_CSTATE_m[1] += Bilateral_Ankle_Exo_P.low_pass_A_e[2] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_m[0];
-  _rtXdot->low_pass_CSTATE_m[0] += Bilateral_Ankle_Exo_P.low_pass_B_f *
-    Bilateral_Ankle_Exo_B.Abs_l;
-
-  /* Derivatives for StateSpace: '<S52>/low_pass' */
-  _rtXdot->low_pass_CSTATE_d[0] = 0.0;
-  _rtXdot->low_pass_CSTATE_d[1] = 0.0;
-  _rtXdot->low_pass_CSTATE_d[0] += Bilateral_Ankle_Exo_P.low_pass_A_l[0] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[0];
-  _rtXdot->low_pass_CSTATE_d[0] += Bilateral_Ankle_Exo_P.low_pass_A_l[1] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[1];
-  _rtXdot->low_pass_CSTATE_d[1] += Bilateral_Ankle_Exo_P.low_pass_A_l[2] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[0];
-  _rtXdot->low_pass_CSTATE_d[0] += Bilateral_Ankle_Exo_P.low_pass_B_n *
-    Bilateral_Ankle_Exo_B.Abs_b;
-
-  /* Derivatives for StateSpace: '<S54>/low_pass' */
-  _rtXdot->low_pass_CSTATE_j[0] = 0.0;
-  _rtXdot->low_pass_CSTATE_j[1] = 0.0;
-  _rtXdot->low_pass_CSTATE_j[0] += Bilateral_Ankle_Exo_P.low_pass_A_c[0] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_j[0];
-  _rtXdot->low_pass_CSTATE_j[0] += Bilateral_Ankle_Exo_P.low_pass_A_c[1] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_j[1];
-  _rtXdot->low_pass_CSTATE_j[1] += Bilateral_Ankle_Exo_P.low_pass_A_c[2] *
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_j[0];
-  _rtXdot->low_pass_CSTATE_j[0] += Bilateral_Ankle_Exo_P.low_pass_B_m *
+  /* Derivatives for StateSpace: '<S69>/low_pass' */
+  _rtXdot->low_pass_CSTATE_n[0] = 0.0;
+  _rtXdot->low_pass_CSTATE_n[1] = 0.0;
+  _rtXdot->low_pass_CSTATE_n[0] += Bilateral_Ankle_Exo_P.low_pass_A_k[0] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_n[0];
+  _rtXdot->low_pass_CSTATE_n[0] += Bilateral_Ankle_Exo_P.low_pass_A_k[1] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_n[1];
+  _rtXdot->low_pass_CSTATE_n[1] += Bilateral_Ankle_Exo_P.low_pass_A_k[2] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_n[0];
+  _rtXdot->low_pass_CSTATE_n[0] += Bilateral_Ankle_Exo_P.low_pass_B_f *
     Bilateral_Ankle_Exo_B.Abs_p;
 
-  /* Derivatives for StateSpace: '<S53>/low_pass' */
+  /* Derivatives for StateSpace: '<S70>/low_pass' */
+  _rtXdot->low_pass_CSTATE_b[0] = 0.0;
+  _rtXdot->low_pass_CSTATE_b[1] = 0.0;
+  _rtXdot->low_pass_CSTATE_b[0] += Bilateral_Ankle_Exo_P.low_pass_A_h[0] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[0];
+  _rtXdot->low_pass_CSTATE_b[0] += Bilateral_Ankle_Exo_P.low_pass_A_h[1] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[1];
+  _rtXdot->low_pass_CSTATE_b[1] += Bilateral_Ankle_Exo_P.low_pass_A_h[2] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[0];
+  _rtXdot->low_pass_CSTATE_b[0] += Bilateral_Ankle_Exo_P.low_pass_B_fe *
+    Bilateral_Ankle_Exo_B.Abs_e;
+
+  /* Derivatives for StateSpace: '<S71>/low_pass' */
   _rtXdot->low_pass_CSTATE_a[0] = 0.0;
   _rtXdot->low_pass_CSTATE_a[1] = 0.0;
-  _rtXdot->low_pass_CSTATE_a[0] += Bilateral_Ankle_Exo_P.low_pass_A_ec[0] *
+  _rtXdot->low_pass_CSTATE_a[0] += Bilateral_Ankle_Exo_P.low_pass_A_j[0] *
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_a[0];
-  _rtXdot->low_pass_CSTATE_a[0] += Bilateral_Ankle_Exo_P.low_pass_A_ec[1] *
+  _rtXdot->low_pass_CSTATE_a[0] += Bilateral_Ankle_Exo_P.low_pass_A_j[1] *
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_a[1];
-  _rtXdot->low_pass_CSTATE_a[1] += Bilateral_Ankle_Exo_P.low_pass_A_ec[2] *
+  _rtXdot->low_pass_CSTATE_a[1] += Bilateral_Ankle_Exo_P.low_pass_A_j[2] *
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_a[0];
-  _rtXdot->low_pass_CSTATE_a[0] += Bilateral_Ankle_Exo_P.low_pass_B_h *
-    Bilateral_Ankle_Exo_B.Abs_lh;
+  _rtXdot->low_pass_CSTATE_a[0] += Bilateral_Ankle_Exo_P.low_pass_B_m *
+    Bilateral_Ankle_Exo_B.Abs_o;
 
-  /* Derivatives for StateSpace: '<S49>/high_pass' */
+  /* Derivatives for StateSpace: '<S72>/low_pass' */
+  _rtXdot->low_pass_CSTATE_d[0] = 0.0;
+  _rtXdot->low_pass_CSTATE_d[1] = 0.0;
+  _rtXdot->low_pass_CSTATE_d[0] += Bilateral_Ankle_Exo_P.low_pass_A_e[0] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[0];
+  _rtXdot->low_pass_CSTATE_d[0] += Bilateral_Ankle_Exo_P.low_pass_A_e[1] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[1];
+  _rtXdot->low_pass_CSTATE_d[1] += Bilateral_Ankle_Exo_P.low_pass_A_e[2] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[0];
+  _rtXdot->low_pass_CSTATE_d[0] += Bilateral_Ankle_Exo_P.low_pass_B_d *
+    Bilateral_Ankle_Exo_B.Abs_h;
+
+  /* Derivatives for StateSpace: '<S73>/low_pass' */
+  _rtXdot->low_pass_CSTATE_de[0] = 0.0;
+  _rtXdot->low_pass_CSTATE_de[1] = 0.0;
+  _rtXdot->low_pass_CSTATE_de[0] += Bilateral_Ankle_Exo_P.low_pass_A_d[0] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_de[0];
+  _rtXdot->low_pass_CSTATE_de[0] += Bilateral_Ankle_Exo_P.low_pass_A_d[1] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_de[1];
+  _rtXdot->low_pass_CSTATE_de[1] += Bilateral_Ankle_Exo_P.low_pass_A_d[2] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_de[0];
+  _rtXdot->low_pass_CSTATE_de[0] += Bilateral_Ankle_Exo_P.low_pass_B_o *
+    Bilateral_Ankle_Exo_B.Abs_i;
+
+  /* Derivatives for StateSpace: '<S74>/low_pass' */
+  _rtXdot->low_pass_CSTATE_h[0] = 0.0;
+  _rtXdot->low_pass_CSTATE_h[1] = 0.0;
+  _rtXdot->low_pass_CSTATE_h[0] += Bilateral_Ankle_Exo_P.low_pass_A_m[0] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_h[0];
+  _rtXdot->low_pass_CSTATE_h[0] += Bilateral_Ankle_Exo_P.low_pass_A_m[1] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_h[1];
+  _rtXdot->low_pass_CSTATE_h[1] += Bilateral_Ankle_Exo_P.low_pass_A_m[2] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_h[0];
+  _rtXdot->low_pass_CSTATE_h[0] += Bilateral_Ankle_Exo_P.low_pass_B_a *
+    Bilateral_Ankle_Exo_B.Abs_id;
+
+  /* Derivatives for StateSpace: '<S75>/low_pass' */
+  _rtXdot->low_pass_CSTATE_l[0] = 0.0;
+  _rtXdot->low_pass_CSTATE_l[1] = 0.0;
+  _rtXdot->low_pass_CSTATE_l[0] += Bilateral_Ankle_Exo_P.low_pass_A_n[0] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_l[0];
+  _rtXdot->low_pass_CSTATE_l[0] += Bilateral_Ankle_Exo_P.low_pass_A_n[1] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_l[1];
+  _rtXdot->low_pass_CSTATE_l[1] += Bilateral_Ankle_Exo_P.low_pass_A_n[2] *
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_l[0];
+  _rtXdot->low_pass_CSTATE_l[0] += Bilateral_Ankle_Exo_P.low_pass_B_e *
+    Bilateral_Ankle_Exo_B.Abs_m;
+
+  /* Derivatives for StateSpace: '<S68>/high_pass' */
   _rtXdot->high_pass_CSTATE[0] = 0.0;
-
-  /* Derivatives for StateSpace: '<S50>/high_pass' */
-  _rtXdot->high_pass_CSTATE_p[0] = 0.0;
-
-  /* Derivatives for StateSpace: '<S51>/high_pass' */
-  _rtXdot->high_pass_CSTATE_f[0] = 0.0;
-
-  /* Derivatives for StateSpace: '<S52>/high_pass' */
-  _rtXdot->high_pass_CSTATE_a[0] = 0.0;
-
-  /* Derivatives for StateSpace: '<S53>/high_pass' */
-  _rtXdot->high_pass_CSTATE_o[0] = 0.0;
-
-  /* Derivatives for StateSpace: '<S54>/high_pass' */
-  _rtXdot->high_pass_CSTATE_ff[0] = 0.0;
-
-  /* Derivatives for StateSpace: '<S49>/high_pass' */
   _rtXdot->high_pass_CSTATE[1] = 0.0;
-
-  /* Derivatives for StateSpace: '<S50>/high_pass' */
-  _rtXdot->high_pass_CSTATE_p[1] = 0.0;
-
-  /* Derivatives for StateSpace: '<S51>/high_pass' */
-  _rtXdot->high_pass_CSTATE_f[1] = 0.0;
-
-  /* Derivatives for StateSpace: '<S52>/high_pass' */
-  _rtXdot->high_pass_CSTATE_a[1] = 0.0;
-
-  /* Derivatives for StateSpace: '<S53>/high_pass' */
-  _rtXdot->high_pass_CSTATE_o[1] = 0.0;
-
-  /* Derivatives for StateSpace: '<S54>/high_pass' */
-  _rtXdot->high_pass_CSTATE_ff[1] = 0.0;
-
-  /* Derivatives for StateSpace: '<S49>/high_pass' */
   _rtXdot->high_pass_CSTATE[0] += Bilateral_Ankle_Exo_P.high_pass_A[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE[1];
   _rtXdot->high_pass_CSTATE[1] += Bilateral_Ankle_Exo_P.high_pass_A[1] *
@@ -4898,57 +8788,91 @@ void Bilateral_Ankle_Exo_derivatives(void)
   _rtXdot->high_pass_CSTATE[1] += Bilateral_Ankle_Exo_P.high_pass_A[2] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE[1];
   _rtXdot->high_pass_CSTATE[1] += Bilateral_Ankle_Exo_P.high_pass_B *
-    Bilateral_Ankle_Exo_B.Gain_m;
+    Bilateral_Ankle_Exo_B.sf_EMG_o1.EMG_L_O1;
 
-  /* Derivatives for StateSpace: '<S50>/high_pass' */
-  _rtXdot->high_pass_CSTATE_p[0] += Bilateral_Ankle_Exo_P.high_pass_A_g[0] *
+  /* Derivatives for StateSpace: '<S69>/high_pass' */
+  _rtXdot->high_pass_CSTATE_p[0] = 0.0;
+  _rtXdot->high_pass_CSTATE_p[1] = 0.0;
+  _rtXdot->high_pass_CSTATE_p[0] += Bilateral_Ankle_Exo_P.high_pass_A_d[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_p[1];
-  _rtXdot->high_pass_CSTATE_p[1] += Bilateral_Ankle_Exo_P.high_pass_A_g[1] *
+  _rtXdot->high_pass_CSTATE_p[1] += Bilateral_Ankle_Exo_P.high_pass_A_d[1] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_p[0];
-  _rtXdot->high_pass_CSTATE_p[1] += Bilateral_Ankle_Exo_P.high_pass_A_g[2] *
+  _rtXdot->high_pass_CSTATE_p[1] += Bilateral_Ankle_Exo_P.high_pass_A_d[2] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_p[1];
-  _rtXdot->high_pass_CSTATE_p[1] += Bilateral_Ankle_Exo_P.high_pass_B_i *
-    Bilateral_Ankle_Exo_B.Gain1_aa;
+  _rtXdot->high_pass_CSTATE_p[1] += Bilateral_Ankle_Exo_P.high_pass_B_p *
+    Bilateral_Ankle_Exo_B.sf_EMG_o2.EMG_L_O2;
 
-  /* Derivatives for StateSpace: '<S51>/high_pass' */
-  _rtXdot->high_pass_CSTATE_f[0] += Bilateral_Ankle_Exo_P.high_pass_A_p[0] *
+  /* Derivatives for StateSpace: '<S70>/high_pass' */
+  _rtXdot->high_pass_CSTATE_h[0] = 0.0;
+  _rtXdot->high_pass_CSTATE_h[1] = 0.0;
+  _rtXdot->high_pass_CSTATE_h[0] += Bilateral_Ankle_Exo_P.high_pass_A_c[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_h[1];
+  _rtXdot->high_pass_CSTATE_h[1] += Bilateral_Ankle_Exo_P.high_pass_A_c[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_h[0];
+  _rtXdot->high_pass_CSTATE_h[1] += Bilateral_Ankle_Exo_P.high_pass_A_c[2] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_h[1];
+  _rtXdot->high_pass_CSTATE_h[1] += Bilateral_Ankle_Exo_P.high_pass_B_e *
+    Bilateral_Ankle_Exo_B.sf_EMG3.EMG_L_O3;
+
+  /* Derivatives for StateSpace: '<S71>/high_pass' */
+  _rtXdot->high_pass_CSTATE_f[0] = 0.0;
+  _rtXdot->high_pass_CSTATE_f[1] = 0.0;
+  _rtXdot->high_pass_CSTATE_f[0] += Bilateral_Ankle_Exo_P.high_pass_A_h[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_f[1];
-  _rtXdot->high_pass_CSTATE_f[1] += Bilateral_Ankle_Exo_P.high_pass_A_p[1] *
+  _rtXdot->high_pass_CSTATE_f[1] += Bilateral_Ankle_Exo_P.high_pass_A_h[1] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_f[0];
-  _rtXdot->high_pass_CSTATE_f[1] += Bilateral_Ankle_Exo_P.high_pass_A_p[2] *
+  _rtXdot->high_pass_CSTATE_f[1] += Bilateral_Ankle_Exo_P.high_pass_A_h[2] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_f[1];
-  _rtXdot->high_pass_CSTATE_f[1] += Bilateral_Ankle_Exo_P.high_pass_B_h *
-    Bilateral_Ankle_Exo_B.Gain2_p;
+  _rtXdot->high_pass_CSTATE_f[1] += Bilateral_Ankle_Exo_P.high_pass_B_l *
+    Bilateral_Ankle_Exo_B.sf_EMG4.EMG_L_O4;
 
-  /* Derivatives for StateSpace: '<S52>/high_pass' */
-  _rtXdot->high_pass_CSTATE_a[0] += Bilateral_Ankle_Exo_P.high_pass_A_a[0] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_a[1];
-  _rtXdot->high_pass_CSTATE_a[1] += Bilateral_Ankle_Exo_P.high_pass_A_a[1] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_a[0];
-  _rtXdot->high_pass_CSTATE_a[1] += Bilateral_Ankle_Exo_P.high_pass_A_a[2] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_a[1];
-  _rtXdot->high_pass_CSTATE_a[1] += Bilateral_Ankle_Exo_P.high_pass_B_n *
-    Bilateral_Ankle_Exo_B.Gain3_n;
+  /* Derivatives for StateSpace: '<S72>/high_pass' */
+  _rtXdot->high_pass_CSTATE_i[0] = 0.0;
+  _rtXdot->high_pass_CSTATE_i[1] = 0.0;
+  _rtXdot->high_pass_CSTATE_i[0] += Bilateral_Ankle_Exo_P.high_pass_A_p[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_i[1];
+  _rtXdot->high_pass_CSTATE_i[1] += Bilateral_Ankle_Exo_P.high_pass_A_p[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_i[0];
+  _rtXdot->high_pass_CSTATE_i[1] += Bilateral_Ankle_Exo_P.high_pass_A_p[2] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_i[1];
+  _rtXdot->high_pass_CSTATE_i[1] += Bilateral_Ankle_Exo_P.high_pass_B_h *
+    Bilateral_Ankle_Exo_B.sf_EMG_o5.EMG_R_O1;
 
-  /* Derivatives for StateSpace: '<S53>/high_pass' */
-  _rtXdot->high_pass_CSTATE_o[0] += Bilateral_Ankle_Exo_P.high_pass_A_a0[0] *
+  /* Derivatives for StateSpace: '<S73>/high_pass' */
+  _rtXdot->high_pass_CSTATE_o[0] = 0.0;
+  _rtXdot->high_pass_CSTATE_o[1] = 0.0;
+  _rtXdot->high_pass_CSTATE_o[0] += Bilateral_Ankle_Exo_P.high_pass_A_m[0] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[1];
-  _rtXdot->high_pass_CSTATE_o[1] += Bilateral_Ankle_Exo_P.high_pass_A_a0[1] *
+  _rtXdot->high_pass_CSTATE_o[1] += Bilateral_Ankle_Exo_P.high_pass_A_m[1] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[0];
-  _rtXdot->high_pass_CSTATE_o[1] += Bilateral_Ankle_Exo_P.high_pass_A_a0[2] *
+  _rtXdot->high_pass_CSTATE_o[1] += Bilateral_Ankle_Exo_P.high_pass_A_m[2] *
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[1];
-  _rtXdot->high_pass_CSTATE_o[1] += Bilateral_Ankle_Exo_P.high_pass_B_n3 *
-    Bilateral_Ankle_Exo_B.Gain5;
+  _rtXdot->high_pass_CSTATE_o[1] += Bilateral_Ankle_Exo_P.high_pass_B_k *
+    Bilateral_Ankle_Exo_B.sf_EMG_o6.EMG_R_O2;
 
-  /* Derivatives for StateSpace: '<S54>/high_pass' */
-  _rtXdot->high_pass_CSTATE_ff[0] += Bilateral_Ankle_Exo_P.high_pass_A_f[0] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_ff[1];
-  _rtXdot->high_pass_CSTATE_ff[1] += Bilateral_Ankle_Exo_P.high_pass_A_f[1] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_ff[0];
-  _rtXdot->high_pass_CSTATE_ff[1] += Bilateral_Ankle_Exo_P.high_pass_A_f[2] *
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_ff[1];
-  _rtXdot->high_pass_CSTATE_ff[1] += Bilateral_Ankle_Exo_P.high_pass_B_g *
-    Bilateral_Ankle_Exo_B.Gain4_mo;
+  /* Derivatives for StateSpace: '<S74>/high_pass' */
+  _rtXdot->high_pass_CSTATE_m[0] = 0.0;
+  _rtXdot->high_pass_CSTATE_m[1] = 0.0;
+  _rtXdot->high_pass_CSTATE_m[0] += Bilateral_Ankle_Exo_P.high_pass_A_a[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_m[1];
+  _rtXdot->high_pass_CSTATE_m[1] += Bilateral_Ankle_Exo_P.high_pass_A_a[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_m[0];
+  _rtXdot->high_pass_CSTATE_m[1] += Bilateral_Ankle_Exo_P.high_pass_A_a[2] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_m[1];
+  _rtXdot->high_pass_CSTATE_m[1] += Bilateral_Ankle_Exo_P.high_pass_B_la *
+    Bilateral_Ankle_Exo_B.sf_EMG_o7.EMG_R_O3;
+
+  /* Derivatives for StateSpace: '<S75>/high_pass' */
+  _rtXdot->high_pass_CSTATE_f3[0] = 0.0;
+  _rtXdot->high_pass_CSTATE_f3[1] = 0.0;
+  _rtXdot->high_pass_CSTATE_f3[0] += Bilateral_Ankle_Exo_P.high_pass_A_g[0] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_f3[1];
+  _rtXdot->high_pass_CSTATE_f3[1] += Bilateral_Ankle_Exo_P.high_pass_A_g[1] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_f3[0];
+  _rtXdot->high_pass_CSTATE_f3[1] += Bilateral_Ankle_Exo_P.high_pass_A_g[2] *
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_f3[1];
+  _rtXdot->high_pass_CSTATE_f3[1] += Bilateral_Ankle_Exo_P.high_pass_B_b *
+    Bilateral_Ankle_Exo_B.sf_EMG_o8.EMG_R_O4;
 }
 
 /* Model initialize function */
@@ -5048,11 +8972,11 @@ void Bilateral_Ankle_Exo_initialize(void)
     /* End of Start for RateTransition: '<Root>/RT2' */
 
     /* Start for RateTransition: '<Root>/RT3' */
-    Bilateral_Ankle_Exo_B.RT3[0] = Bilateral_Ankle_Exo_P.RT3_InitialCondition;
-    Bilateral_Ankle_Exo_B.RT3[1] = Bilateral_Ankle_Exo_P.RT3_InitialCondition;
-    Bilateral_Ankle_Exo_B.RT3[2] = Bilateral_Ankle_Exo_P.RT3_InitialCondition;
-    Bilateral_Ankle_Exo_B.RT3[3] = Bilateral_Ankle_Exo_P.RT3_InitialCondition;
+    for (i = 0; i < 9; i++) {
+      Bilateral_Ankle_Exo_B.RT3[i] = Bilateral_Ankle_Exo_P.RT3_InitialCondition;
+    }
 
+    /* End of Start for RateTransition: '<Root>/RT3' */
     /* Start for RateTransition: '<Root>/RT7' */
     Bilateral_Ankle_Exo_B.RT7[0] = Bilateral_Ankle_Exo_P.RT7_InitialCondition;
     Bilateral_Ankle_Exo_B.RT7[1] = Bilateral_Ankle_Exo_P.RT7_InitialCondition;
@@ -5096,7 +9020,7 @@ void Bilateral_Ankle_Exo_initialize(void)
   {
     int32_T i;
 
-    /* InitializeConditions for DiscreteFilter: '<S33>/0.4low2' */
+    /* InitializeConditions for DiscreteFilter: '<S34>/0.4low2' */
     Bilateral_Ankle_Exo_DW.u4low2_states[0] =
       Bilateral_Ankle_Exo_P.u4low2_InitialStates;
     Bilateral_Ankle_Exo_DW.u4low2_states[1] =
@@ -5104,15 +9028,15 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.u4low2_states[2] =
       Bilateral_Ankle_Exo_P.u4low2_InitialStates;
 
-    /* InitializeConditions for UnitDelay: '<S86>/Unit Delay1' */
+    /* InitializeConditions for UnitDelay: '<S110>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE =
       Bilateral_Ankle_Exo_P.UnitDelay1_InitialCondition;
 
-    /* InitializeConditions for UnitDelay: '<S86>/Unit Delay' */
+    /* InitializeConditions for UnitDelay: '<S110>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE =
       Bilateral_Ankle_Exo_P.UnitDelay_InitialCondition;
 
-    /* InitializeConditions for UnitDelay: '<S86>/Unit Delay2' */
+    /* InitializeConditions for UnitDelay: '<S110>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE =
       Bilateral_Ankle_Exo_P.UnitDelay2_InitialCondition;
 
@@ -5132,15 +9056,15 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.RT5_write_buf = -1;
     Bilateral_Ankle_Exo_DW.RT5_read_buf = -1;
 
-    /* InitializeConditions for UnitDelay: '<S77>/Unit Delay1' */
+    /* InitializeConditions for UnitDelay: '<S101>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_n =
       Bilateral_Ankle_Exo_P.UnitDelay1_InitialCondition_e;
 
-    /* InitializeConditions for UnitDelay: '<S77>/Unit Delay' */
+    /* InitializeConditions for UnitDelay: '<S101>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_o =
       Bilateral_Ankle_Exo_P.UnitDelay_InitialCondition_b;
 
-    /* InitializeConditions for UnitDelay: '<S77>/Unit Delay2' */
+    /* InitializeConditions for UnitDelay: '<S101>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_i =
       Bilateral_Ankle_Exo_P.UnitDelay2_InitialCondition_m;
 
@@ -5178,16 +9102,15 @@ void Bilateral_Ankle_Exo_initialize(void)
     /* End of InitializeConditions for RateTransition: '<Root>/RT2' */
 
     /* InitializeConditions for RateTransition: '<Root>/RT3' */
-    Bilateral_Ankle_Exo_DW.RT3_Buffer0[0] =
-      Bilateral_Ankle_Exo_P.RT3_InitialCondition;
-    Bilateral_Ankle_Exo_DW.RT3_Buffer0[1] =
-      Bilateral_Ankle_Exo_P.RT3_InitialCondition;
-    Bilateral_Ankle_Exo_DW.RT3_Buffer0[2] =
-      Bilateral_Ankle_Exo_P.RT3_InitialCondition;
-    Bilateral_Ankle_Exo_DW.RT3_Buffer0[3] =
-      Bilateral_Ankle_Exo_P.RT3_InitialCondition;
+    for (i = 0; i < 9; i++) {
+      Bilateral_Ankle_Exo_DW.RT3_Buffer0[i] =
+        Bilateral_Ankle_Exo_P.RT3_InitialCondition;
+    }
+
     Bilateral_Ankle_Exo_DW.RT3_write_buf = -1;
     Bilateral_Ankle_Exo_DW.RT3_read_buf = -1;
+
+    /* End of InitializeConditions for RateTransition: '<Root>/RT3' */
 
     /* InitializeConditions for RateTransition: '<Root>/RT7' */
     Bilateral_Ankle_Exo_DW.RT7_Buffer0[0] =
@@ -5201,7 +9124,7 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.RT7_write_buf = -1;
     Bilateral_Ankle_Exo_DW.RT7_read_buf = -1;
 
-    /* InitializeConditions for DiscreteFilter: '<S33>/0.4low1' */
+    /* InitializeConditions for DiscreteFilter: '<S34>/0.4low1' */
     Bilateral_Ankle_Exo_DW.u4low1_states[0] =
       Bilateral_Ankle_Exo_P.u4low1_InitialStates;
     Bilateral_Ankle_Exo_DW.u4low1_states[1] =
@@ -5209,15 +9132,15 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.u4low1_states[2] =
       Bilateral_Ankle_Exo_P.u4low1_InitialStates;
 
-    /* InitializeConditions for UnitDelay: '<S87>/Unit Delay1' */
+    /* InitializeConditions for UnitDelay: '<S111>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_m =
       Bilateral_Ankle_Exo_P.UnitDelay1_InitialCondition_i;
 
-    /* InitializeConditions for UnitDelay: '<S87>/Unit Delay' */
+    /* InitializeConditions for UnitDelay: '<S111>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_n =
       Bilateral_Ankle_Exo_P.UnitDelay_InitialCondition_a;
 
-    /* InitializeConditions for UnitDelay: '<S87>/Unit Delay2' */
+    /* InitializeConditions for UnitDelay: '<S111>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_l =
       Bilateral_Ankle_Exo_P.UnitDelay2_InitialCondition_e;
 
@@ -5237,15 +9160,15 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.RT9_write_buf = -1;
     Bilateral_Ankle_Exo_DW.RT9_read_buf = -1;
 
-    /* InitializeConditions for UnitDelay: '<S76>/Unit Delay1' */
+    /* InitializeConditions for UnitDelay: '<S100>/Unit Delay1' */
     Bilateral_Ankle_Exo_DW.UnitDelay1_DSTATE_f =
       Bilateral_Ankle_Exo_P.UnitDelay1_InitialCondition_b;
 
-    /* InitializeConditions for UnitDelay: '<S76>/Unit Delay' */
+    /* InitializeConditions for UnitDelay: '<S100>/Unit Delay' */
     Bilateral_Ankle_Exo_DW.UnitDelay_DSTATE_a =
       Bilateral_Ankle_Exo_P.UnitDelay_InitialCondition_c;
 
-    /* InitializeConditions for UnitDelay: '<S76>/Unit Delay2' */
+    /* InitializeConditions for UnitDelay: '<S100>/Unit Delay2' */
     Bilateral_Ankle_Exo_DW.UnitDelay2_DSTATE_e =
       Bilateral_Ankle_Exo_P.UnitDelay2_InitialCondition_c;
 
@@ -5259,106 +9182,138 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.RT10_write_buf = -1;
     Bilateral_Ankle_Exo_DW.RT10_read_buf = -1;
 
-    /* InitializeConditions for StateSpace: '<S49>/low_pass' */
+    /* InitializeConditions for StateSpace: '<S68>/low_pass' */
     Bilateral_Ankle_Exo_X.low_pass_CSTATE[0] =
       Bilateral_Ankle_Exo_P.low_pass_InitialCondition;
 
-    /* InitializeConditions for StateSpace: '<S50>/low_pass' */
+    /* InitializeConditions for StateSpace: '<S69>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_n[0] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_f;
+
+    /* InitializeConditions for StateSpace: '<S70>/low_pass' */
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[0] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_i;
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_b;
 
-    /* InitializeConditions for StateSpace: '<S51>/low_pass' */
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_m[0] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_n;
-
-    /* InitializeConditions for StateSpace: '<S52>/low_pass' */
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[0] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_o;
-
-    /* InitializeConditions for StateSpace: '<S54>/low_pass' */
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_j[0] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_ir;
-
-    /* InitializeConditions for StateSpace: '<S53>/low_pass' */
+    /* InitializeConditions for StateSpace: '<S71>/low_pass' */
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_a[0] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_bx;
+
+    /* InitializeConditions for StateSpace: '<S72>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[0] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_d;
+
+    /* InitializeConditions for StateSpace: '<S73>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_de[0] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_l;
+
+    /* InitializeConditions for StateSpace: '<S74>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_h[0] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_lj;
+
+    /* InitializeConditions for StateSpace: '<S75>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_l[0] =
       Bilateral_Ankle_Exo_P.low_pass_InitialCondition_h;
 
-    /* InitializeConditions for StateSpace: '<S49>/high_pass' */
+    /* InitializeConditions for StateSpace: '<S68>/high_pass' */
     Bilateral_Ankle_Exo_X.high_pass_CSTATE[0] =
       Bilateral_Ankle_Exo_P.high_pass_InitialCondition;
 
-    /* InitializeConditions for StateSpace: '<S50>/high_pass' */
+    /* InitializeConditions for StateSpace: '<S69>/high_pass' */
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_p[0] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_a;
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_f;
 
-    /* InitializeConditions for StateSpace: '<S51>/high_pass' */
+    /* InitializeConditions for StateSpace: '<S70>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_h[0] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_i;
+
+    /* InitializeConditions for StateSpace: '<S71>/high_pass' */
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_f[0] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_d;
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_f3;
 
-    /* InitializeConditions for StateSpace: '<S52>/high_pass' */
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_a[0] =
+    /* InitializeConditions for StateSpace: '<S72>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_i[0] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_b;
+
+    /* InitializeConditions for StateSpace: '<S73>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[0] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_if;
+
+    /* InitializeConditions for StateSpace: '<S74>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_m[0] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_o;
+
+    /* InitializeConditions for StateSpace: '<S75>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_f3[0] =
       Bilateral_Ankle_Exo_P.high_pass_InitialCondition_m;
 
-    /* InitializeConditions for StateSpace: '<S53>/high_pass' */
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[0] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_h;
-
-    /* InitializeConditions for StateSpace: '<S54>/high_pass' */
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_ff[0] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_e;
-
-    /* InitializeConditions for StateSpace: '<S49>/low_pass' */
+    /* InitializeConditions for StateSpace: '<S68>/low_pass' */
     Bilateral_Ankle_Exo_X.low_pass_CSTATE[1] =
       Bilateral_Ankle_Exo_P.low_pass_InitialCondition;
 
-    /* InitializeConditions for StateSpace: '<S50>/low_pass' */
+    /* InitializeConditions for StateSpace: '<S69>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_n[1] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_f;
+
+    /* InitializeConditions for StateSpace: '<S70>/low_pass' */
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_b[1] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_i;
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_b;
 
-    /* InitializeConditions for StateSpace: '<S51>/low_pass' */
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_m[1] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_n;
-
-    /* InitializeConditions for StateSpace: '<S52>/low_pass' */
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[1] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_o;
-
-    /* InitializeConditions for StateSpace: '<S54>/low_pass' */
-    Bilateral_Ankle_Exo_X.low_pass_CSTATE_j[1] =
-      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_ir;
-
-    /* InitializeConditions for StateSpace: '<S53>/low_pass' */
+    /* InitializeConditions for StateSpace: '<S71>/low_pass' */
     Bilateral_Ankle_Exo_X.low_pass_CSTATE_a[1] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_bx;
+
+    /* InitializeConditions for StateSpace: '<S72>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_d[1] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_d;
+
+    /* InitializeConditions for StateSpace: '<S73>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_de[1] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_l;
+
+    /* InitializeConditions for StateSpace: '<S74>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_h[1] =
+      Bilateral_Ankle_Exo_P.low_pass_InitialCondition_lj;
+
+    /* InitializeConditions for StateSpace: '<S75>/low_pass' */
+    Bilateral_Ankle_Exo_X.low_pass_CSTATE_l[1] =
       Bilateral_Ankle_Exo_P.low_pass_InitialCondition_h;
 
-    /* InitializeConditions for StateSpace: '<S49>/high_pass' */
+    /* InitializeConditions for StateSpace: '<S68>/high_pass' */
     Bilateral_Ankle_Exo_X.high_pass_CSTATE[1] =
       Bilateral_Ankle_Exo_P.high_pass_InitialCondition;
 
-    /* InitializeConditions for StateSpace: '<S50>/high_pass' */
+    /* InitializeConditions for StateSpace: '<S69>/high_pass' */
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_p[1] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_a;
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_f;
 
-    /* InitializeConditions for StateSpace: '<S51>/high_pass' */
+    /* InitializeConditions for StateSpace: '<S70>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_h[1] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_i;
+
+    /* InitializeConditions for StateSpace: '<S71>/high_pass' */
     Bilateral_Ankle_Exo_X.high_pass_CSTATE_f[1] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_d;
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_f3;
 
-    /* InitializeConditions for StateSpace: '<S52>/high_pass' */
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_a[1] =
+    /* InitializeConditions for StateSpace: '<S72>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_i[1] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_b;
+
+    /* InitializeConditions for StateSpace: '<S73>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[1] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_if;
+
+    /* InitializeConditions for StateSpace: '<S74>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_m[1] =
+      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_o;
+
+    /* InitializeConditions for StateSpace: '<S75>/high_pass' */
+    Bilateral_Ankle_Exo_X.high_pass_CSTATE_f3[1] =
       Bilateral_Ankle_Exo_P.high_pass_InitialCondition_m;
 
-    /* InitializeConditions for StateSpace: '<S53>/high_pass' */
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_o[1] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_h;
-
-    /* InitializeConditions for StateSpace: '<S54>/high_pass' */
-    Bilateral_Ankle_Exo_X.high_pass_CSTATE_ff[1] =
-      Bilateral_Ankle_Exo_P.high_pass_InitialCondition_e;
-
-    /* SystemInitialize for MATLAB Function: '<S30>/Filter_R' */
+    /* SystemInitialize for MATLAB Function: '<S31>/Filter_R' */
     Bilateral_Ankle_E_Filter_L_Init(&Bilateral_Ankle_Exo_DW.sf_Filter_R);
 
-    /* SystemInitialize for MATLAB Function: '<S7>/State Machine' */
+    /* SystemInitialize for MATLAB Function: '<S8>/State Machine' */
     Bilateral_Ankle_Exo_DW.reg_stride_time = 1.0;
     Bilateral_Ankle_Exo_DW.reg_stride_time_count = 0.0;
     Bilateral_Ankle_Exo_DW.reg_mode = 1.0;
@@ -5366,10 +9321,18 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.bt_run = 0.0;
     Bilateral_Ankle_Exo_DW.reg_last_switch = 1.0;
 
-    /* SystemInitialize for MATLAB Function: '<S30>/Filter_L' */
+    /* SystemInitialize for MATLAB Function: '<Root>/AutoTunning' */
+    Bilateral_Ankle_Exo_DW.last_state = 0.0;
+    Bilateral_Ankle_Exo_DW.Scan_state = 0.0;
+    Bilateral_Ankle_Exo_DW.step_count = 0.0;
+    Bilateral_Ankle_Exo_DW.Scan_step = 1.0;
+    Bilateral_Ankle_Exo_DW.Scan_dir = 1.0;
+    Bilateral_Ankle_Exo_DW.parm_delta = 0.0;
+
+    /* SystemInitialize for MATLAB Function: '<S31>/Filter_L' */
     Bilateral_Ankle_E_Filter_L_Init(&Bilateral_Ankle_Exo_DW.sf_Filter_L);
 
-    /* SystemInitialize for MATLAB Function: '<S6>/State Machine' */
+    /* SystemInitialize for MATLAB Function: '<S7>/State Machine' */
     Bilateral_Ankle_Exo_DW.reg_stride_time_e = 1.0;
     Bilateral_Ankle_Exo_DW.reg_stride_time_count_a = 0.0;
     Bilateral_Ankle_Exo_DW.reg_mode_d = 1.0;
@@ -5377,26 +9340,26 @@ void Bilateral_Ankle_Exo_initialize(void)
     Bilateral_Ankle_Exo_DW.bt_run_c = 0.0;
     Bilateral_Ankle_Exo_DW.reg_last_switch_p = 1.0;
 
-    /* SystemInitialize for S-Function (rti_commonblock): '<S8>/S-Function1' incorporates:
+    /* SystemInitialize for S-Function (rti_commonblock): '<S9>/S-Function1' incorporates:
      *  SubSystem: '<Root>/Control Module'
      */
     Bilateral_An_ControlModule_Init();
 
-    /* End of SystemInitialize for S-Function (rti_commonblock): '<S8>/S-Function1' */
+    /* End of SystemInitialize for S-Function (rti_commonblock): '<S9>/S-Function1' */
 
-    /* SystemInitialize for MATLAB Function: '<S33>/MATLAB Function' */
+    /* SystemInitialize for MATLAB Function: '<S34>/MATLAB Function' */
     for (i = 0; i < 15; i++) {
       Bilateral_Ankle_Exo_DW.data[i] = 1.0;
     }
 
-    /* End of SystemInitialize for MATLAB Function: '<S33>/MATLAB Function' */
+    /* End of SystemInitialize for MATLAB Function: '<S34>/MATLAB Function' */
   }
 }
 
 /* Model terminate function */
 void Bilateral_Ankle_Exo_terminate(void)
 {
-  /* Terminate for S-Function (rti_commonblock): '<S36>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S37>/S-Function1' */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Ankle Encoder/EMC_ENCODER_BL1 --- */
   /* --- [RTIEMC, Encoder] - DIO class: 2 - Unit: 5 - Port: 1 - Channel: 10 --- */
@@ -5405,7 +9368,7 @@ void Bilateral_Ankle_Exo_terminate(void)
     DioCl2EncoderIn_stop(pRTIEmcEncoder_Unit_5_DioCl_2_Port_1_Ch10);
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S80>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S104>/S-Function1' */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Motor Encoder/EMC_ENCODER_BL2 --- */
   /* --- [RTIEMC, Encoder] - DIO class: 2 - Unit: 2 - Port: 1 - Channel: 3 --- */
@@ -5414,7 +9377,7 @@ void Bilateral_Ankle_Exo_terminate(void)
     DioCl2EncoderIn_stop(pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3);
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S37>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S38>/S-Function1' */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Ankle Encoder/EMC_ENCODER_BL2 --- */
   /* --- [RTIEMC, Encoder] - DIO class: 2 - Unit: 4 - Port: 1 - Channel: 7 --- */
@@ -5423,7 +9386,7 @@ void Bilateral_Ankle_Exo_terminate(void)
     DioCl2EncoderIn_stop(pRTIEmcEncoder_Unit_4_DioCl_2_Port_1_Ch7);
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S81>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S105>/S-Function1' */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Motor Encoder/EMC_ENCODER_BL3 --- */
   /* --- [RTIEMC, Encoder] - DIO class: 2 - Unit: 3 - Port: 1 - Channel: 5 --- */
@@ -5432,15 +9395,15 @@ void Bilateral_Ankle_Exo_terminate(void)
     DioCl2EncoderIn_stop(pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5);
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S8>/S-Function1' incorporates:
+  /* Terminate for S-Function (rti_commonblock): '<S9>/S-Function1' incorporates:
    *  SubSystem: '<Root>/Control Module'
    */
   Bilateral_An_ControlModule_Term();
 
-  /* End of Terminate for S-Function (rti_commonblock): '<S8>/S-Function1' */
+  /* End of Terminate for S-Function (rti_commonblock): '<S9>/S-Function1' */
 
-  /* Terminate for S-Function (rti_commonblock): '<S38>/S-Function1' incorporates:
-   *  Constant: '<S28>/VCC1'
+  /* Terminate for S-Function (rti_commonblock): '<S39>/S-Function1' incorporates:
+   *  Constant: '<S29>/VCC1'
    */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Ankle Encoder/Encoder Power Setup1 --- */
@@ -5452,8 +9415,8 @@ void Bilateral_Ankle_Exo_terminate(void)
     DIO_CLASS1_HIGH_Z_ON);
   DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_15);
 
-  /* Terminate for S-Function (rti_commonblock): '<S39>/S-Function1' incorporates:
-   *  Constant: '<S28>/VCC2'
+  /* Terminate for S-Function (rti_commonblock): '<S40>/S-Function1' incorporates:
+   *  Constant: '<S29>/VCC2'
    */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Ankle Encoder/Encoder Power Setup2 --- */
@@ -5465,8 +9428,8 @@ void Bilateral_Ankle_Exo_terminate(void)
     DIO_CLASS1_HIGH_Z_ON);
   DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_16);
 
-  /* Terminate for S-Function (rti_commonblock): '<S82>/S-Function1' incorporates:
-   *  Constant: '<S32>/VCC2'
+  /* Terminate for S-Function (rti_commonblock): '<S106>/S-Function1' incorporates:
+   *  Constant: '<S33>/VCC2'
    */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Motor Encoder/Encoder Power Setup2 --- */
@@ -5478,8 +9441,8 @@ void Bilateral_Ankle_Exo_terminate(void)
     DIO_CLASS1_HIGH_Z_ON);
   DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_12);
 
-  /* Terminate for S-Function (rti_commonblock): '<S83>/S-Function1' incorporates:
-   *  Constant: '<S32>/VCC3'
+  /* Terminate for S-Function (rti_commonblock): '<S107>/S-Function1' incorporates:
+   *  Constant: '<S33>/VCC3'
    */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Motor Encoder/Encoder Power Setup3 --- */
@@ -5491,8 +9454,8 @@ void Bilateral_Ankle_Exo_terminate(void)
     DIO_CLASS1_HIGH_Z_ON);
   DioCl1DigOut_write(pRTIDioC1DigOut_Port_3_Ch_13);
 
-  /* Terminate for S-Function (rti_commonblock): '<S62>/S-Function1' incorporates:
-   *  Constant: '<S30>/Constant'
+  /* Terminate for S-Function (rti_commonblock): '<S86>/S-Function1' incorporates:
+   *  Constant: '<S31>/Constant'
    */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/FootSwitch module/DIO_CLASS1_BIT_OUT_BL1 --- */
@@ -5504,8 +9467,8 @@ void Bilateral_Ankle_Exo_terminate(void)
     DIO_CLASS1_HIGH_Z_ON);
   DioCl1DigOut_write(pRTIDioC1DigOut_Port_1_Ch_1);
 
-  /* Terminate for S-Function (rti_commonblock): '<S63>/S-Function1' incorporates:
-   *  Constant: '<S30>/Constant1'
+  /* Terminate for S-Function (rti_commonblock): '<S87>/S-Function1' incorporates:
+   *  Constant: '<S31>/Constant1'
    */
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/FootSwitch module/DIO_CLASS1_BIT_OUT_BL2 --- */
@@ -5517,7 +9480,7 @@ void Bilateral_Ankle_Exo_terminate(void)
     DIO_CLASS1_HIGH_Z_ON);
   DioCl1DigOut_write(pRTIDioC1DigOut_Port_1_Ch_3);
 
-  /* Terminate for S-Function (rti_commonblock): '<S72>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S96>/S-Function1' */
 
   /* dSPACE RTICAN RX Message Block: "RX Message" Id:3 */
   {
@@ -5527,7 +9490,7 @@ void Bilateral_Ankle_Exo_terminate(void)
            DSMCOM_BUFFER_OVERFLOW) ;
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S66>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S90>/S-Function1' */
 
   /* dSPACE RTICAN STD Srvc-Message Block */
   {
@@ -5536,7 +9499,7 @@ void Bilateral_Ankle_Exo_terminate(void)
             (CANTP1_RX_SPMSG_M1_C1_STD)) == DSMCOM_BUFFER_OVERFLOW) ;
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S67>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S91>/S-Function1' */
 
   /* dSPACE RTICAN STD Srvc-Message Block */
   {
@@ -5545,7 +9508,7 @@ void Bilateral_Ankle_Exo_terminate(void)
             (CANTP1_RX_SPMSG_M1_C2_STD)) == DSMCOM_BUFFER_OVERFLOW) ;
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S70>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S94>/S-Function1' */
 
   /* dSPACE RTICAN RX Message Block: "RX Message" Id:100 */
   {
@@ -5555,7 +9518,7 @@ void Bilateral_Ankle_Exo_terminate(void)
            DSMCOM_BUFFER_OVERFLOW) ;
   }
 
-  /* Terminate for S-Function (rti_commonblock): '<S71>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S95>/S-Function1' */
 
   /* dSPACE RTICAN TX Message Block: "TX Message" Id:100 */
   {

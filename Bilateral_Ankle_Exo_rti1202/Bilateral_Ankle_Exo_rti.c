@@ -6,7 +6,7 @@
    the hardware and software interrupts used.
 
    RTI1202 7.9 (02-Nov-2017)
-   Thu Jun 18 11:37:25 2020
+   Thu Jun 18 18:06:16 2020
 
    Copyright 2020, dSPACE GmbH. All rights reserved.
 
@@ -236,16 +236,12 @@ static void rti_TIMERB(rtk_p_task_control_block task)
       break;
     }
 
-    if (Bilateral_Ankle_Exo_DW.RT3_read_buf != 0) {
-      Bilateral_Ankle_Exo_B.RT3[0] = Bilateral_Ankle_Exo_DW.RT3_Buffer1[0];
-      Bilateral_Ankle_Exo_B.RT3[1] = Bilateral_Ankle_Exo_DW.RT3_Buffer1[1];
-      Bilateral_Ankle_Exo_B.RT3[2] = Bilateral_Ankle_Exo_DW.RT3_Buffer1[2];
-      Bilateral_Ankle_Exo_B.RT3[3] = Bilateral_Ankle_Exo_DW.RT3_Buffer1[3];
-    } else {
-      Bilateral_Ankle_Exo_B.RT3[0] = Bilateral_Ankle_Exo_DW.RT3_Buffer0[0];
-      Bilateral_Ankle_Exo_B.RT3[1] = Bilateral_Ankle_Exo_DW.RT3_Buffer0[1];
-      Bilateral_Ankle_Exo_B.RT3[2] = Bilateral_Ankle_Exo_DW.RT3_Buffer0[2];
-      Bilateral_Ankle_Exo_B.RT3[3] = Bilateral_Ankle_Exo_DW.RT3_Buffer0[3];
+    for (i = 0; i < 9; i++) {
+      if (Bilateral_Ankle_Exo_DW.RT3_read_buf != 0) {
+        Bilateral_Ankle_Exo_B.RT3[i] = Bilateral_Ankle_Exo_DW.RT3_Buffer1[i];
+      } else {
+        Bilateral_Ankle_Exo_B.RT3[i] = Bilateral_Ankle_Exo_DW.RT3_Buffer0[i];
+      }
     }
 
     Bilateral_Ankle_Exo_DW.RT3_read_buf = -1;
@@ -370,10 +366,10 @@ static void rti_TIMERB(rtk_p_task_control_block task)
 
     /* End of RateTransition: '<Root>/RT10' */
 
-    /* S-Function (rti_commonblock): '<S8>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S9>/S-Function1' */
     Bilateral_Ankle_E_ControlModule();
 
-    /* End of Outputs for S-Function (rti_commonblock): '<S8>/S-Function1' */
+    /* End of Outputs for S-Function (rti_commonblock): '<S9>/S-Function1' */
   }
 
   /* Task exit code BEGIN */
@@ -400,11 +396,13 @@ DioCl1DigOutSDrvObject *pRTIDioC1DigOut_Port_3_Ch_13;
 DioCl1DigOutSDrvObject *pRTIDioC1DigOut_Port_1_Ch_1;
 DioCl1DigOutSDrvObject *pRTIDioC1DigOut_Port_1_Ch_3;
 AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_1;
+AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_10;
+AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_11;
+AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_12;
 AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_2;
 AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_3;
 AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_4;
 AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_9;
-AdcCl1AnalogInSDrvObject *pRTIAdcC1AnalogIn_Ch_10;
 
 /* dSPACE I/O Board DS1_RTICAN #1 */
 
@@ -1280,6 +1278,87 @@ static void rti_mdl_initialize_io_boards(void)
     }
   }
 
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL10 --- */
+  /* --- [RTI120X, ADC C1] - Channel: 10 --- */
+  {
+    /* define a variable for IO error handling */
+    UInt32 ioErrorCode = IOLIB_NO_ERROR;
+
+    /* Init ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_10 */
+    ioErrorCode = AdcCl1AnalogIn_create(&pRTIAdcC1AnalogIn_Ch_10,
+      ADC_CLASS1_CHANNEL_10);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    /* Set parameters for ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_10 */
+    ioErrorCode = AdcCl1AnalogIn_setConversionMode(pRTIAdcC1AnalogIn_Ch_10,
+      ADC_CLASS1_SINGLE_CONV_MODE);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    ioErrorCode = AdcCl1AnalogIn_setConversTrigger(pRTIAdcC1AnalogIn_Ch_10,
+      ADC_CLASS1_TRIGGER_SW);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+  }
+
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL11 --- */
+  /* --- [RTI120X, ADC C1] - Channel: 11 --- */
+  {
+    /* define a variable for IO error handling */
+    UInt32 ioErrorCode = IOLIB_NO_ERROR;
+
+    /* Init ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_11 */
+    ioErrorCode = AdcCl1AnalogIn_create(&pRTIAdcC1AnalogIn_Ch_11,
+      ADC_CLASS1_CHANNEL_11);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    /* Set parameters for ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_11 */
+    ioErrorCode = AdcCl1AnalogIn_setConversionMode(pRTIAdcC1AnalogIn_Ch_11,
+      ADC_CLASS1_SINGLE_CONV_MODE);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    ioErrorCode = AdcCl1AnalogIn_setConversTrigger(pRTIAdcC1AnalogIn_Ch_11,
+      ADC_CLASS1_TRIGGER_SW);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+  }
+
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL12 --- */
+  /* --- [RTI120X, ADC C1] - Channel: 12 --- */
+  {
+    /* define a variable for IO error handling */
+    UInt32 ioErrorCode = IOLIB_NO_ERROR;
+
+    /* Init ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_12 */
+    ioErrorCode = AdcCl1AnalogIn_create(&pRTIAdcC1AnalogIn_Ch_12,
+      ADC_CLASS1_CHANNEL_12);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    /* Set parameters for ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_12 */
+    ioErrorCode = AdcCl1AnalogIn_setConversionMode(pRTIAdcC1AnalogIn_Ch_12,
+      ADC_CLASS1_SINGLE_CONV_MODE);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    ioErrorCode = AdcCl1AnalogIn_setConversTrigger(pRTIAdcC1AnalogIn_Ch_12,
+      ADC_CLASS1_TRIGGER_SW);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+  }
+
   /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL2 --- */
   /* --- [RTI120X, ADC C1] - Channel: 2 --- */
   {
@@ -1361,7 +1440,7 @@ static void rti_mdl_initialize_io_boards(void)
     }
   }
 
-  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL5 --- */
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL9 --- */
   /* --- [RTI120X, ADC C1] - Channel: 9 --- */
   {
     /* define a variable for IO error handling */
@@ -1382,33 +1461,6 @@ static void rti_mdl_initialize_io_boards(void)
     }
 
     ioErrorCode = AdcCl1AnalogIn_setConversTrigger(pRTIAdcC1AnalogIn_Ch_9,
-      ADC_CLASS1_TRIGGER_SW);
-    if (ioErrorCode > IOLIB_NO_ERROR) {
-      RTLIB_EXIT(1);
-    }
-  }
-
-  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL6 --- */
-  /* --- [RTI120X, ADC C1] - Channel: 10 --- */
-  {
-    /* define a variable for IO error handling */
-    UInt32 ioErrorCode = IOLIB_NO_ERROR;
-
-    /* Init ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_10 */
-    ioErrorCode = AdcCl1AnalogIn_create(&pRTIAdcC1AnalogIn_Ch_10,
-      ADC_CLASS1_CHANNEL_10);
-    if (ioErrorCode > IOLIB_NO_ERROR) {
-      RTLIB_EXIT(1);
-    }
-
-    /* Set parameters for ADC CL1 AnalogIn driver object pRTIAdcC1AnalogIn_Ch_10 */
-    ioErrorCode = AdcCl1AnalogIn_setConversionMode(pRTIAdcC1AnalogIn_Ch_10,
-      ADC_CLASS1_SINGLE_CONV_MODE);
-    if (ioErrorCode > IOLIB_NO_ERROR) {
-      RTLIB_EXIT(1);
-    }
-
-    ioErrorCode = AdcCl1AnalogIn_setConversTrigger(pRTIAdcC1AnalogIn_Ch_10,
       ADC_CLASS1_TRIGGER_SW);
     if (ioErrorCode > IOLIB_NO_ERROR) {
       RTLIB_EXIT(1);
@@ -1472,6 +1524,60 @@ static void rti_mdl_initialize_io_boards(void)
     }
   }
 
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL10 --- */
+  /* --- [RTI120X, ADC C1] - Channel: 10 --- */
+  {
+    /* define a variable for IO error handling */
+    UInt32 ioErrorCode = IOLIB_NO_ERROR;
+
+    /* Apply- and Start-Fcn for pRTIAdcC1AnalogIn_Ch_10 */
+    ioErrorCode = AdcCl1AnalogIn_apply(pRTIAdcC1AnalogIn_Ch_10);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    ioErrorCode = AdcCl1AnalogIn_start(pRTIAdcC1AnalogIn_Ch_10);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+  }
+
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL11 --- */
+  /* --- [RTI120X, ADC C1] - Channel: 11 --- */
+  {
+    /* define a variable for IO error handling */
+    UInt32 ioErrorCode = IOLIB_NO_ERROR;
+
+    /* Apply- and Start-Fcn for pRTIAdcC1AnalogIn_Ch_11 */
+    ioErrorCode = AdcCl1AnalogIn_apply(pRTIAdcC1AnalogIn_Ch_11);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    ioErrorCode = AdcCl1AnalogIn_start(pRTIAdcC1AnalogIn_Ch_11);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+  }
+
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL12 --- */
+  /* --- [RTI120X, ADC C1] - Channel: 12 --- */
+  {
+    /* define a variable for IO error handling */
+    UInt32 ioErrorCode = IOLIB_NO_ERROR;
+
+    /* Apply- and Start-Fcn for pRTIAdcC1AnalogIn_Ch_12 */
+    ioErrorCode = AdcCl1AnalogIn_apply(pRTIAdcC1AnalogIn_Ch_12);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+
+    ioErrorCode = AdcCl1AnalogIn_start(pRTIAdcC1AnalogIn_Ch_12);
+    if (ioErrorCode > IOLIB_NO_ERROR) {
+      RTLIB_EXIT(1);
+    }
+  }
+
   /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL2 --- */
   /* --- [RTI120X, ADC C1] - Channel: 2 --- */
   {
@@ -1526,7 +1632,7 @@ static void rti_mdl_initialize_io_boards(void)
     }
   }
 
-  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL5 --- */
+  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL9 --- */
   /* --- [RTI120X, ADC C1] - Channel: 9 --- */
   {
     /* define a variable for IO error handling */
@@ -1539,24 +1645,6 @@ static void rti_mdl_initialize_io_boards(void)
     }
 
     ioErrorCode = AdcCl1AnalogIn_start(pRTIAdcC1AnalogIn_Ch_9);
-    if (ioErrorCode > IOLIB_NO_ERROR) {
-      RTLIB_EXIT(1);
-    }
-  }
-
-  /* --- Bilateral_Ankle_Exo/Sensor Data/EMG module/ADC_CLASS1_BL6 --- */
-  /* --- [RTI120X, ADC C1] - Channel: 10 --- */
-  {
-    /* define a variable for IO error handling */
-    UInt32 ioErrorCode = IOLIB_NO_ERROR;
-
-    /* Apply- and Start-Fcn for pRTIAdcC1AnalogIn_Ch_10 */
-    ioErrorCode = AdcCl1AnalogIn_apply(pRTIAdcC1AnalogIn_Ch_10);
-    if (ioErrorCode > IOLIB_NO_ERROR) {
-      RTLIB_EXIT(1);
-    }
-
-    ioErrorCode = AdcCl1AnalogIn_start(pRTIAdcC1AnalogIn_Ch_10);
     if (ioErrorCode > IOLIB_NO_ERROR) {
       RTLIB_EXIT(1);
     }
@@ -2136,6 +2224,18 @@ __INLINE void rti_mdl_sample_input(void)
   AdcCl1AnalogIn_setConversSwTrigger(pRTIAdcC1AnalogIn_Ch_1);
   AdcCl1AnalogIn_write(pRTIAdcC1AnalogIn_Ch_1);
 
+  /* fire burst- or conversion trigger for analog input channel. Called by ADC C1 block pRTIAdcC1AnalogIn_Ch_10 */
+  AdcCl1AnalogIn_setConversSwTrigger(pRTIAdcC1AnalogIn_Ch_10);
+  AdcCl1AnalogIn_write(pRTIAdcC1AnalogIn_Ch_10);
+
+  /* fire burst- or conversion trigger for analog input channel. Called by ADC C1 block pRTIAdcC1AnalogIn_Ch_11 */
+  AdcCl1AnalogIn_setConversSwTrigger(pRTIAdcC1AnalogIn_Ch_11);
+  AdcCl1AnalogIn_write(pRTIAdcC1AnalogIn_Ch_11);
+
+  /* fire burst- or conversion trigger for analog input channel. Called by ADC C1 block pRTIAdcC1AnalogIn_Ch_12 */
+  AdcCl1AnalogIn_setConversSwTrigger(pRTIAdcC1AnalogIn_Ch_12);
+  AdcCl1AnalogIn_write(pRTIAdcC1AnalogIn_Ch_12);
+
   /* fire burst- or conversion trigger for analog input channel. Called by ADC C1 block pRTIAdcC1AnalogIn_Ch_2 */
   AdcCl1AnalogIn_setConversSwTrigger(pRTIAdcC1AnalogIn_Ch_2);
   AdcCl1AnalogIn_write(pRTIAdcC1AnalogIn_Ch_2);
@@ -2151,10 +2251,6 @@ __INLINE void rti_mdl_sample_input(void)
   /* fire burst- or conversion trigger for analog input channel. Called by ADC C1 block pRTIAdcC1AnalogIn_Ch_9 */
   AdcCl1AnalogIn_setConversSwTrigger(pRTIAdcC1AnalogIn_Ch_9);
   AdcCl1AnalogIn_write(pRTIAdcC1AnalogIn_Ch_9);
-
-  /* fire burst- or conversion trigger for analog input channel. Called by ADC C1 block pRTIAdcC1AnalogIn_Ch_10 */
-  AdcCl1AnalogIn_setConversSwTrigger(pRTIAdcC1AnalogIn_Ch_10);
-  AdcCl1AnalogIn_write(pRTIAdcC1AnalogIn_Ch_10);
 
   /* --- Bilateral_Ankle_Exo/Sensor Data/Ankle Encoder/EMC_ENCODER_BL1 --- */
   /* --- [RTIEMC, Encoder] - DIO class: 2 - Unit: 5 - Port: 1 - Channel: 10 --- */

@@ -5,7 +5,7 @@
    Definition of function that initializes the global TRC pointers
 
    RTI1202 7.9 (02-Nov-2017)
-   Thu Jun 18 11:37:25 2020
+   Thu Jun 18 18:06:16 2020
 
    Copyright 2020, dSPACE GmbH. All rights reserved.
 
@@ -52,6 +52,30 @@ volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_10 = NULL;
 volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_11 = NULL;
 volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_12 = NULL;
 volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_13 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_14 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_15 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_16 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_17 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_18 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_19 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_20 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_21 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_22 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_23 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_24 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_25 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_26 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_27 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_28 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_29 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_30 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_31 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_32 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_33 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_34 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_35 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_36 = NULL;
+volatile real_T *p_0_Bilateral_Ankle_Exo_real_T_37 = NULL;
 volatile real_T *p_1_Bilateral_Ankle_Exo_real_T_0 = NULL;
 volatile int32_T *p_1_Bilateral_Ankle_Exo_int32_T_1 = NULL;
 volatile int8_T *p_1_Bilateral_Ankle_Exo_int8_T_2 = NULL;
@@ -88,10 +112,33 @@ static void rti_init_trc_pointers_0(void)
   p_0_Bilateral_Ankle_Exo_real_T_9 = &Bilateral_Ankle_Exo_B.sf_Mux1_o.x[0];
   p_0_Bilateral_Ankle_Exo_real_T_10 = &Bilateral_Ankle_Exo_B.sf_Filter_R.state;
   p_0_Bilateral_Ankle_Exo_real_T_11 = &Bilateral_Ankle_Exo_B.sf_Filter_L.state;
-  p_0_Bilateral_Ankle_Exo_real_T_12 = &Bilateral_Ankle_Exo_B.sf_Mux1_b.x[0];
-  p_0_Bilateral_Ankle_Exo_real_T_13 = &Bilateral_Ankle_Exo_B.sf_Mux.x[0];
-  p_1_Bilateral_Ankle_Exo_real_T_0 =
-    &Bilateral_Ankle_Exo_P.Controller_L_FOLLOW_SLACK_ANGLE;
+  p_0_Bilateral_Ankle_Exo_real_T_12 = &Bilateral_Ankle_Exo_B.sf_MVC_f.y;
+  p_0_Bilateral_Ankle_Exo_real_T_13 = &Bilateral_Ankle_Exo_B.sf_MVC_d.y;
+  p_0_Bilateral_Ankle_Exo_real_T_14 = &Bilateral_Ankle_Exo_B.sf_MVC_md.y;
+  p_0_Bilateral_Ankle_Exo_real_T_15 = &Bilateral_Ankle_Exo_B.sf_MVC_m.y;
+  p_0_Bilateral_Ankle_Exo_real_T_16 = &Bilateral_Ankle_Exo_B.sf_MVC_j.y;
+  p_0_Bilateral_Ankle_Exo_real_T_17 = &Bilateral_Ankle_Exo_B.sf_MVC_e.y;
+  p_0_Bilateral_Ankle_Exo_real_T_18 = &Bilateral_Ankle_Exo_B.sf_MVC_o.y;
+  p_0_Bilateral_Ankle_Exo_real_T_19 = &Bilateral_Ankle_Exo_B.sf_MVC.y;
+  p_0_Bilateral_Ankle_Exo_real_T_20 = &Bilateral_Ankle_Exo_B.sf_EMG_p8.EMG_R_O4;
+  p_0_Bilateral_Ankle_Exo_real_T_21 = &Bilateral_Ankle_Exo_B.sf_EMG_p7.EMG_R_O3;
+  p_0_Bilateral_Ankle_Exo_real_T_22 = &Bilateral_Ankle_Exo_B.sf_EMG_p6.EMG_R_O2;
+  p_0_Bilateral_Ankle_Exo_real_T_23 = &Bilateral_Ankle_Exo_B.sf_EMG_p5.EMG_R_O1;
+  p_0_Bilateral_Ankle_Exo_real_T_24 = &Bilateral_Ankle_Exo_B.sf_EMG_p4.EMG_L_O4;
+  p_0_Bilateral_Ankle_Exo_real_T_25 = &Bilateral_Ankle_Exo_B.sf_EMG_p3.EMG_L_O3;
+  p_0_Bilateral_Ankle_Exo_real_T_26 = &Bilateral_Ankle_Exo_B.sf_EMG_p2.EMG_L_O2;
+  p_0_Bilateral_Ankle_Exo_real_T_27 = &Bilateral_Ankle_Exo_B.sf_EMG_p1.EMG_L_O1;
+  p_0_Bilateral_Ankle_Exo_real_T_28 = &Bilateral_Ankle_Exo_B.sf_EMG_o8.EMG_R_O4;
+  p_0_Bilateral_Ankle_Exo_real_T_29 = &Bilateral_Ankle_Exo_B.sf_EMG_o7.EMG_R_O3;
+  p_0_Bilateral_Ankle_Exo_real_T_30 = &Bilateral_Ankle_Exo_B.sf_EMG_o6.EMG_R_O2;
+  p_0_Bilateral_Ankle_Exo_real_T_31 = &Bilateral_Ankle_Exo_B.sf_EMG_o5.EMG_R_O1;
+  p_0_Bilateral_Ankle_Exo_real_T_32 = &Bilateral_Ankle_Exo_B.sf_EMG_o2.EMG_L_O2;
+  p_0_Bilateral_Ankle_Exo_real_T_33 = &Bilateral_Ankle_Exo_B.sf_EMG_o1.EMG_L_O1;
+  p_0_Bilateral_Ankle_Exo_real_T_34 = &Bilateral_Ankle_Exo_B.sf_EMG4.EMG_L_O4;
+  p_0_Bilateral_Ankle_Exo_real_T_35 = &Bilateral_Ankle_Exo_B.sf_EMG3.EMG_L_O3;
+  p_0_Bilateral_Ankle_Exo_real_T_36 = &Bilateral_Ankle_Exo_B.sf_Mux1_b.x[0];
+  p_0_Bilateral_Ankle_Exo_real_T_37 = &Bilateral_Ankle_Exo_B.sf_Mux.x[0];
+  p_1_Bilateral_Ankle_Exo_real_T_0 = &Bilateral_Ankle_Exo_P.AutoTunning_BT_SCAN;
   p_1_Bilateral_Ankle_Exo_int32_T_1 = &Bilateral_Ankle_Exo_P.LRN_L_time_delay_l;
   p_1_Bilateral_Ankle_Exo_int8_T_2 = &Bilateral_Ankle_Exo_P.Controller_L_MODE_L;
   p_1_Bilateral_Ankle_Exo_boolean_T_3 =
